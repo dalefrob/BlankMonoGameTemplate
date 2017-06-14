@@ -85,3 +85,4 @@ D:/Projects/C#/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debug/Blan
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/Content/Tiles/Objects/Tree0.xnb
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/Content/Tiles/Objects/Tree1.xnb
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/Content/Tiles/Objects/Wall.xnb
+/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/Content/Fonts/mainfont.xnb

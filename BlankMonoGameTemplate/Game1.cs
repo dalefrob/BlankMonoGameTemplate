@@ -8,6 +8,7 @@ using System;
 using MonoGame.Extended.Screens;
 using System.Collections.Generic;
 using MonoGame.Extended.TextureAtlases;
+using MonoGame.Extended.Input.InputListeners;
 
 namespace BlankMonoGameTemplate
 {
@@ -22,9 +23,10 @@ namespace BlankMonoGameTemplate
 		Dictionary<string, Texture2D> tilesetTextures = new Dictionary<string, Texture2D>();
 		Dictionary<string, TextureAtlas> tileSets = new Dictionary<string, TextureAtlas>();
 
-
 		ScreenComponent screenComponent;
 		GameMap gameMap;
+
+        public static SpriteFont Mainfont;
         
         public Game1()
         {
@@ -43,6 +45,9 @@ namespace BlankMonoGameTemplate
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            var inputListenerComponent = new InputListenerComponent(this);
+            inputListenerComponent.Listeners.Add(new MouseListener());
+            Components.Add(inputListenerComponent);
             screenComponent = new ScreenComponent(this);
             Components.Add(screenComponent);
             base.Initialize();
@@ -58,11 +63,12 @@ namespace BlankMonoGameTemplate
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            Mainfont = Content.Load<SpriteFont>("Fonts/mainfont");
             tilesetTextures.Add("Floor", Content.Load<Texture2D>("Tiles/Objects/Floor"));
             tilesetTextures.Add("Wall", Content.Load<Texture2D>("Tiles/Objects/Wall"));
             tileSets.Add("Floor", TextureAtlas.Create("Floor", tilesetTextures["Floor"], 16, 16, int.MaxValue, 0, 0));
             tileSets.Add("Wall", TextureAtlas.Create("Wall", tilesetTextures["Wall"], 16, 16, int.MaxValue, 0, 0));
-            gameMap = new GameMap(36, 36, new Tileset(tileSets["Floor"], 16)) {
+            gameMap = new GameMap(this, 36, 36, new Tileset(tileSets["Floor"], 16)) {
                 TileSize = 16
             };
             gameMap.Layers[0].FloodWithTileId(148);

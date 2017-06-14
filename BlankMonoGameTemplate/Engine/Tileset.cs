@@ -16,9 +16,9 @@ namespace BlankMonoGameTemplate.Engine
 
     public enum TileType 
     {
-        Walkable,
-        Solid,
-        Water
+        Walkable = 0,
+        Solid = 1,
+        Water = 2
     }
 
     public class Tileset
@@ -26,8 +26,17 @@ namespace BlankMonoGameTemplate.Engine
         public Tileset(TextureAtlas textureAtlas, int tileSize) {
 			_tileSize = tileSize;
 			TileSheet = textureAtlas;
-            CollisionLayer = new int[TilesHorizontal, TilesVertical];
-            ClearLayers();
+            _tileArray = new Tile[textureAtlas.RegionCount];
+            for (int i = 0; i < textureAtlas.RegionCount; i++)
+            {
+                _tileArray[i] = new Tile()
+                {
+                    TextureId = i,
+                    Texture = textureAtlas.GetRegion(i),
+                    Collisions = TileCollisions.None,
+                    Type = TileType.Walkable
+                }; 
+            }
         }
 
         public Tileset(TextureAtlas textureAtlas, int tileSize, int[,] collisionLayer) : this(textureAtlas, tileSize)
@@ -35,12 +44,16 @@ namespace BlankMonoGameTemplate.Engine
             CollisionLayer = collisionLayer;
         }
 
+        public Tile GetTile(int index) {
+            return _tileArray[index];
+        }
+
         /// <summary>
         /// Gets the tile by 1d array index
         /// </summary>
         /// <returns>The tile.</returns>
         /// <param name="index">Index.</param>
-        public Tile GetTile(int index) {
+        public Tile GetNewTile(int index) {
             int x = index % TilesHorizontal;
             int y = (index / TilesHorizontal);
             var tile = new Tile
@@ -52,13 +65,7 @@ namespace BlankMonoGameTemplate.Engine
             return tile;
         }
 
-        void ClearLayers() {
-            for (int y = 0; y < TilesVertical; y++) {
-                for (int x = 0; x < TilesHorizontal; x++) {                   
-                    CollisionLayer[x, y] = 0;
-                }
-            }
-        }
+        Tile[] _tileArray;
 
         public TextureAtlas TileSheet
         {
@@ -95,5 +102,6 @@ namespace BlankMonoGameTemplate.Engine
         public TextureRegion2D Texture { get; set; }
         public int TextureId { get; set; }
         public TileCollisions Collisions { get; set; }
+        public TileType Type { get; set; }
     }
 }

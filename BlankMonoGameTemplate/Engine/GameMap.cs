@@ -1,18 +1,37 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended.Input.InputListeners;
 using MonoGame.Extended.TextureAtlases;
 
 namespace BlankMonoGameTemplate.Engine
 {
     public class GameMap
     {
-        public GameMap(int width, int height, Tileset defaultTileset)
+        public GameMap(Game game, int width, int height, Tileset defaultTileset)
         {
+            _gameRef = game;
             Width = width;
             Height = height;
-            _layers.Add(new MapLayer(this, defaultTileset));           
+            _layers.Add(new MapLayer(this, defaultTileset));
+
+            var inputListener = (InputListenerComponent)_gameRef.Components.Where(c => c.GetType() == typeof(InputListenerComponent)).First();
+            var mouseListener = (MouseListener)inputListener.Listeners.First(l => l.GetType() == typeof(MouseListener));
+            mouseListener.MouseMoved += mouseListener_MouseMoved;
+        }
+
+        void mouseListener_MouseMoved(object sender, MouseEventArgs e)
+        {
+            MousePos = e.Position;
+        }
+
+        public void Update(GameTime gameTime) 
+        {
+            if(Debug) {
+                
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -27,7 +46,14 @@ namespace BlankMonoGameTemplate.Engine
                     }
                 }
             }
+            spriteBatch.DrawString(Game1.Mainfont, string.Format("MousePos: {0},{1}", MousePos.X, MousePos.Y), new Vector2(10,10), Color.Red);
+            spriteBatch.DrawString(Game1.Mainfont, string.Format("MouseTile: {0},{1}", MousePos.X / TileSize, MousePos.Y / TileSize), new Vector2(10, 30), Color.Black);
         }
+
+        Game _gameRef;
+
+        public Point MousePos { get; private set; }
+        public bool Debug { get; set; }
 
         public int Width
         {
