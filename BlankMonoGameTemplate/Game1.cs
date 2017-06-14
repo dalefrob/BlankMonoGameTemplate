@@ -1,6 +1,13 @@
-﻿using Microsoft.Xna.Framework;
+﻿using BlankMonoGameTemplate.Engine;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoGame.Extended;
+using MonoGame.Extended.Graphics;
+using System;
+using MonoGame.Extended.Screens;
+using System.Collections.Generic;
+using MonoGame.Extended.TextureAtlases;
 
 namespace BlankMonoGameTemplate
 {
@@ -11,11 +18,20 @@ namespace BlankMonoGameTemplate
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
+		Dictionary<string, Texture2D> tilesetTextures = new Dictionary<string, Texture2D>();
+		Dictionary<string, TextureAtlas> tileSets = new Dictionary<string, TextureAtlas>();
+
+
+		ScreenComponent screenComponent;
+		GameMap gameMap;
         
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
+            Content.RootDirectory = @"Content";
+
+            IsMouseVisible = true;
         }
 
         /// <summary>
@@ -27,7 +43,8 @@ namespace BlankMonoGameTemplate
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            screenComponent = new ScreenComponent(this);
+            Components.Add(screenComponent);
             base.Initialize();
         }
 
@@ -41,6 +58,18 @@ namespace BlankMonoGameTemplate
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            tilesetTextures.Add("Floor", Content.Load<Texture2D>("Tiles/Objects/Floor"));
+            tilesetTextures.Add("Wall", Content.Load<Texture2D>("Tiles/Objects/Wall"));
+            tileSets.Add("Floor", TextureAtlas.Create("Floor", tilesetTextures["Floor"], 16, 16, int.MaxValue, 0, 0));
+            tileSets.Add("Wall", TextureAtlas.Create("Wall", tilesetTextures["Wall"], 16, 16, int.MaxValue, 0, 0));
+            gameMap = new GameMap(36, 36, new Tileset(tileSets["Floor"], 16)) {
+                TileSize = 16
+            };
+            gameMap.Layers[0].FloodWithTileId(148);
+            gameMap.AddLayer(new Tileset(tileSets["Wall"], 16));
+            gameMap.Layers[1].FloodWithTileId(19);
+            gameMap.Layers[1].TileIds[4, 4] = 80;
+                
         }
 
         /// <summary>
@@ -76,7 +105,9 @@ namespace BlankMonoGameTemplate
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
+            spriteBatch.Begin();
+            gameMap.Draw(spriteBatch);
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }
