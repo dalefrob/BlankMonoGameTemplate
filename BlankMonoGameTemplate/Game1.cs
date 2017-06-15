@@ -20,11 +20,11 @@ namespace BlankMonoGameTemplate
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-		Dictionary<string, Texture2D> tilesetTextures = new Dictionary<string, Texture2D>();
-		Dictionary<string, TextureAtlas> tileSets = new Dictionary<string, TextureAtlas>();
+		//Dictionary<string, Texture2D> tilesetTextures = new Dictionary<string, Texture2D>();
+        public static Dictionary<string, Tileset> Tilesets = new Dictionary<string, Tileset>();
 
 		ScreenComponent screenComponent;
-		GameMap gameMap;
+		GameMapViewer gameMapViewer;
 
         public static SpriteFont Mainfont;
         
@@ -64,18 +64,30 @@ namespace BlankMonoGameTemplate
 
             // TODO: use this.Content to load your game content here
             Mainfont = Content.Load<SpriteFont>("Fonts/mainfont");
-            tilesetTextures.Add("Floor", Content.Load<Texture2D>("Tiles/Objects/Floor"));
-            tilesetTextures.Add("Wall", Content.Load<Texture2D>("Tiles/Objects/Wall"));
-            tileSets.Add("Floor", TextureAtlas.Create("Floor", tilesetTextures["Floor"], 16, 16, int.MaxValue, 0, 0));
-            tileSets.Add("Wall", TextureAtlas.Create("Wall", tilesetTextures["Wall"], 16, 16, int.MaxValue, 0, 0));
-            gameMap = new GameMap(this, 36, 36, new Tileset(tileSets["Floor"], 16)) {
-                TileSize = 16
+            //tilesetTextures.Add("Floor", Content.Load<Texture2D>("Tiles/Objects/Floor"));
+            //tilesetTextures.Add("Wall", Content.Load<Texture2D>("Tiles/Objects/Wall"));
+            //tileSets.Add("Floor", TextureAtlas.Create("Floor", tilesetTextures["Floor"], 16, 16, int.MaxValue, 0, 0));
+            //tileSets.Add("Wall", TextureAtlas.Create("Wall", tilesetTextures["Wall"], 16, 16, int.MaxValue, 0, 0));
+            //var map = new GameMap(24, 24, 16, 0);
+            var tileset = Tileset.LoadFromFile(this, "tileset_floor.xml");
+            Tilesets.Add(tileset.TextureSheetName, tileset);
+            var map = GameMap.LoadFromFile("testmap.xml");
+            gameMapViewer = new GameMapViewer(this, map, Tilesets[map.Layers[0].TilesetName]) {
+                Debug = true
             };
-            gameMap.Layers[0].FloodWithTileId(148);
-            gameMap.AddLayer(new Tileset(tileSets["Wall"], 16));
-            gameMap.Layers[1].FloodWithTileId(19);
-            gameMap.Layers[1].TileIds[4, 4] = 80;
-                
+            /*
+            gameMapViewer.Layers[0].FloodWithTileId(148);
+            gameMapViewer.AddLayer(new Tileset(tileSets["Wall"], 16));
+            gameMapViewer.Layers[1].FloodWithTileId(19);
+            gameMapViewer.Layers[1].TileIdArray[4, 4] = 80;
+             * */
+   
+        }
+
+        private void CreateTestMap()
+        {
+            var map = new GameMap(24, 24, 16, 0, "Floor");
+            map.Layers.Add(new MapLayer(24, 24) { TilesetName = "Wall" });
         }
 
         /// <summary>
@@ -112,7 +124,7 @@ namespace BlankMonoGameTemplate
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
-            gameMap.Draw(spriteBatch);
+            gameMapViewer.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }

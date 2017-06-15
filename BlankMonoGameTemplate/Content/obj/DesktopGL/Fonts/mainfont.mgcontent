@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Fonts/mainfont.spritefont</SourceFile>
-  <SourceTime>2017-03-02T02:05:36+11:00</SourceTime>
-  <DestFile>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/bin/DesktopGL/Fonts/mainfont.xnb</DestFile>
-  <DestTime>2017-06-15T06:57:06+10:00</DestTime>
+  <SourceFile>C:/WorkspacePersonal/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Fonts/mainfont.spritefont</SourceFile>
+  <SourceTime>2017-06-15T08:37:27.9412223+10:00</SourceTime>
+  <DestFile>C:/WorkspacePersonal/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/bin/DesktopGL/Fonts/mainfont.xnb</DestFile>
+  <DestTime>2017-06-15T08:37:39.7788994+10:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
-  <ImporterTime>2017-03-02T02:06:24+11:00</ImporterTime>
+  <ImporterTime>2017-03-02T02:05:36+11:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
-  <ProcessorTime>2017-03-02T02:06:24+11:00</ProcessorTime>
+  <ProcessorTime>2017-03-02T02:05:36+11:00</ProcessorTime>
   <Parameters>
     <Key>PremultiplyAlpha</Key>
     <Value>True</Value>

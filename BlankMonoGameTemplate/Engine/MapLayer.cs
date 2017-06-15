@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.TextureAtlases;
+using System.Xml.Serialization;
 
 namespace BlankMonoGameTemplate.Engine
 {
@@ -11,40 +12,40 @@ namespace BlankMonoGameTemplate.Engine
     /// </summary>
     public class MapLayer
     {
-        public MapLayer(GameMap gameMap, Tileset tileset) {
-            _gameMap = gameMap;
-            Tileset = tileset;
+        public MapLayer()
+        {
+            Tiles = new List<int>();
+        }
 
-            TileIds = new int[_gameMap.Width, _gameMap.Height];                  
+        public MapLayer(int width, int height) : this()
+        {
+            for (int i = 0; i < (width * height); i++)
+            {
+                Tiles.Add(0);
+            }
         }
 
         public void FloodWithTileId(int id) {
-			for (int y = 0; y < _gameMap.Height; y++)
-			{
-				for (int x = 0; x < _gameMap.Width; x++)
-				{
-					TileIds[x, y] = id;
-				}
-			}
+            Tiles.Clear();
+            for (int i = 0; i < Tiles.Count; i++)
+            {
+                Tiles.Add(id);
+            }
 		}
 
-        public int[,] TileIds
+        public List<int> Tiles
         {
             get;
             set;
         }
 
-        public Tileset Tileset {
-            get;
-            private set;
-        }
-
-        internal Tile GetTile(int x, int y)
+        public string TilesetName
         {
-            var id = TileIds[x, y];
-            return Tileset.GetTile(id);
+            get;
+            set;
         }
 
-        readonly GameMap _gameMap;
+        Tileset tileset;
+
     }
 }
