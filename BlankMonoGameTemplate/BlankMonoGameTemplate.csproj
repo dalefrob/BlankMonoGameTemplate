@@ -50,6 +50,7 @@
     <Compile Include="Engine\Data\MapLayer.cs" />
     <Compile Include="Engine\Data\Tileset.cs" />
     <Compile Include="Screens\MapEditorScreen.cs" />
+    <Compile Include="Engine\TilesetViewer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -58,31 +59,31 @@
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Extended">
-      <HintPath>..\packages\MonoGame.Extended.0.6.377\lib\MonoGame.Extended.dll</HintPath>
+      <HintPath>..\packages\MonoGame.Extended.0.6.568\lib\portable-net45+win8+wpa81\MonoGame.Extended.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Extended.Animations">
-      <HintPath>..\packages\MonoGame.Extended.Animations.0.6.377\lib\MonoGame.Extended.Animations.dll</HintPath>
+      <HintPath>..\packages\MonoGame.Extended.Animations.0.6.568\lib\portable-net45+win8+wpa81\MonoGame.Extended.Animations.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Extended.Graphics">
-      <HintPath>..\packages\MonoGame.Extended.Graphics.0.6.377\lib\MonoGame.Extended.Graphics.dll</HintPath>
+      <HintPath>..\packages\MonoGame.Extended.Graphics.0.6.568\lib\portable-net45+win8+wpa81\MonoGame.Extended.Graphics.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Extended.Input">
-      <HintPath>..\packages\MonoGame.Extended.Input.0.6.377\lib\MonoGame.Extended.Input.dll</HintPath>
+      <HintPath>..\packages\MonoGame.Extended.Input.0.6.568\lib\portable-net45+win8+wpa81\MonoGame.Extended.Input.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Extended.Gui">
-      <HintPath>..\packages\MonoGame.Extended.Gui.0.6.377\lib\MonoGame.Extended.Gui.dll</HintPath>
-    </Reference>
-    <Reference Include="MonoGame.Extended.Tweening">
-      <HintPath>..\packages\MonoGame.Extended.Tweening.0.6.377\lib\MonoGame.Extended.Tweening.dll</HintPath>
+      <HintPath>..\packages\MonoGame.Extended.Gui.0.6.568\lib\portable-net45+win8+wpa81\MonoGame.Extended.Gui.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Extended.Particles">
-      <HintPath>..\packages\MonoGame.Extended.Particles.0.6.377\lib\MonoGame.Extended.Particles.dll</HintPath>
+      <HintPath>..\packages\MonoGame.Extended.Particles.0.6.568\lib\portable-net45+win8+wpa81\MonoGame.Extended.Particles.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Extended.Entities">
-      <HintPath>..\packages\MonoGame.Extended.Entities.0.6.377\lib\MonoGame.Extended.Entities.dll</HintPath>
+      <HintPath>..\packages\MonoGame.Extended.Entities.0.6.568\lib\portable-net45+win8+wpa81\MonoGame.Extended.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Extended.Tweening">
+      <HintPath>..\packages\MonoGame.Extended.Tweening.0.6.568\lib\portable-net45+win8+wpa81\MonoGame.Extended.Tweening.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -104,7 +105,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="app.manifest" />
-    <None Include="packages.config" />
     <None Include="x64\libopenal.so.1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -117,6 +117,7 @@
     <None Include="x86\libSDL2-2.0.so.0">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

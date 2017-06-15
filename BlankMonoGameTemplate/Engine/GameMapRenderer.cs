@@ -52,7 +52,7 @@ namespace BlankMonoGameTemplate.Engine
 	                for (var j = 0; j < Map.Width; j++) // Y coord
 	                {	                    
 	                    var tileId = Map.GetTileAt(l, i, j);
-	                    var tileTexture = TilesetStore[Map.Layers[l].TilesetName].GetTileTexture(tileId);
+	                    var tileTexture = TilesetStore[Map.Layers[l].TilesetName].GetTile(tileId).Texture;
                         var color = Equals(new Point(i, j), LastClickedTileCoords) ? Color.Red : Color.White;
                         var destinationRect = new Rectangle
                         {
@@ -107,7 +107,7 @@ namespace BlankMonoGameTemplate.Engine
             var result = TileFlags.Walkable;
             foreach(var layer in Map.Layers) {
                 var ts = TilesetStore[layer.TilesetName];
-                result = result | ts.Tiles[index].Type;
+                result = result | ts.Tiles[index].TileFlags;
             }
             return result;
         }

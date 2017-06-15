@@ -24,7 +24,7 @@ namespace BlankMonoGameTemplate
 		//Dictionary<string, Texture2D> tilesetTextures = new Dictionary<string, Texture2D>();
         public static Dictionary<string, Tileset> Tilesets = new Dictionary<string, Tileset>();
 
-        ScreenComponent screenComponent;
+        ScreenGameComponent screenComponent;
 
         public static SpriteFont Mainfont;
         
@@ -49,7 +49,7 @@ namespace BlankMonoGameTemplate
             inputListenerComponent.Listeners.Add(new MouseListener());
             Components.Add(inputListenerComponent);
 
-            screenComponent = new ScreenComponent(this);
+            screenComponent = new ScreenGameComponent(this);
 			Components.Add(screenComponent);
 
             screenComponent.Register(new MapEditorScreen(this));

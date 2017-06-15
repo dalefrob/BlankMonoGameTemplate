@@ -43,33 +43,17 @@ namespace BlankMonoGameTemplate.Engine
             Tiles = new List<Tile>();
             for (int i = 0; i < TileSheet.RegionCount; i++)
             {
-                Tiles.Add(new Tile()
-                {
-                    TextureId = i,
-                    Type = TileFlags.Walkable
-                });
+                Tiles.Add(new Tile(i, TileSheet.GetRegion(i), TileFlags.Walkable));
             }
         }
 
-        public TextureRegion2D GetTileTexture(int tileId)
+        public Tile GetTile(int x, int y) 
         {
-            return TileSheet.GetRegion(tileId);
+            return Tiles[Index2dTo1d(TilesHorizontal, x, y)];
         }
 
-        /// <summary>
-        /// Gets the tile by 1d array index
-        /// </summary>
-        /// <returns>The tile.</returns>
-        /// <param name="index">Index.</param>
-        public Tile GetNewTile(int index) {
-            int x = index % TilesHorizontal;
-            int y = (index / TilesHorizontal);
-            var tile = new Tile
-            {
-                TextureId = Index2dTo1d(TilesHorizontal, x, y),
-                Type = TileFlags.Walkable
-            };
-            return tile;
+        public Tile GetTile(int index) {
+            return Tiles[index];
         }
 
         public string TextureSheetName
@@ -97,13 +81,13 @@ namespace BlankMonoGameTemplate.Engine
             set;
         }
 
-        int TilesHorizontal {
+        public int TilesHorizontal {
             get {
                 return TileSheet.Texture.Width / TileSize;
             }
         }
 
-        int TilesVertical {
+        public int TilesVertical {
             get {
                 return TileSheet.Texture.Height / TileSize;
             }
@@ -130,20 +114,37 @@ namespace BlankMonoGameTemplate.Engine
             var texture = game.Content.Load<Texture2D>("Tiles/Objects/" + result.TextureSheetName);
             var sheet = TextureAtlas.Create(result.TextureSheetName, texture, result.TileSize, result.TileSize);
             result.TileSheet = sheet;
-            
+            result.Tiles.ForEach(t => {
+                t.Texture = GetTextureRegion(sheet, t.TextureId);
+            });
             return result;
         }
         #endregion
+
+        public static TextureRegion2D GetTextureRegion(TextureAtlas atlas, int index) {
+            return atlas.GetRegion(index);
+        }
     }
 
-    public struct Tile
+    public class Tile
     {
+        [XmlIgnore]
+        public TextureRegion2D Texture { get; set; }
         public int TextureId { get; set; }
-        public TileFlags Type { get; set; }
+        public TileFlags TileFlags { get; set; }
+
+        public Tile() {}
+
+        public Tile(int id, TextureRegion2D texture, TileFlags flags)
+        {
+            TextureId = id;
+            Texture = texture;
+            TileFlags = flags;
+        }
 
         public override string ToString()
         {
-            return string.Format("TextureId: {0} \nType: {1}", TextureId, Type.ToString());
+            return string.Format("TextureId: {0} \nType: {1}", TextureId, TileFlags.ToString());
         }
     }
 }

@@ -4,6 +4,8 @@ using BlankMonoGameTemplate.Engine;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.Screens;
+using MonoGame.Extended.Gui;
+using MonoGame.Extended.Gui.Controls;
 
 namespace BlankMonoGameTemplate.Screens
 {
@@ -12,13 +14,14 @@ namespace BlankMonoGameTemplate.Screens
         public MapEditorScreen(Game game)
         {
             Game = game;
-            var screenComponent = (ScreenComponent)Game.Components.Where(c => c.GetType() == typeof(ScreenComponent)).FirstOrDefault();
-            spriteBatch = new SpriteBatch(screenComponent.GraphicsDevice);
+
+
+            // Setup GUI
+
         }
 
         public override void Update(GameTime gameTime)
         {
-            Console.WriteLine("In MAP EDITOR");
             base.Update(gameTime);
         }
 
@@ -27,23 +30,30 @@ namespace BlankMonoGameTemplate.Screens
             spriteBatch.Begin();
             gameMapViewer.Draw(spriteBatch);
             spriteBatch.End();
+            tilesetViewer.Draw(gameTime);
             base.Draw(gameTime);
         }
 
         public override void Initialize()
-        {
-			var map = GameMap.LoadFromFile("testmap.xml");
-			gameMapViewer = new GameMapRenderer(Game, map)
+        {         
+            var map = GameMap.LoadFromFile("testmap.xml");
+            gameMapViewer = new GameMapRenderer(Game, map)
+            {
+                Debug = true,
+                ScreenPosition = new Vector2(50, 50)
+            };
+			spriteBatch = new SpriteBatch(Game.GraphicsDevice);
+            Tileset tileset = new Tileset(Game.Content.Load<Texture2D>("Tiles/Objects/Floor"), 16, "Floor");
+			tilesetViewer = new TilesetViewer(Game.GraphicsDevice, tileset)
 			{
-				Debug = true,
-				ScreenPosition = new Vector2(50, 50)
+				ScreenPosition = new Vector2(400, 10)
 			};
-
             base.Initialize();
         }
 
         public override void LoadContent()
         {
+            
             base.LoadContent();
         }
 
@@ -52,13 +62,17 @@ namespace BlankMonoGameTemplate.Screens
             base.UnloadContent();
         }
 
-        public Game Game 
+        public Game Game
         {
             get;
             private set;
         }
 
         GameMapRenderer gameMapViewer;
+        TilesetViewer tilesetViewer;
         SpriteBatch spriteBatch;
+
+        // GUI
+
     }
 }
