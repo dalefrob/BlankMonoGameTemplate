@@ -9,6 +9,7 @@ using MonoGame.Extended.Screens;
 using System.Collections.Generic;
 using MonoGame.Extended.TextureAtlases;
 using MonoGame.Extended.Input.InputListeners;
+using BlankMonoGameTemplate.Screens;
 
 namespace BlankMonoGameTemplate
 {
@@ -23,8 +24,7 @@ namespace BlankMonoGameTemplate
 		//Dictionary<string, Texture2D> tilesetTextures = new Dictionary<string, Texture2D>();
         public static Dictionary<string, Tileset> Tilesets = new Dictionary<string, Tileset>();
 
-		ScreenComponent screenComponent;
-		GameMapViewer gameMapViewer;
+        ScreenComponent screenComponent;
 
         public static SpriteFont Mainfont;
         
@@ -48,8 +48,12 @@ namespace BlankMonoGameTemplate
             var inputListenerComponent = new InputListenerComponent(this);
             inputListenerComponent.Listeners.Add(new MouseListener());
             Components.Add(inputListenerComponent);
+
             screenComponent = new ScreenComponent(this);
-            Components.Add(screenComponent);
+			Components.Add(screenComponent);
+
+            screenComponent.Register(new MapEditorScreen(this));
+ 
             base.Initialize();
         }
 
@@ -69,12 +73,8 @@ namespace BlankMonoGameTemplate
             //tileSets.Add("Floor", TextureAtlas.Create("Floor", tilesetTextures["Floor"], 16, 16, int.MaxValue, 0, 0));
             //tileSets.Add("Wall", TextureAtlas.Create("Wall", tilesetTextures["Wall"], 16, 16, int.MaxValue, 0, 0));
             //var map = new GameMap(24, 24, 16, 0);
-            var tileset = Tileset.LoadFromFile(this, "tileset_floor.xml");
-            Tilesets.Add(tileset.TextureSheetName, tileset);
-            var map = GameMap.LoadFromFile("testmap.xml");
-            gameMapViewer = new GameMapViewer(this, map, Tilesets[map.Layers[0].TilesetName]) {
-                Debug = true
-            };
+            //CreateTestMap();
+
             /*
             gameMapViewer.Layers[0].FloodWithTileId(148);
             gameMapViewer.AddLayer(new Tileset(tileSets["Wall"], 16));
@@ -84,10 +84,16 @@ namespace BlankMonoGameTemplate
    
         }
 
-        private void CreateTestMap()
+        void CreateTestMap()
         {
+            var floorTileset = new Tileset(Content.Load<Texture2D>("Tiles/Objects/Floor"), 16, "Floor");
+            Tileset.SaveToFile(floorTileset, "Floor.xml");
+			var wallTileset = new Tileset(Content.Load<Texture2D>("Tiles/Objects/Wall"), 16, "Wall");
+			Tileset.SaveToFile(wallTileset, "Wall.xml");
             var map = new GameMap(24, 24, 16, 0, "Floor");
             map.Layers.Add(new MapLayer(24, 24) { TilesetName = "Wall" });
+            map.Jumble(50);
+            GameMap.SaveToFile(map, "testmap.xml");
         }
 
         /// <summary>
@@ -123,9 +129,6 @@ namespace BlankMonoGameTemplate
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
-            gameMapViewer.Draw(spriteBatch);
-            spriteBatch.End();
             base.Draw(gameTime);
         }
     }

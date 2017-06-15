@@ -52,18 +52,24 @@ namespace BlankMonoGameTemplate.Engine
             set;
         }
 
-
-
-        private List<MapLayer> _layers = new List<MapLayer>();
+        List<MapLayer> _layers = new List<MapLayer>();
         public List<MapLayer> Layers
         {
             get { return _layers; }
-            set { 
-                _layers = value;                 
-            }
+            set { _layers = value; }
         }
 
         #region Methods
+        public void Jumble(int maxRandomValue) {
+            var random = new Random();
+            foreach(var layer in Layers) {
+                for (int i = 0; i < layer.Tiles.Count(); i++)
+                {
+                    layer.Tiles[i] = random.Next(maxRandomValue);
+                }
+            }
+        }
+
         public void SetTileAt(int layer, int x, int y, int id)
         {
             Layers[layer].Tiles[(y * Width) + x] = id;

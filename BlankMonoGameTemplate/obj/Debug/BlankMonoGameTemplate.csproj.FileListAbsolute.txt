@@ -86,3 +86,11 @@ D:/Projects/C#/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debug/Blan
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/Content/Tiles/Objects/Tree1.xnb
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/Content/Tiles/Objects/Wall.xnb
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/Content/Fonts/mainfont.xnb
+/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/x64/SDL2.dll
+/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/x64/soft_oal.dll
+/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/x86/SDL2.dll
+/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/x86/soft_oal.dll
+/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/x64/libopenal.so.1
+/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/x64/libSDL2-2.0.so.0
+/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/x86/libopenal.so.1
+/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/x86/libSDL2-2.0.so.0

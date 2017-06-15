@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using MonoGame.Extended.TextureAtlases;
 using Microsoft.Xna.Framework.Graphics;
@@ -8,21 +8,15 @@ using Microsoft.Xna.Framework;
 
 namespace BlankMonoGameTemplate.Engine
 {
-	[Flags]
-	public enum TileCollisions
-	{
-		None = 0,
-		TopLeft = 1,
-		TopRight = 2,
-        BottomRight = 4,
-        BottomLeft = 8
-	}
-
-    public enum TileType 
+    [Flags]
+    public enum TileFlags 
     {
         Walkable = 0,
         Solid = 1,
-        Water = 2
+        Water = 2,
+        Lava = 4,
+        Spikes = 8,
+        Pit = 16
     }
 
     public class Tileset
@@ -36,15 +30,15 @@ namespace BlankMonoGameTemplate.Engine
             GenerateTiles();
         }
 
-        public Tileset(Texture2D texture, int tileSize)
+        public Tileset(Texture2D texture, int tileSize, string textureSheetName)
         {
             TileSize = tileSize;
-            TextureSheetName = "Default";
+            TextureSheetName = textureSheetName;
             TileSheet = TextureAtlas.Create(TextureSheetName, texture, tileSize, tileSize);
             GenerateTiles();
         }
 
-        private void GenerateTiles()
+        void GenerateTiles()
         {
             Tiles = new List<Tile>();
             for (int i = 0; i < TileSheet.RegionCount; i++)
@@ -52,8 +46,7 @@ namespace BlankMonoGameTemplate.Engine
                 Tiles.Add(new Tile()
                 {
                     TextureId = i,
-                    Collisions = TileCollisions.None,
-                    Type = TileType.Walkable
+                    Type = TileFlags.Walkable
                 });
             }
         }
@@ -74,8 +67,7 @@ namespace BlankMonoGameTemplate.Engine
             var tile = new Tile
             {
                 TextureId = Index2dTo1d(TilesHorizontal, x, y),
-                Collisions = TileCollisions.None,
-                Type = TileType.Walkable
+                Type = TileFlags.Walkable
             };
             return tile;
         }
@@ -147,12 +139,11 @@ namespace BlankMonoGameTemplate.Engine
     public struct Tile
     {
         public int TextureId { get; set; }
-        public TileCollisions Collisions { get; set; }
-        public TileType Type { get; set; }
+        public TileFlags Type { get; set; }
 
         public override string ToString()
         {
-            return string.Format("TextureId: {0} \nCollisions: {1} \nType: {2}", TextureId, Collisions.ToString(), Type.ToString());
+            return string.Format("TextureId: {0} \nType: {1}", TextureId, Type.ToString());
         }
     }
 }

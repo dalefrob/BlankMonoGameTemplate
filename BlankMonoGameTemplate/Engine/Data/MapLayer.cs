@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.TextureAtlases;
@@ -33,19 +33,16 @@ namespace BlankMonoGameTemplate.Engine
             }
 		}
 
+		public string TilesetName
+		{
+			get;
+			set;
+		}
+
         public List<int> Tiles
         {
             get;
             set;
         }
-
-        public string TilesetName
-        {
-            get;
-            set;
-        }
-
-        Tileset tileset;
-
     }
 }
