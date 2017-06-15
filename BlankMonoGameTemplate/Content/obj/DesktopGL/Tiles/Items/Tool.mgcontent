@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/WorkspacePersonal/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Items/Tool.png</SourceFile>
-  <SourceTime>2017-06-15T08:09:56.1547455+10:00</SourceTime>
-  <DestFile>C:/WorkspacePersonal/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/bin/DesktopGL/Tiles/Items/Tool.xnb</DestFile>
-  <DestTime>2017-06-15T08:10:52.5209695+10:00</DestTime>
+  <SourceFile>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Items/Tool.png</SourceFile>
+  <SourceTime>2017-06-14T23:37:21+10:00</SourceTime>
+  <DestFile>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/bin/DesktopGL/Tiles/Items/Tool.xnb</DestFile>
+  <DestTime>2017-06-15T16:17:39+10:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2017-03-02T02:05:36+11:00</ImporterTime>
+  <ImporterTime>2017-03-02T02:06:24+11:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2017-03-02T02:05:36+11:00</ProcessorTime>
+  <ProcessorTime>2017-03-02T02:06:24+11:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>
