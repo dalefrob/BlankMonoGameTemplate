@@ -85,15 +85,16 @@ namespace BlankMonoGameTemplate.Engine
         #region Events
         void mouseListener_MouseClicked(object sender, MouseEventArgs e)
         {
-            var result = new Stack<Tile>();
+            var layerCount = Map.Layers.Count;
+            var result = new Tile[layerCount]; 
             LastClickedTileCoords = new Vector2(RelativeMousePosition.X / Map.TileSize, RelativeMousePosition.Y / Map.TileSize).ToPoint();
-            for (int i = 0; i < Map.Layers.Count; i++)
+            for (int i = layerCount - 1; i >= 0; i--)
             {
                 var tileId = Map.GetTileAt(i, LastClickedTileCoords.X, LastClickedTileCoords.Y);
                 var tile = TilesetStore[Map.Layers[i].TilesetName].Tiles[tileId];
-                result.Push(tile);
+                result[i] = tile;
             };
-            SelectedTileStack = result.Count > 0 ? result.ToArray() : null;
+            SelectedTileStack = result;
         }
 
         void mouseListener_MouseMoved(object sender, MouseEventArgs e)

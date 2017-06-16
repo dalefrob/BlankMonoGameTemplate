@@ -24,7 +24,8 @@ namespace BlankMonoGameTemplate
 		//Dictionary<string, Texture2D> tilesetTextures = new Dictionary<string, Texture2D>();
         public static Dictionary<string, Tileset> Tilesets = new Dictionary<string, Tileset>();
 
-        ScreenGameComponent screenComponent;
+        public ScreenGameComponent ScreenComponent { get; private set; }
+        public InputListenerComponent InputListenerComponent { get; private set; }
 
         public static SpriteFont Mainfont;
         
@@ -45,14 +46,17 @@ namespace BlankMonoGameTemplate
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            var inputListenerComponent = new InputListenerComponent(this);
-            inputListenerComponent.Listeners.Add(new MouseListener());
-            Components.Add(inputListenerComponent);
 
-            screenComponent = new ScreenGameComponent(this);
-			Components.Add(screenComponent);
+            
+            InputListenerComponent = new InputListenerComponent(this);
+            InputListenerComponent.Listeners.Add(new MouseListener());
+            InputListenerComponent.Listeners.Add(new KeyboardListener());
+            Components.Add(InputListenerComponent);
 
-            screenComponent.Register(new MapEditorScreen(this));
+            ScreenComponent = new ScreenGameComponent(this);
+			Components.Add(ScreenComponent);
+
+            ScreenComponent.Register(new MapEditorScreen(this));
  
             base.Initialize();
         }
@@ -74,13 +78,6 @@ namespace BlankMonoGameTemplate
             //tileSets.Add("Wall", TextureAtlas.Create("Wall", tilesetTextures["Wall"], 16, 16, int.MaxValue, 0, 0));
             //var map = new GameMap(24, 24, 16, 0);
             //CreateTestMap();
-
-            /*
-            gameMapViewer.Layers[0].FloodWithTileId(148);
-            gameMapViewer.AddLayer(new Tileset(tileSets["Wall"], 16));
-            gameMapViewer.Layers[1].FloodWithTileId(19);
-            gameMapViewer.Layers[1].TileIdArray[4, 4] = 80;
-             * */
    
         }
 
