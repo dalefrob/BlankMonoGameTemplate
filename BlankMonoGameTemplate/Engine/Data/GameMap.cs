@@ -70,14 +70,28 @@ namespace BlankMonoGameTemplate.Engine
             }
         }
 
-        public void SetTileAt(int layer, int x, int y, int id)
+
+        public void SetTileAt(int layer, int x, int y, int tileId)
         {
-            Layers[layer].Tiles[(y * Width) + x] = id;
+            Layers[layer].Tiles[(y * Width) + x] = tileId;
         }
 
         public int GetTileAt(int layer, int x, int y)
         {
             return Layers[layer].Tiles[(y * Width) + x];
+        }
+        
+        [Obsolete("Move later!")]
+        public TileFlags GetFlattenedTileType(int x, int y)
+        {
+            var index = (y * Width) + x;
+            var result = TileFlags.Walkable;
+            foreach (var layer in Layers)
+            {               
+                //var ts = Tilesets[layer.TilesetName];
+                //result = result | ts.Tiles[index].TileFlags;
+            }
+            return result;
         }
         #endregion
 

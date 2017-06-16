@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.ViewportAdapters;
 using MonoGame.Extended.TextureAtlases;
 using MonoGame.Extended;
+using MonoGame.Extended.Input.InputListeners;
 
 namespace BlankMonoGameTemplate.Engine
 {
@@ -21,8 +22,8 @@ namespace BlankMonoGameTemplate.Engine
             {
                 for (int x = 0; x < Tileset.TilesHorizontal; x++)
                 {
-                    var color = (Equals(new Point(x, y), SelectedTile)) ? Color.Red : Color.White;
-                    var destinationRect = new Rectangle(ScreenPosition.ToPoint() + new Point(x * Tileset.TileSize, y * Tileset.TileSize), new Point(Tileset.TileSize));
+                    var color = (Equals(new Point(x, y), SelectedTileCoord)) ? Color.Red : Color.White;
+                    var destinationRect = new Rectangle(Position.ToPoint() + new Point(x * Tileset.TileSize, y * Tileset.TileSize), new Point(Tileset.TileSize));
                     spriteBatch.Draw(Tileset.GetTile(x, y).Texture, destinationRect, color);
                 }
             }
@@ -30,13 +31,13 @@ namespace BlankMonoGameTemplate.Engine
 
         SpriteBatch spriteBatch;
 
-        public Vector2 ScreenPosition { get; set; }
+        public Vector2 Position { get; set; }
         public Vector2 ScrollOffsetPosition { get; set; }
         public Tileset Tileset { get; set; }
 
         Point _selectedTile = Point.Zero;
         public event EventHandler<TileViewerEventArgs> SelectionChanged;
-        public Point SelectedTile
+        public Point SelectedTileCoord
         {
             get { return _selectedTile; }
             set
@@ -52,6 +53,8 @@ namespace BlankMonoGameTemplate.Engine
 
         public event EventHandler<EventArgs> DrawOrderChanged;
         public event EventHandler<EventArgs> VisibleChanged;
+
+        
     }
 
     public class TileViewerEventArgs : EventArgs

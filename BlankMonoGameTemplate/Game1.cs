@@ -56,7 +56,9 @@ namespace BlankMonoGameTemplate
             ScreenComponent = new ScreenGameComponent(this);
 			Components.Add(ScreenComponent);
 
-            ScreenComponent.Register(new MapEditorScreen(this));
+            var mapEditor = new MapEditorScreen(this);
+            mapEditor.LoadMap("testmap.xml");
+            ScreenComponent.Register(mapEditor);
  
             base.Initialize();
         }
