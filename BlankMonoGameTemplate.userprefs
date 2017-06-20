@@ -1,15 +1,18 @@
 ﻿<Properties StartupConfiguration="{B9F13E67-F77B-4EA1-A4FD-F549F5A19DF0}|Default">
   <MonoDevelop.Ide.ItemProperties.BlankMonoGameTemplate PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BlankMonoGameTemplate/Engine/Data/Tileset.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BlankMonoGameTemplate/GameScreen.cs">
     <Files>
-      <File FileName="BlankMonoGameTemplate/Game1.cs" Line="48" Column="52" />
+      <File FileName="BlankMonoGameTemplate/Game1.cs" Line="69" Column="31" />
       <File FileName="BlankMonoGameTemplate/Content/Content.mgcb" Line="1" Column="1" />
-      <File FileName="BlankMonoGameTemplate/Engine/Data/Tileset.cs" Line="135" Column="9" />
-      <File FileName="BlankMonoGameTemplate/Engine/Data/MapLayer.cs" Line="35" Column="9" />
-      <File FileName="BlankMonoGameTemplate/Engine/Data/GameMap.cs" Line="96" Column="1" />
-      <File FileName="BlankMonoGameTemplate/Engine/GameMapRenderer.cs" Line="64" Column="1" />
-      <File FileName="BlankMonoGameTemplate/Screens/MapEditorScreen.cs" Line="31" Column="1" />
+      <File FileName="BlankMonoGameTemplate/Engine/Data/MapLayer.cs" Line="28" Column="28" />
+      <File FileName="BlankMonoGameTemplate/Engine/Data/Map.cs" Line="110" Column="38" />
+      <File FileName="BlankMonoGameTemplate/Screens/MapEditorScreen.cs" Line="94" Column="56" />
       <File FileName="BlankMonoGameTemplate/Engine/TilesetViewer.cs" Line="20" Column="9" />
+      <File FileName="BlankMonoGameTemplate/GameScreen.cs" Line="36" Column="38" />
+      <File FileName="BlankMonoGameTemplate/Engine/Player.cs" Line="17" Column="34" />
+      <File FileName="BlankMonoGameTemplate/Engine/MapRenderer.cs" Line="59" Column="41" />
+      <File FileName="BlankMonoGameTemplate/Engine/World.cs" Line="69" Column="6" />
+      <File FileName="BlankMonoGameTemplate/Engine/Data/Tileset.cs" Line="89" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

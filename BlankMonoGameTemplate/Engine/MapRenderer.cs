@@ -15,21 +15,15 @@ namespace BlankMonoGameTemplate.Engine
     /// </summary>
     public class MapRenderer
     {
-        public MapRenderer(Game game, GameMap map)
+        public MapRenderer(Game game) 
         {
             Game = game;
+        }
+
+        public MapRenderer(Game game, Map map) : this(game)
+        {           
             Position = Vector2.Zero;
             Map = map;
-
-            foreach (var layer in Map.Layers)
-            {
-                // Load layer tilesets
-                var tilesetFilename = layer.TilesetName;
-                if (!Tilesets.ContainsKey(tilesetFilename))
-                {
-                    Tilesets.Add(tilesetFilename, Tileset.LoadFromFile(Game, tilesetFilename + ".xml"));
-                }
-            }
         }
 
         public void Update(GameTime gameTime) 
@@ -37,8 +31,9 @@ namespace BlankMonoGameTemplate.Engine
             
         }
 
-        public void Draw(SpriteBatch spriteBatch, Point focused)
+        public void Draw(SpriteBatch spriteBatch)
         {
+            if (Map == null) return;
 			for (int l = 0; l < Map.Layers.Count; l++) // Layer
 			{
 	            for (var i = 0; i < Map.Height; i++) // X coord
@@ -46,8 +41,7 @@ namespace BlankMonoGameTemplate.Engine
 	                for (var j = 0; j < Map.Width; j++) // Y coord
 	                {	                    
 	                    var tileId = Map.GetTileAt(l, i, j);
-	                    var tileTexture = Tilesets[Map.Layers[l].TilesetName].GetTile(tileId).Texture;
-                        var color = (Equals(new Point(i, j), focused) && Debug) ? Color.Red : Color.White;
+	                    var tileTexture = Map.Tilesets[Map.Layers[l].TilesetName].GetTile(tileId).Texture;
                         var destinationRect = new Rectangle
                         {
                             X = (int)Position.X + Map.TileSize * i,
@@ -55,7 +49,7 @@ namespace BlankMonoGameTemplate.Engine
                             Width = Map.TileSize,
                             Height = Map.TileSize
                         };
-	                    spriteBatch.Draw(tileTexture, destinationRect, color);	                    
+	                    spriteBatch.Draw(tileTexture, destinationRect, Color.White);	                    
 	                }
 	            }
             };           
@@ -64,7 +58,7 @@ namespace BlankMonoGameTemplate.Engine
         public Vector2 Position { get; set; }
         public bool Debug { get; set; } 
 
-        Dictionary<string, Tileset> Tilesets = new Dictionary<string, Tileset>();
+        //Dictionary<string, Tileset> Tilesets = new Dictionary<string, Tileset>();
 
         public Game Game
         {
@@ -72,10 +66,10 @@ namespace BlankMonoGameTemplate.Engine
             private set;
         }
 
-        public GameMap Map
+        public Map Map
         {
             get;
-            set;
+            set;    
         }
           
     }

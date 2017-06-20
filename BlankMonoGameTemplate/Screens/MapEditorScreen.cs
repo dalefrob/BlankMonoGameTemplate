@@ -20,30 +20,20 @@ namespace BlankMonoGameTemplate.Screens
         {          
             Game = game;
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
+
             keyboardListener = new KeyboardListener();
             mouseListener = new MouseListener();
             inputListenerComponent = new InputListenerComponent(game, new InputListener[] { keyboardListener, mouseListener });
-            mouseListener.MouseMoved += mouseListener_MouseMoved;
-            mouseListener.MouseClicked += mouseListener_MouseClicked; 
+
         }
 
         #region Events
         void mouseListener_MouseClicked(object sender, MouseEventArgs e)
         {
-            var relativeMousePos = Vector2.Subtract(MousePos, tilesetViewer.Position);
+            Game.GraphicsDevice.Viewport = tileViewport;
+
+            var relativeMousePos = Vector2.Subtract(MousePos, new Vector2(tileViewport.X, tileViewport.Y));
             tilesetViewer.SelectedTileCoord = new Vector2(relativeMousePos.X / Map.TileSize, relativeMousePos.Y / Map.TileSize).ToPoint();
-            /* // For clicking tiles on the map
-            var layerCount = Map.Layers.Count;
-            var result = new Tile[layerCount];
-            var RelativeMousePos = Vector2.Subtract(MousePos, MapRenderer.Position);
-            FocusedTileCoord = new Vector2(RelativeMousePos.X / Map.TileSize, RelativeMousePos.Y / Map.TileSize).ToPoint();
-            for (int i = layerCount - 1; i >= 0; i--)
-            {
-                var tileId = Map.GetTileAt(i, FocusedTileCoord.X, FocusedTileCoord.Y);
-                var tile = Tilesets[i].Tiles[tileId];
-                result[i] = tile;
-            };
-             */
         }
 
         void mouseListener_MouseMoved(object sender, MouseEventArgs e)
@@ -62,22 +52,34 @@ namespace BlankMonoGameTemplate.Screens
 
         public override void LoadContent()
         {
+            selectionTexture = Game.Content.Load<Texture2D>("UI/Selection");
             Game.Components.Add(inputListenerComponent);
             keyboardListener.KeyReleased += _keyboardListener_KeyReleased;
-            base.LoadContent();
+			mouseListener.MouseMoved += mouseListener_MouseMoved;
+			mouseListener.MouseClicked += mouseListener_MouseClicked;
+			base.LoadContent();
         }
 
         void _keyboardListener_KeyReleased(object sender, KeyboardEventArgs e)
         {
+            if(e.Character.HasValue) {
+                if(char.IsNumber(e.Character.Value)) {
+                    int num = Int32.Parse(e.Character.Value.ToString());
+                    if(num < Map.Layers.Count) {
+                        CurrentLayerIndex = num;
+                    }
+                }
+            }
+
+            var _selTileCoord = tilesetViewer.SelectedTileCoord;
+
             switch (e.Key)
             {
                 case Keys.PageUp:
                     CurrentLayerIndex++;
-                    tilesetViewer.Tileset = Tilesets[CurrentLayerIndex];
                     break;
                 case Keys.PageDown:
                     CurrentLayerIndex--;
-                    tilesetViewer.Tileset = Tilesets[CurrentLayerIndex];
                     break;
                 case Keys.Up:
                     FocusedMapCoord += new Point(0, -1);
@@ -92,14 +94,30 @@ namespace BlankMonoGameTemplate.Screens
                     FocusedMapCoord += new Point(1, 0);
                     break;
                 case Keys.Enter:
-                    var _selTileCoord = tilesetViewer.SelectedTileCoord;
                     MapRenderer.Map.SetTileAt(CurrentLayerIndex, FocusedMapCoord.X, FocusedMapCoord.Y, Tilesets[CurrentLayerIndex].GetTile(_selTileCoord.X, _selTileCoord.Y).TextureId);
                     break;
                 case Keys.S:
-                    GameMap.SaveToFile(Map, "testmap.xml");
+                    Map.SaveToFile(Map, "testmap.xml");
+                    Tileset.SaveToFile(Tilesets[CurrentLayerIndex], Tilesets[CurrentLayerIndex].TextureSheetName + ".xml");
+                    break;
+                case Keys.F:
+                    FloodLayer();
+                    break;
+                case Keys.C:
+                    var tile = Tilesets[CurrentLayerIndex].GetTile(_selTileCoord.X, _selTileCoord.Y);
+                    tile.TileFlags |= TileFlags.Solid;
                     break;
             }
         }
+
+		public void FloodLayer()
+		{
+            var _selTileCoord = tilesetViewer.SelectedTileCoord;
+            int tileId = Tilesets[CurrentLayerIndex].GetTile(_selTileCoord.X, _selTileCoord.Y).TextureId;
+            for (int i = 0; i < Map.Width * Map.Height; i++) {
+				Map.Layers[CurrentLayerIndex].Tiles[i] = tileId;
+            }		
+		}
 
         public override void UnloadContent()
         {
@@ -118,10 +136,11 @@ namespace BlankMonoGameTemplate.Screens
 
             Game.GraphicsDevice.Viewport = mapViewport;
             spriteBatch.Begin();
-            MapRenderer.Draw(spriteBatch, FocusedMapCoord);
+            MapRenderer.Draw(spriteBatch);
+            spriteBatch.Draw(selectionTexture, MapRenderer.Position + (FocusedMapCoord.ToVector2() * Map.TileSize), Color.White);
             var relativeMousePos = Vector2.Subtract(MousePos, MapRenderer.Position);
-            if(tilesetViewer.SelectedTileCoord != null) spriteBatch.DrawString(Game1.Mainfont, string.Format("RelMousePos: {0},{1}", relativeMousePos.X, relativeMousePos.Y), new Vector2(216, 0), Color.Blue);
-            spriteBatch.DrawString(Game1.Mainfont, string.Format("LastClicked: {0},{1}", FocusedMapCoord.X, FocusedMapCoord.Y), new Vector2(132, 0), Color.Blue);
+            spriteBatch.DrawString(Game1.Mainfont, string.Format("RelMousePos: {0},{1}", relativeMousePos.X, relativeMousePos.Y), new Vector2(216, 0), Color.Blue);
+            spriteBatch.DrawString(Game1.Mainfont, string.Format("MapTile: {0},{1}", FocusedMapCoord.X, FocusedMapCoord.Y), new Vector2(132, 0), Color.Blue);
             spriteBatch.DrawString(Game1.Mainfont, string.Format("RelMousePos: {0},{1}", relativeMousePos.X, relativeMousePos.Y), new Vector2(16, 0), Color.Red);
             spriteBatch.End();
 
@@ -136,11 +155,11 @@ namespace BlankMonoGameTemplate.Screens
 
         public void LoadMap(string filename)
         {
-            Map = GameMap.LoadFromFile("testmap.xml");
+            Map = Map.LoadFromFile(Game.Content, "testmap.xml");
             foreach (var layer in Map.Layers)
             {
                 var tilesetName = layer.TilesetName;
-                Tilesets.Add(Tileset.LoadFromFile(Game, tilesetName + ".xml"));
+                Tilesets.Add(Tileset.LoadFromFile(Game.Content, tilesetName + ".xml"));
             }
 
             MapRenderer = new MapRenderer(Game, Map)
@@ -159,14 +178,14 @@ namespace BlankMonoGameTemplate.Screens
         /// <summary>
         /// The map we're editing
         /// </summary>
-        public GameMap Map { get; set; }
+        public Map Map { get; set; }
         public bool MapLoaded { get; set; }
         /// <summary>
         /// Loaded tilesets
         /// </summary>
         public List<Tileset> Tilesets = new List<Tileset>();
 
-        int _currentLayerIndex = 0;
+        int _currentLayerIndex;
         public int CurrentLayerIndex
         {
             get { return _currentLayerIndex; }
@@ -175,11 +194,23 @@ namespace BlankMonoGameTemplate.Screens
                 _currentLayerIndex = value;
                 if (_currentLayerIndex < 0) _currentLayerIndex = Map.Layers.Count - 1;
                 if (_currentLayerIndex > Map.Layers.Count - 1) _currentLayerIndex = 0;
+                tilesetViewer.Tileset = Tilesets[CurrentLayerIndex];
             }
         }
 
         public MapRenderer MapRenderer { get; set; }
-        public Point FocusedMapCoord { get; set; }
+        Point _focusedMapCoord = Point.Zero;
+        public Point FocusedMapCoord 
+        { 
+            get { return _focusedMapCoord; }
+            set {
+                int x = 0;
+                int y = 0;
+                if (value.X >= 0 && value.X < Map.Width) x = value.X;
+                if (value.Y >= 0 && value.Y < Map.Height) y = value.Y;
+                _focusedMapCoord = new Point(x, y);
+            }
+        }
         public Point SelectedTileCoord { get; set; }
 
         public Vector2 MousePos { get; private set; }
@@ -200,5 +231,7 @@ namespace BlankMonoGameTemplate.Screens
         // GUI
         Viewport mapViewport;
         Viewport tileViewport;
+        Texture2D selectionTexture;
+
     }
 }

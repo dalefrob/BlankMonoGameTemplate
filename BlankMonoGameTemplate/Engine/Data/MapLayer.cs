@@ -25,14 +25,6 @@ namespace BlankMonoGameTemplate.Engine
             }
         }
 
-        public void FloodWithTileId(int id) {
-            Tiles.Clear();
-            for (int i = 0; i < Tiles.Count; i++)
-            {
-                Tiles.Add(id);
-            }
-		}
-
 		public string TilesetName
 		{
 			get;

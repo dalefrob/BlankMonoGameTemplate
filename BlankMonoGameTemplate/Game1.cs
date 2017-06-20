@@ -19,13 +19,11 @@ namespace BlankMonoGameTemplate
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
-
-		//Dictionary<string, Texture2D> tilesetTextures = new Dictionary<string, Texture2D>();
-        public static Dictionary<string, Tileset> Tilesets = new Dictionary<string, Tileset>();
 
         public ScreenGameComponent ScreenComponent { get; private set; }
         public InputListenerComponent InputListenerComponent { get; private set; }
+
+
 
         public static SpriteFont Mainfont;
         
@@ -47,17 +45,18 @@ namespace BlankMonoGameTemplate
         {
             // TODO: Add your initialization logic here
 
-            
             InputListenerComponent = new InputListenerComponent(this);
-            InputListenerComponent.Listeners.Add(new MouseListener());
-            InputListenerComponent.Listeners.Add(new KeyboardListener());
+            var keyboardListener = new KeyboardListener();
+            keyboardListener.KeyTyped += KeyboardListener_KeyTyped;;
+            InputListenerComponent.Listeners.Add(keyboardListener);
             Components.Add(InputListenerComponent);
 
             ScreenComponent = new ScreenGameComponent(this);
 			Components.Add(ScreenComponent);
-
+            var gameScreen = new GameScreen(this);
             var mapEditor = new MapEditorScreen(this);
             mapEditor.LoadMap("testmap.xml");
+            ScreenComponent.Register(gameScreen);
             ScreenComponent.Register(mapEditor);
  
             base.Initialize();
@@ -69,9 +68,6 @@ namespace BlankMonoGameTemplate
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-
             // TODO: use this.Content to load your game content here
             Mainfont = Content.Load<SpriteFont>("Fonts/mainfont");
             //tilesetTextures.Add("Floor", Content.Load<Texture2D>("Tiles/Objects/Floor"));
@@ -89,10 +85,10 @@ namespace BlankMonoGameTemplate
             Tileset.SaveToFile(floorTileset, "Floor.xml");
 			var wallTileset = new Tileset(Content.Load<Texture2D>("Tiles/Objects/Wall"), 16, "Wall");
 			Tileset.SaveToFile(wallTileset, "Wall.xml");
-            var map = new GameMap(24, 24, 16, 0, "Floor");
+            var map = new Map(24, 24, 16, "Floor");
             map.Layers.Add(new MapLayer(24, 24) { TilesetName = "Wall" });
             map.Jumble(50);
-            GameMap.SaveToFile(map, "testmap.xml");
+            Map.SaveToFile(map, "testmap.xml");
         }
 
         /// <summary>

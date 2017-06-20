@@ -7,18 +7,20 @@ using MonoGame.Extended.Input.InputListeners;
 using MonoGame.Extended.TextureAtlases;
 using System.Xml.Serialization;
 using System.IO;
+using Microsoft.Xna.Framework.Content;
 
 namespace BlankMonoGameTemplate.Engine
 {
-    public class GameMap
+    public class Map
     {
-        public GameMap() { }
-        public GameMap(int width, int height, int tileSize, int tileSpacing, string baseTilesetName) 
+        #region XML
+
+        public Map() { }
+        public Map(int width, int height, int tileSize, string baseTilesetName) 
         {
             Width = width;
             Height = height;
             TileSize = tileSize;
-            TileSpacing = tileSpacing;
 
             Layers.Add(new MapLayer(width, height) { TilesetName = baseTilesetName });
         }
@@ -46,18 +48,12 @@ namespace BlankMonoGameTemplate.Engine
             set;
         }
 
-        public int TileSpacing
-        {
-            get;
-            set;
-        }
+        public List<MapLayer> Layers = new List<MapLayer>();
 
-        List<MapLayer> _layers = new List<MapLayer>();
-        public List<MapLayer> Layers
-        {
-            get { return _layers; }
-            set { _layers = value; }
-        }
+        #endregion
+
+        [XmlIgnore]
+        public Dictionary<string, Tileset> Tilesets = new Dictionary<string, Tileset>();
 
         #region Methods
         public void Jumble(int maxRandomValue) {
@@ -96,20 +92,32 @@ namespace BlankMonoGameTemplate.Engine
         #endregion
 
         #region Static
-        public static void SaveToFile(GameMap gameMap, string filename)
+        public static void SaveToFile(Map gameMap, string filename)
         {
             XmlSerializer x = new XmlSerializer(gameMap.GetType());
             StreamWriter writer = new StreamWriter(filename);
             x.Serialize(writer, gameMap);
         }
 
-        public static GameMap LoadFromFile(string filename)
+        public static Map LoadFromFile(ContentManager content, string filename)
         {
-            GameMap result;
-            XmlSerializer x = new XmlSerializer(typeof(GameMap));
+            Map _map;
+            XmlSerializer x = new XmlSerializer(typeof(Map));
             StreamReader reader = new StreamReader(filename);
-            result = (GameMap)x.Deserialize(reader);
-            return result;
+            _map = (Map)x.Deserialize(reader);
+
+			// Also load tilesets
+			foreach (var layer in _map.Layers)
+			{
+				// Load layer tilesets
+				var tilesetFilename = layer.TilesetName;
+				if (!_map.Tilesets.ContainsKey(tilesetFilename))
+				{
+					_map.Tilesets.Add(tilesetFilename, Tileset.LoadFromFile(content, tilesetFilename + ".xml"));
+				}
+			}
+
+            return _map;
         }
         #endregion
     }

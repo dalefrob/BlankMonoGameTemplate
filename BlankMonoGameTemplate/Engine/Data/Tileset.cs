@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Xml.Serialization;
 using System.IO;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 
 namespace BlankMonoGameTemplate.Engine
 {
@@ -105,19 +106,19 @@ namespace BlankMonoGameTemplate.Engine
             x.Serialize(writer, tileset);
         }
 
-        public static Tileset LoadFromFile(Game game, string filename)
+        public static Tileset LoadFromFile(ContentManager content, string filename)
         {
-            Tileset result;
+            Tileset _tileset;
             XmlSerializer x = new XmlSerializer(typeof(Tileset));
             StreamReader reader = new StreamReader(filename);
-            result = (Tileset)x.Deserialize(reader);
-            var texture = game.Content.Load<Texture2D>("Tiles/Objects/" + result.TextureSheetName);
-            var sheet = TextureAtlas.Create(result.TextureSheetName, texture, result.TileSize, result.TileSize);
-            result.TileSheet = sheet;
-            result.Tiles.ForEach(t => {
+            _tileset = (Tileset)x.Deserialize(reader);
+            var texture = content.Load<Texture2D>("Tiles/Objects/" + _tileset.TextureSheetName);
+            var sheet = TextureAtlas.Create(_tileset.TextureSheetName, texture, _tileset.TileSize, _tileset.TileSize);
+            _tileset.TileSheet = sheet;
+            _tileset.Tiles.ForEach(t => {
                 t.Texture = GetTextureRegion(sheet, t.TextureId);
             });
-            return result;
+            return _tileset;
         }
         #endregion
 
