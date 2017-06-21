@@ -14,25 +14,18 @@ using System.Collections.Generic;
 
 namespace BlankMonoGameTemplate.Screens
 {
-    public class MapEditorScreen : Screen
+    public class MapEditorScreen : GameScreen
     {
-        public MapEditorScreen(Game game)
+        public MapEditorScreen(Game1 game)
         {          
             Game = game;
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
-
-            keyboardListener = new KeyboardListener();
-            mouseListener = new MouseListener();
-            inputListenerComponent = new InputListenerComponent(game, new InputListener[] { keyboardListener, mouseListener });
-
         }
 
         #region Events
         void mouseListener_MouseClicked(object sender, MouseEventArgs e)
         {
-            Game.GraphicsDevice.Viewport = tileViewport;
-
-            var relativeMousePos = Vector2.Subtract(MousePos, new Vector2(tileViewport.X, tileViewport.Y));
+            var relativeMousePos = Vector2.Subtract(MousePos, tilesetViewer.Position);
             tilesetViewer.SelectedTileCoord = new Vector2(relativeMousePos.X / Map.TileSize, relativeMousePos.Y / Map.TileSize).ToPoint();
         }
 
@@ -42,25 +35,27 @@ namespace BlankMonoGameTemplate.Screens
         }
         #endregion
 
-        public override void Initialize()
-        {         
-            // Init events
-            mapViewport = Game.GraphicsDevice.Viewport;           
+        public override void OnShow()
+        {
 
+            base.OnShow();
+        }
+
+        public override void Initialize()
+        {
+            Game.MouseListener.MouseMoved += mouseListener_MouseMoved;
+            Game.MouseListener.MouseClicked += mouseListener_MouseClicked;
             base.Initialize();
         }
 
         public override void LoadContent()
         {
             selectionTexture = Game.Content.Load<Texture2D>("UI/Selection");
-            Game.Components.Add(inputListenerComponent);
-            keyboardListener.KeyReleased += _keyboardListener_KeyReleased;
-			mouseListener.MouseMoved += mouseListener_MouseMoved;
-			mouseListener.MouseClicked += mouseListener_MouseClicked;
+
 			base.LoadContent();
         }
 
-        void _keyboardListener_KeyReleased(object sender, KeyboardEventArgs e)
+        void keyboardListener_KeyTyped(object sender, KeyboardEventArgs e)
         {
             if(e.Character.HasValue) {
                 if(char.IsNumber(e.Character.Value)) {
@@ -121,7 +116,6 @@ namespace BlankMonoGameTemplate.Screens
 
         public override void UnloadContent()
         {
-            Game.Components.Remove(inputListenerComponent);
             base.UnloadContent();
         }
 
@@ -132,24 +126,22 @@ namespace BlankMonoGameTemplate.Screens
 
         public override void Draw(GameTime gameTime)
         {
+            Game.GraphicsDevice.Clear(Color.CornflowerBlue);
             if (!MapLoaded) return;
 
-            Game.GraphicsDevice.Viewport = mapViewport;
             spriteBatch.Begin();
             MapRenderer.Draw(spriteBatch);
             spriteBatch.Draw(selectionTexture, MapRenderer.Position + (FocusedMapCoord.ToVector2() * Map.TileSize), Color.White);
+
             var relativeMousePos = Vector2.Subtract(MousePos, MapRenderer.Position);
             spriteBatch.DrawString(Game1.Mainfont, string.Format("RelMousePos: {0},{1}", relativeMousePos.X, relativeMousePos.Y), new Vector2(216, 0), Color.Blue);
             spriteBatch.DrawString(Game1.Mainfont, string.Format("MapTile: {0},{1}", FocusedMapCoord.X, FocusedMapCoord.Y), new Vector2(132, 0), Color.Blue);
             spriteBatch.DrawString(Game1.Mainfont, string.Format("RelMousePos: {0},{1}", relativeMousePos.X, relativeMousePos.Y), new Vector2(16, 0), Color.Red);
-            spriteBatch.End();
 
             var textureSheetRect = tilesetViewer.Tileset.TileSheet.Texture.Bounds;
-            tileViewport = new Viewport(mapViewport.Width - textureSheetRect.Width, 0, textureSheetRect.Width, textureSheetRect.Height);
-            Game.GraphicsDevice.Viewport = tileViewport;
-            spriteBatch.Begin();
             tilesetViewer.Draw(gameTime);
             spriteBatch.End();
+
             base.Draw(gameTime);
         }
 
@@ -170,7 +162,7 @@ namespace BlankMonoGameTemplate.Screens
 
             tilesetViewer = new TilesetViewer(spriteBatch, Game.GraphicsDevice, Tilesets[0])
             {
-                Position = new Vector2(tileViewport.X, tileViewport.Y)
+                Position = new Vector2(Game.GraphicsDevice.Viewport.Width / 2, 0)
             };
             MapLoaded = true;
         }
@@ -215,13 +207,12 @@ namespace BlankMonoGameTemplate.Screens
 
         public Vector2 MousePos { get; private set; }
 
-        public Game Game
+        public Game1 Game
         {
             get;
             private set;
         }
 
-        InputListenerComponent inputListenerComponent;
         KeyboardListener keyboardListener;
         MouseListener mouseListener;
 
@@ -229,8 +220,6 @@ namespace BlankMonoGameTemplate.Screens
         SpriteBatch spriteBatch;
 
         // GUI
-        Viewport mapViewport;
-        Viewport tileViewport;
         Texture2D selectionTexture;
 
     }

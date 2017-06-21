@@ -22,8 +22,8 @@ namespace BlankMonoGameTemplate
 
         public ScreenGameComponent ScreenComponent { get; private set; }
         public InputListenerComponent InputListenerComponent { get; private set; }
-
-
+        public MouseListener MouseListener { get; private set; }
+        public KeyboardListener KeyboardListener { get; private set; }
 
         public static SpriteFont Mainfont;
         
@@ -33,6 +33,8 @@ namespace BlankMonoGameTemplate
             Content.RootDirectory = @"Content";
 
             IsMouseVisible = true;
+
+            Services.AddService(Content);                       // LOOK INTO THIS!!
         }
 
         /// <summary>
@@ -45,15 +47,15 @@ namespace BlankMonoGameTemplate
         {
             // TODO: Add your initialization logic here
 
-            InputListenerComponent = new InputListenerComponent(this);
-            var keyboardListener = new KeyboardListener();
-            keyboardListener.KeyTyped += KeyboardListener_KeyTyped;;
-            InputListenerComponent.Listeners.Add(keyboardListener);
+            
+            KeyboardListener = new KeyboardListener();
+            MouseListener = new MouseListener();
+            InputListenerComponent = new InputListenerComponent(this, KeyboardListener, MouseListener );
             Components.Add(InputListenerComponent);
 
             ScreenComponent = new ScreenGameComponent(this);
 			Components.Add(ScreenComponent);
-            var gameScreen = new GameScreen(this);
+            var gameScreen = new MainScreen(this);
             var mapEditor = new MapEditorScreen(this);
             mapEditor.LoadMap("testmap.xml");
             ScreenComponent.Register(gameScreen);
