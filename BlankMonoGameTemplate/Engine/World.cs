@@ -19,38 +19,9 @@ namespace BlankMonoGameTemplate.Engine
 			
 		}
 
-        bool[,] _collisions;
-        Tile[,] _tiles;
-
         public List<Player> Players = new List<Player>();
 
-        Map _map;
-		public Map Map
-        {
-            get { return _map; }
-            set {
-                _map = value;
-                _tiles = new Tile[Map.Width, Map.Height];
-                _collisions = new bool[Map.Width, Map.Height];
-                for (int y = 0; y < Map.Height; y++)
-                {
-					for (int x = 0; x < Map.Width; x++)
-					{
-                        // Get a flattened tile
-                        var _flatTile = new Tile();
-                        foreach(var layer in Map.Layers)
-                        {
-                            _flatTile.TileFlags |= Map.Tilesets[layer.TilesetName].GetTile(x, y).TileFlags;
-                        }
-                        _tiles[x, y] = _flatTile;
-                        if (_flatTile.TileFlags.HasFlag(TileFlags.Solid))
-                        {
-                            _collisions[x, y] = true;
-                        }
-					}
-                }
-            }
-        }
+        public Map Map { get; set; }
 
         public Point GetWorldPointFromPosition(Vector2 position)
         {
@@ -62,7 +33,7 @@ namespace BlankMonoGameTemplate.Engine
         {
             if(!(x < 0 || x >= Map.Width || y < 0 || y >= Map.Height)) // If inside bounds of map
             {
-				if (!_collisions[x, y]) // If no collisions
+				if (!Map.Collisions[x, y]) // If no collisions
 				{
 					var newPos = new Vector2(Map.TileSize * x, Map.TileSize * y);
 					movable.Position = newPos;

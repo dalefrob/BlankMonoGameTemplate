@@ -55,7 +55,7 @@ namespace BlankMonoGameTemplate
 
             Game.KeyboardListener.KeyTyped += keyboardListener_KeyTyped;
 
-            base.Initialize();
+            //base.Initialize();
         }
 
         public override void LoadContent()

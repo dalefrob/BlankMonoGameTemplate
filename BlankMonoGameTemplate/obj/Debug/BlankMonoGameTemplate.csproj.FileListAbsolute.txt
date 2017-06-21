@@ -15,6 +15,8 @@ D:/Projects/C#/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/
 D:/Projects/C#/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debug/BlankMonoGameTemplate.csprojResolveAssemblyReference.cache
 D:/Projects/C#/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debug/BlankMonoGameTemplate.exe
 D:/Projects/C#/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debug/BlankMonoGameTemplate.pdb
+/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debug/BlankMonoGameTemplate.csprojResolveAssemblyReference.cache
+/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debug/BlankMonoGameTemplate.csproj.CoreCompileInputs.cache
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/MonoGame.Framework.dll.config
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/Content/Fonts/mainfont.xnb
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/Content/Tiles/Items/Ammo.xnb
@@ -66,6 +68,7 @@ D:/Projects/C#/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debug/Blan
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/Content/Tiles/Objects/Tree0.xnb
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/Content/Tiles/Objects/Tree1.xnb
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/Content/Tiles/Objects/Wall.xnb
+/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/Content/UI/Selection.xnb
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/libSDL2-2.0.0.dylib
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/libopenal.1.dylib
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/x64/SDL2.dll
@@ -90,8 +93,5 @@ D:/Projects/C#/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debug/Blan
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/Newtonsoft.Json.dll
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/MonoGame.Framework.xml
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/Newtonsoft.Json.xml
-/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debug/BlankMonoGameTemplate.csprojResolveAssemblyReference.cache
-/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debug/BlankMonoGameTemplate.csproj.CoreCompileInputs.cache
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debug/BlankMonoGameTemplate.exe
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debug/BlankMonoGameTemplate.pdb
-/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/bin/DesktopGL/AnyCPU/Debug/Content/UI/Selection.xnb

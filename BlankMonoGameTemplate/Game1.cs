@@ -34,7 +34,7 @@ namespace BlankMonoGameTemplate
 
             IsMouseVisible = true;
 
-            Services.AddService(Content);                       // LOOK INTO THIS!!
+            Services.AddService(Content);                      
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace BlankMonoGameTemplate
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            //CreateTestMap();
             
             KeyboardListener = new KeyboardListener();
             MouseListener = new MouseListener();
@@ -90,7 +90,7 @@ namespace BlankMonoGameTemplate
             var map = new Map(24, 24, 16, "Floor");
             map.Layers.Add(new MapLayer(24, 24) { TilesetName = "Wall" });
             map.Jumble(50);
-            Map.SaveToFile(map, "testmap.xml");
+            //Map.SaveToFile(map, "testmap.xml");
         }
 
         /// <summary>

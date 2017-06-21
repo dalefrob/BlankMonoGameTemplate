@@ -50,12 +50,40 @@ namespace BlankMonoGameTemplate.Engine
 
         public List<MapLayer> Layers = new List<MapLayer>();
 
+        [XmlIgnore]
+        public bool[,] Collisions
+        {
+            get;
+            private set;
+        }
+
         #endregion
 
         [XmlIgnore]
         public Dictionary<string, Tileset> Tilesets = new Dictionary<string, Tileset>();
 
         #region Methods
+        public void RegenerateCollisions() 
+        {
+            Collisions = new bool[Width, Height];
+            // Generate collision data
+            for (int y = 0; y < Height; y++)
+			{
+				for (int x = 0; x < Width; x++)
+				{
+					foreach (var layer in Layers)
+					{
+                        var index = (y * Width) + x;
+						var tile = Tilesets[layer.TilesetName].GetTile(layer.Tiles[index]);
+						if (tile.TileFlags.HasFlag(TileFlags.Solid))
+						{
+							Collisions[x, y] = true;
+						}
+					}
+				}
+			}
+        }
+
         public void Jumble(int maxRandomValue) {
             var random = new Random();
             foreach(var layer in Layers) {
@@ -96,15 +124,22 @@ namespace BlankMonoGameTemplate.Engine
         {
             XmlSerializer x = new XmlSerializer(gameMap.GetType());
             StreamWriter writer = new StreamWriter(filename);
+
             x.Serialize(writer, gameMap);
         }
 
         public static Map LoadFromFile(ContentManager content, string filename)
         {
             Map _map;
-            XmlSerializer x = new XmlSerializer(typeof(Map));
-            StreamReader reader = new StreamReader(filename);
-            _map = (Map)x.Deserialize(reader);
+            try
+            {
+				XmlSerializer x = new XmlSerializer(typeof(Map));
+				StreamReader reader = new StreamReader(filename);
+				_map = (Map)x.Deserialize(reader); 
+            } catch (Exception ex) {
+                _map = new Map(10, 10, 16, "Floor");
+                _map.Layers.Add(new MapLayer() { TilesetName = "Wall" });
+            }
 
 			// Also load tilesets
 			foreach (var layer in _map.Layers)
@@ -116,6 +151,8 @@ namespace BlankMonoGameTemplate.Engine
 					_map.Tilesets.Add(tilesetFilename, Tileset.LoadFromFile(content, tilesetFilename + ".xml"));
 				}
 			}
+
+            _map.RegenerateCollisions();
 
             return _map;
         }

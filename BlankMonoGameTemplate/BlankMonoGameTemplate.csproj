@@ -51,9 +51,10 @@
     <Compile Include="Screens\MapEditorScreen.cs" />
     <Compile Include="Engine\TilesetViewer.cs" />
     <Compile Include="Engine\MapRenderer.cs" />
-    <Compile Include="GameScreen.cs" />
     <Compile Include="Engine\Player.cs" />
     <Compile Include="Engine\World.cs" />
+    <Compile Include="Screens\GameScreen.cs" />
+    <Compile Include="Screens\MainScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

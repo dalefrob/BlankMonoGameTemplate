@@ -43,6 +43,7 @@ namespace BlankMonoGameTemplate.Screens
 
         public override void Initialize()
         {
+            Game.KeyboardListener.KeyReleased += KeyboardListener_KeyReleased;
             Game.MouseListener.MouseMoved += mouseListener_MouseMoved;
             Game.MouseListener.MouseClicked += mouseListener_MouseClicked;
             base.Initialize();
@@ -55,7 +56,7 @@ namespace BlankMonoGameTemplate.Screens
 			base.LoadContent();
         }
 
-        void keyboardListener_KeyTyped(object sender, KeyboardEventArgs e)
+        void KeyboardListener_KeyReleased(object sender, KeyboardEventArgs e)
         {
             if(e.Character.HasValue) {
                 if(char.IsNumber(e.Character.Value)) {
@@ -93,6 +94,8 @@ namespace BlankMonoGameTemplate.Screens
                     break;
                 case Keys.S:
                     Map.SaveToFile(Map, "testmap.xml");
+                    break;
+                case Keys.T:
                     Tileset.SaveToFile(Tilesets[CurrentLayerIndex], Tilesets[CurrentLayerIndex].TextureSheetName + ".xml");
                     break;
                 case Keys.F:
@@ -137,6 +140,8 @@ namespace BlankMonoGameTemplate.Screens
             spriteBatch.DrawString(Game1.Mainfont, string.Format("RelMousePos: {0},{1}", relativeMousePos.X, relativeMousePos.Y), new Vector2(216, 0), Color.Blue);
             spriteBatch.DrawString(Game1.Mainfont, string.Format("MapTile: {0},{1}", FocusedMapCoord.X, FocusedMapCoord.Y), new Vector2(132, 0), Color.Blue);
             spriteBatch.DrawString(Game1.Mainfont, string.Format("RelMousePos: {0},{1}", relativeMousePos.X, relativeMousePos.Y), new Vector2(16, 0), Color.Red);
+            var tile = Tilesets[CurrentLayerIndex].GetTile(tilesetViewer.SelectedTileCoord.X, tilesetViewer.SelectedTileCoord.Y);
+            spriteBatch.DrawString(Game1.Mainfont, string.Format("TileFlags:{0}", tile.TileFlags), new Vector2(316, 0), Color.Red);
 
             var textureSheetRect = tilesetViewer.Tileset.TileSheet.Texture.Bounds;
             tilesetViewer.Draw(gameTime);

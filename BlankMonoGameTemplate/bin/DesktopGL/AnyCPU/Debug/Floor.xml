@@ -5,3279 +5,3279 @@
   <Tiles>
     <Tile>
       <TextureId>0</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>1</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>2</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>3</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>4</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>5</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>6</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>7</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>8</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>9</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>10</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>11</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>12</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>13</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>14</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>15</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>16</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>17</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>18</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>19</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>20</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>21</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>22</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>23</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>24</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>25</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>26</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>27</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>28</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>29</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>30</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>31</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>32</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>33</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>34</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>35</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>36</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>37</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>38</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>39</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>40</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>41</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>42</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>43</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>44</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>45</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>46</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>47</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>48</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>49</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>50</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>51</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>52</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>53</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>54</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>55</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>56</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>57</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>58</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>59</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>60</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>61</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>62</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>63</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>64</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>65</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>66</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>67</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>68</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>69</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>70</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>71</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>72</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>73</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>74</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>75</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>76</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>77</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>78</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>79</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>80</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>81</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>82</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>83</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>84</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>85</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>86</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>87</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>88</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>89</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>90</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>91</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>92</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>93</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>94</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>95</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>96</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>97</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>98</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>99</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>100</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>101</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>102</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>103</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>104</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>105</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>106</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>107</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>108</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>109</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>110</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>111</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>112</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>113</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>114</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>115</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>116</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>117</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>118</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>119</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>120</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>121</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>122</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>123</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>124</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>125</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>126</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>127</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>128</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>129</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>130</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>131</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>132</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>133</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>134</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>135</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>136</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>137</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>138</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>139</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>140</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>141</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>142</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>143</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>144</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>145</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>146</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>147</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>148</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>149</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>150</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>151</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>152</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>153</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>154</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>155</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>156</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>157</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>158</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>159</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>160</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>161</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>162</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>163</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>164</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>165</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>166</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>167</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>168</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>169</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>170</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>171</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>172</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>173</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>174</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>175</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>176</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>177</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>178</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>179</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>180</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>181</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>182</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>183</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>184</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>185</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>186</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>187</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>188</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>189</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>190</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>191</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>192</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>193</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>194</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>195</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>196</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>197</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>198</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>199</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>200</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>201</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>202</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>203</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>204</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>205</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>206</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>207</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>208</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>209</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>210</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>211</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>212</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>213</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>214</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>215</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>216</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>217</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>218</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>219</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>220</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>221</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>222</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>223</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>224</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>225</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>226</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>227</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>228</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>229</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>230</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>231</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>232</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>233</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>234</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>235</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>236</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>237</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>238</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>239</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>240</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>241</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>242</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>243</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>244</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>245</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>246</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>247</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>248</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>249</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>250</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>251</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>252</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>253</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>254</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>255</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>256</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>257</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>258</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>259</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>260</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>261</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>262</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>263</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>264</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>265</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>266</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Solid</TileFlags>
     </Tile>
     <Tile>
       <TextureId>267</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Solid</TileFlags>
     </Tile>
     <Tile>
       <TextureId>268</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Solid</TileFlags>
     </Tile>
     <Tile>
       <TextureId>269</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>270</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>271</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>272</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>273</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>274</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>275</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>276</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>277</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>278</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>279</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>280</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>281</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>282</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>283</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>284</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>285</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>286</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>287</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>288</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Solid</TileFlags>
     </Tile>
     <Tile>
       <TextureId>289</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>290</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>291</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>292</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>293</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>294</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>295</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>296</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>297</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>298</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>299</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>300</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>301</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>302</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>303</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>304</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>305</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>306</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>307</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>308</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>309</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>310</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>311</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>312</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>313</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>314</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>315</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>316</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>317</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>318</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>319</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>320</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>321</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>322</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>323</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>324</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>325</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>326</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>327</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>328</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>329</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>330</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>331</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>332</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>333</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>334</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>335</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>336</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>337</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>338</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>339</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>340</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>341</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>342</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>343</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>344</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>345</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>346</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>347</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>348</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>349</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>350</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>351</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>352</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>353</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>354</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>355</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>356</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>357</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>358</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>359</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>360</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>361</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>362</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>363</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>364</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>365</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>366</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>367</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>368</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>369</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>370</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>371</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>372</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>373</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>374</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>375</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>376</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>377</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>378</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>379</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>380</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>381</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>382</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>383</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>384</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>385</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>386</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>387</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>388</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>389</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>390</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>391</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>392</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>393</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>394</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>395</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>396</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>397</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>398</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>399</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>400</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>401</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>402</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>403</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>404</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>405</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>406</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>407</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>408</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>409</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>410</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>411</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>412</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>413</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>414</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>415</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>416</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>417</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>418</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>419</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>420</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>421</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>422</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>423</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>424</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>425</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>426</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>427</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>428</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>429</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>430</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>431</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>432</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>433</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>434</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>435</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>436</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>437</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>438</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>439</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>440</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>441</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>442</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>443</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>444</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>445</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>446</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>447</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>448</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>449</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>450</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>451</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>452</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>453</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>454</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>455</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>456</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>457</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>458</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>459</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>460</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>461</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>462</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>463</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>464</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>465</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>466</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>467</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>468</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>469</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>470</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>471</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>472</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>473</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>474</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>475</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>476</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>477</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>478</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>479</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>480</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>481</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>482</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>483</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>484</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>485</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>486</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>487</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>488</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>489</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>490</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>491</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>492</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>493</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>494</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>495</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>496</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>497</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>498</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>499</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>500</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>501</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>502</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>503</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>504</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>505</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>506</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>507</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>508</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>509</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>510</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>511</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>512</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>513</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>514</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>515</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>516</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>517</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>518</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>519</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>520</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>521</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>522</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>523</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>524</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>525</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>526</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>527</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>528</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>529</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>530</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>531</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>532</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>533</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>534</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>535</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>536</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>537</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>538</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>539</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>540</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>541</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>542</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>543</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>544</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>545</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>546</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>547</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>548</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>549</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>550</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>551</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>552</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>553</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>554</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>555</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>556</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>557</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>558</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>559</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>560</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>561</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>562</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>563</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>564</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>565</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>566</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>567</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>568</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>569</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>570</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>571</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>572</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>573</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>574</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>575</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>576</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>577</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>578</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>579</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>580</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>581</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>582</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>583</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>584</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>585</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>586</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>587</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>588</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>589</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>590</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>591</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>592</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>593</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>594</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>595</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>596</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>597</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>598</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>599</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>600</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>601</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>602</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>603</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>604</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>605</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>606</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>607</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>608</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>609</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>610</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>611</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>612</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>613</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>614</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>615</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>616</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>617</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>618</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>619</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>620</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>621</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>622</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>623</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>624</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>625</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>626</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>627</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>628</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>629</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>630</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>631</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>632</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>633</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>634</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>635</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>636</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>637</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>638</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>639</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>640</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>641</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>642</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>643</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>644</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>645</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>646</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>647</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>648</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>649</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>650</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>651</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>652</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>653</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>654</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>655</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>656</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>657</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>658</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>659</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>660</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>661</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>662</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>663</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>664</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>665</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>666</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>667</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>668</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>669</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>670</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>671</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>672</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>673</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>674</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>675</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>676</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>677</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>678</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>679</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>680</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>681</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>682</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>683</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>684</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>685</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>686</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>687</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>688</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>689</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>690</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>691</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>692</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>693</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>694</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>695</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>696</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>697</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>698</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>699</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>700</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>701</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>702</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>703</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>704</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>705</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>706</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>707</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>708</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>709</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>710</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>711</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>712</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>713</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>714</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>715</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>716</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>717</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>718</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>719</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>720</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>721</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>722</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>723</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>724</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>725</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>726</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>727</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>728</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>729</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>730</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>731</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>732</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>733</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>734</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>735</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>736</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>737</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>738</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>739</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>740</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>741</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>742</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>743</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>744</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>745</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>746</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>747</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>748</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>749</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>750</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>751</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>752</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>753</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>754</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>755</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>756</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>757</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>758</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>759</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>760</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>761</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>762</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>763</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>764</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>765</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>766</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>767</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>768</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>769</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>770</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>771</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>772</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>773</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>774</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>775</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>776</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>777</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>778</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>779</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>780</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>781</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>782</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>783</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>784</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>785</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>786</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>787</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>788</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>789</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>790</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>791</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>792</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>793</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>794</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>795</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>796</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>797</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>798</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>799</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>800</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>801</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>802</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>803</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>804</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>805</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>806</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>807</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>808</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>809</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>810</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>811</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>812</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>813</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>814</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>815</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>816</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>817</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
     <Tile>
       <TextureId>818</TextureId>
-      <Type>Walkable</Type>
+      <TileFlags>Walkable</TileFlags>
     </Tile>
   </Tiles>
 </Tileset>
