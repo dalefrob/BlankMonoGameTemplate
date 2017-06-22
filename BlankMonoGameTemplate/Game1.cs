@@ -33,6 +33,8 @@ namespace BlankMonoGameTemplate
             Content.RootDirectory = @"Content";
 
             IsMouseVisible = true;
+            IsFixedTimeStep = false;
+            TargetElapsedTime = TimeSpan.FromMilliseconds(20);
 
             Services.AddService(Content);                      
         }
@@ -88,7 +90,7 @@ namespace BlankMonoGameTemplate
 			var wallTileset = new Tileset(Content.Load<Texture2D>("Tiles/Objects/Wall"), 16, "Wall");
 			Tileset.SaveToFile(wallTileset, "Wall.xml");
             var map = new Map(24, 24, 16, "Floor");
-            map.Layers.Add(new MapLayer(24, 24) { TilesetName = "Wall" });
+            map.Layers.Add(new MapLayer(map) { TilesetName = "Wall" });
             map.Jumble(50);
             //Map.SaveToFile(map, "testmap.xml");
         }

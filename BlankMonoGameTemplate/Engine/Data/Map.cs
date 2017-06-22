@@ -8,6 +8,7 @@ using MonoGame.Extended.TextureAtlases;
 using System.Xml.Serialization;
 using System.IO;
 using Microsoft.Xna.Framework.Content;
+using System.Threading.Tasks;
 
 namespace BlankMonoGameTemplate.Engine
 {
@@ -22,7 +23,7 @@ namespace BlankMonoGameTemplate.Engine
             Height = height;
             TileSize = tileSize;
 
-            Layers.Add(new MapLayer(width, height) { TilesetName = baseTilesetName });
+            Layers.Add(new MapLayer(this) { TilesetName = baseTilesetName });
         }
 
         public int ID
@@ -104,22 +105,10 @@ namespace BlankMonoGameTemplate.Engine
         {
             return Layers[layer].Tiles[(y * Width) + x];
         }
-        
-        [Obsolete("Move later!")]
-        public TileFlags GetFlattenedTileType(int x, int y)
-        {
-            var index = (y * Width) + x;
-            var result = TileFlags.Walkable;
-            foreach (var layer in Layers)
-            {               
-                //var ts = Tilesets[layer.TilesetName];
-                //result = result | ts.Tiles[index].TileFlags;
-            }
-            return result;
-        }
-        #endregion
 
+        #endregion
         #region Static
+
         public static void SaveToFile(Map gameMap, string filename)
         {
             XmlSerializer x = new XmlSerializer(gameMap.GetType());
@@ -138,7 +127,7 @@ namespace BlankMonoGameTemplate.Engine
 				_map = (Map)x.Deserialize(reader); 
             } catch (Exception ex) {
                 _map = new Map(10, 10, 16, "Floor");
-                _map.Layers.Add(new MapLayer() { TilesetName = "Wall" });
+                _map.Layers.Add(new MapLayer(_map) { TilesetName = "Wall" });
             }
 
 			// Also load tilesets
@@ -156,6 +145,7 @@ namespace BlankMonoGameTemplate.Engine
 
             return _map;
         }
+
         #endregion
     }
 }

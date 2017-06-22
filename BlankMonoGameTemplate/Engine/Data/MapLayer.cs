@@ -12,29 +12,23 @@ namespace BlankMonoGameTemplate.Engine
     /// </summary>
     public class MapLayer
     {
-        public MapLayer()
-        {
-            Tiles = new List<int>();
-        }
+        public MapLayer() { }
 
-        public MapLayer(int width, int height) : this()
+        public MapLayer(Map map)
         {
-            for (int i = 0; i < (width * height); i++)
+            for (int i = 0; i < map.Width * map.Height; i++)
             {
                 Tiles.Add(0);
             }
         }
 
-		public string TilesetName
+        public string TilesetName
 		{
 			get;
 			set;
 		}
 
-        public List<int> Tiles
-        {
-            get;
-            set;
-        }
+        public List<int> Tiles = new List<int>();
+
     }
 }

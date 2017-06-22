@@ -6,6 +6,14 @@ using MonoGame.Extended;
 
 namespace BlankMonoGameTemplate.Engine
 {
+    public enum Direction
+    {
+        Up,
+        Right,
+        Down,
+        Left
+    }
+
     public class World : IUpdate
     {
         public World(Game game)
@@ -23,10 +31,15 @@ namespace BlankMonoGameTemplate.Engine
 
         public Map Map { get; set; }
 
-        public Point GetWorldPointFromPosition(Vector2 position)
+        public Point GetMapCoordFromPosition(Vector2 position)
         {
             var tilePos = position / Map.TileSize;
             return tilePos.ToPoint();
+        }
+
+        public Vector2 GetPositionFromMapCoord(Point coord)
+        {
+            return new Vector2(coord.X * Map.TileSize, coord.Y * Map.TileSize);
         }
 
         public void MoveObjectToTile(IMovable movable, int x, int y)

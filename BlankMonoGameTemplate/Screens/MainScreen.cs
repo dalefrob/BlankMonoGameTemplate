@@ -48,7 +48,7 @@ namespace BlankMonoGameTemplate
             Sprite playerSprite = new Sprite(texAtlas.GetRegion(138)) {
                 Origin = Vector2.Zero
             };
-			World.Players.Add(new Player(World, true) { Sprite = playerSprite, IsEnabled = true });
+			World.Players.Add(new Player(World, true) { Sprite = playerSprite });
 
             var localPlayer = World.Players.Find(p => p.LocalPlayer == true);
             World.MoveObjectToTile(localPlayer, 3, 1);
