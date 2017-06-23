@@ -25,6 +25,9 @@ namespace BlankMonoGameTemplate
         public MouseListener MouseListener { get; private set; }
         public KeyboardListener KeyboardListener { get; private set; }
 
+        // Screens
+        WorldScreen mainScreen;
+
         public static SpriteFont Mainfont;
         
         public Game1()
@@ -34,9 +37,16 @@ namespace BlankMonoGameTemplate
 
             IsMouseVisible = true;
             IsFixedTimeStep = false;
-            TargetElapsedTime = TimeSpan.FromMilliseconds(20);
 
-            Services.AddService(Content);                      
+            // Create components
+            ScreenComponent = new ScreenGameComponent(this);
+            Components.Add(ScreenComponent);
+
+            KeyboardListener = new KeyboardListener();
+            MouseListener = new MouseListener();
+            InputListenerComponent = new InputListenerComponent(this, KeyboardListener, MouseListener);
+            Components.Add(InputListenerComponent);
+    
         }
 
         /// <summary>
@@ -47,22 +57,14 @@ namespace BlankMonoGameTemplate
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-            //CreateTestMap();
-            
-            KeyboardListener = new KeyboardListener();
-            MouseListener = new MouseListener();
-            InputListenerComponent = new InputListenerComponent(this, KeyboardListener, MouseListener );
-            Components.Add(InputListenerComponent);
 
-            ScreenComponent = new ScreenGameComponent(this);
-			Components.Add(ScreenComponent);
-            var gameScreen = new MainScreen(this);
+            // TODO: Add your initialization logic here
+
+            mainScreen = new WorldScreen(this);
             var mapEditor = new MapEditorScreen(this);
             mapEditor.LoadMap("testmap.xml");
-            ScreenComponent.Register(gameScreen);
+            ScreenComponent.Register(mainScreen);
             ScreenComponent.Register(mapEditor);
- 
             base.Initialize();
         }
 
@@ -74,12 +76,6 @@ namespace BlankMonoGameTemplate
         {
             // TODO: use this.Content to load your game content here
             Mainfont = Content.Load<SpriteFont>("Fonts/mainfont");
-            //tilesetTextures.Add("Floor", Content.Load<Texture2D>("Tiles/Objects/Floor"));
-            //tilesetTextures.Add("Wall", Content.Load<Texture2D>("Tiles/Objects/Wall"));
-            //tileSets.Add("Floor", TextureAtlas.Create("Floor", tilesetTextures["Floor"], 16, 16, int.MaxValue, 0, 0));
-            //tileSets.Add("Wall", TextureAtlas.Create("Wall", tilesetTextures["Wall"], 16, 16, int.MaxValue, 0, 0));
-            //var map = new GameMap(24, 24, 16, 0);
-            //CreateTestMap();
    
         }
 

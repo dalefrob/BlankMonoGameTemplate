@@ -12,9 +12,11 @@ namespace BlankMonoGameTemplate.Engine
 {
     public class Player : Entity, IMovable
     {
-        public Player(World world, bool localPlayer) : base(world)
+        public Player() 
         {
-            LocalPlayer = localPlayer;
+            Name = "Default Player";
+            Sprite = new Sprite(WorldScreen.Textures2D["Player0"].GetRegion(0));
+            Sprite.Origin = Vector2.Zero;
         }
 
 		public override void Update(GameTime gameTime)
@@ -28,28 +30,27 @@ namespace BlankMonoGameTemplate.Engine
 
                 if (newState.IsKeyUp(Keys.Down) && oldState.IsKeyDown(Keys.Down))
                 {
-                    Step(Direction.Down);
+                    Move(Direction.Down);
 				}
 				else if (newState.IsKeyUp(Keys.Right) && oldState.IsKeyDown(Keys.Right))
 				{
-                    Step(Direction.Right);
+                    Move(Direction.Right);
 				}
 				else if (newState.IsKeyUp(Keys.Up) && oldState.IsKeyDown(Keys.Up))
 				{
-                    Step(Direction.Up);
+                    Move(Direction.Up);
 				}
 				else if (newState.IsKeyUp(Keys.Left) && oldState.IsKeyDown(Keys.Left))
 				{
-                    Step(Direction.Left);
+                    Move(Direction.Left);
 				}
 
                 oldState = newState;
             }
-
             base.Update(gameTime);
 		} 
 
-        public bool LocalPlayer { get; private set; }
+        public bool LocalPlayer { get; set; }
 
         KeyboardState oldState;
 

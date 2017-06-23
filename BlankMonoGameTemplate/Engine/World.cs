@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using MonoGame.Extended;
+using BlankMonoGameTemplate.Engine.Entities;
+using MonoGame.Extended.Sprites;
+using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended.TextureAtlases;
 
 namespace BlankMonoGameTemplate.Engine
 {
@@ -14,22 +18,45 @@ namespace BlankMonoGameTemplate.Engine
         Left
     }
 
-    public class World : IUpdate
+    /// <summary>
+    /// Controls all the objects and happenings that occur in the "Game World"
+    /// </summary>
+    public class World
     {
-        public World(Game game)
+        public World(Game1 game, Map map)
         {
             Game = game;
-
+            entityManager = new EntityManager(game, this);
+            mapRenderer = new MapRenderer(game, map);
         }
 
-		public void Update(GameTime gameTime)
+        public void Initialize()
+        {
+            var player = entityManager.CreateEntity<Player>();
+            player.Name = "Player";
+            player.LocalPlayer = true;
+        }
+
+		public void UpdateWorld(GameTime gameTime)
 		{
-			
+            // Update map
+
+            // Update entities
+            entityManager.Update(gameTime);
 		}
 
-        public List<Player> Players = new List<Player>();
+        public void DrawWorld(GameTime gameTime)
+        {
+            // Draw map
+            mapRenderer.Draw(gameTime);
+            // Draw entities
+            entityManager.Draw(gameTime);
+        }
 
-        public Map Map { get; set; }
+        public Map Map
+        {
+            get { return mapRenderer.Map; }
+        }
 
         public Point GetMapCoordFromPosition(Vector2 position)
         {
@@ -44,14 +71,8 @@ namespace BlankMonoGameTemplate.Engine
 
         public void MoveObjectToTile(IMovable movable, int x, int y)
         {
-            if(!(x < 0 || x >= Map.Width || y < 0 || y >= Map.Height)) // If inside bounds of map
-            {
-				if (!Map.Collisions[x, y]) // If no collisions
-				{
-					var newPos = new Vector2(Map.TileSize * x, Map.TileSize * y);
-					movable.Position = newPos;
-				}
-            }
+            var newPos = new Vector2(Map.TileSize * x, Map.TileSize * y);
+            movable.Position = newPos;
         }
 
 		public void MoveObjectToTile(IMovable movable, Point point)
@@ -59,10 +80,13 @@ namespace BlankMonoGameTemplate.Engine
 			MoveObjectToTile(movable, point.X, point.Y);
 		}
 
-        public Game Game
+        public Game1 Game
         {
             get;
             private set;
         }
+
+        EntityManager entityManager;
+        MapRenderer mapRenderer;
     }
 }

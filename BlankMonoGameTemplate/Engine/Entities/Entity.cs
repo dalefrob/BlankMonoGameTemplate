@@ -12,13 +12,11 @@ namespace BlankMonoGameTemplate.Engine.Entities
 {
     public class Entity : IUpdate
     {
-        public Entity(World world)
-        {
-            World = world;         
-            spriteBatch = new SpriteBatch(world.Game.GraphicsDevice);
-        }
+        public EntityManager Manager { get; set; }
+
+        public Entity() { }
         
-        public virtual void Step(Direction direction)
+        public virtual void Move(Direction direction, int tileCount = 1)
         {
             if (_moving) return; // TODO - change this
 
@@ -28,47 +26,59 @@ namespace BlankMonoGameTemplate.Engine.Entities
             switch (direction)
             {
                 case Direction.Up:
-                    y--;
+                    y -= tileCount;
                     break;
                 case Direction.Right:
-                    x++;
+                    x += tileCount;
                     break;
                 case Direction.Down:
-                    y++;
+                    y += tileCount;
                     break;
                 case Direction.Left:
-                    x--;
+                    x -= tileCount;
                     break;
-            }
+            }           
             var _newCoord = new Point(x, y);
-            DestinationPosition = World.GetPositionFromMapCoord(_newCoord);
+            // Check if it is a legal move
+            if (!(x < 0 || x >= World.Map.Width || y < 0 || y >= World.Map.Height))
+            {
+                if (!World.Map.Collisions[x, y])
+                {
+                    DestinationPosition = World.GetPositionFromMapCoord(_newCoord);
+                }  
+            }   
         }
 
         public virtual void Update(GameTime gameTime)
         {
             // Smooth move to destination tile
             if (_moving)
-            {              
-                var direction = Vector2.Normalize(destinationPos - _originalPos);
-                Position += direction * _moveSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (Vector2.Distance(Position, destinationPos) >= _distance)
+            {
+                _lerpVal += _timeToMove / (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+                Position = Vector2.Lerp(_originalPos, DestinationPosition, _lerpVal);
+                if (_lerpVal >= 1)
                 {
-                    Position = destinationPos;
                     _moving = false;
+                    Position = DestinationPosition;
+                    EntityEventArgs args = new EntityEventArgs
+                    {
+                        MapCoord = World.GetMapCoordFromPosition(Position)
+                    };
+                    if (LandedTile != null) LandedTile(this, args);
                 }
-
-                
             }
         }
 
-        public void Draw(GameTime gameTime)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Begin();
             spriteBatch.Draw(Sprite);
-            spriteBatch.End();
         }
 
-        public World World { get; private set; }
+        public event EventHandler<EntityEventArgs> LandedTile;
+
+        public string Name { get; set; }
+        public bool IsDead { get; set; }
+        public World World { get { return Manager.World; } }
         public Sprite Sprite { get; set; }
         public Vector2 Position 
         { 
@@ -76,10 +86,11 @@ namespace BlankMonoGameTemplate.Engine.Entities
             set { Sprite.Position = value; }     
         }
 
+        float _timeToMove = 2f;
+        float _lerpVal = 0;
         bool _moving = false;
-        float _moveSpeed = 50f;
+
         Vector2 _originalPos = Vector2.Zero;
-        float _distance = 0;
         Vector2 destinationPos;
         public Vector2 DestinationPosition
         {
@@ -91,11 +102,18 @@ namespace BlankMonoGameTemplate.Engine.Entities
             {
                 destinationPos = value;
                 _originalPos = Position;
-                _distance = Vector2.Distance(_originalPos, destinationPos);
+                _lerpVal = 0;
                 _moving = true;
             }
         }
+    }
 
-        SpriteBatch spriteBatch;
+    public class EntityEventArgs : EventArgs
+    {
+        public Point MapCoord { get; set; }
+        public EntityEventArgs()
+        {
+             
+        }
     }
 }

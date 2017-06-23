@@ -9,14 +9,16 @@ using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.Sprites;
 using MonoGame.Extended.Input.InputListeners;
 using BlankMonoGameTemplate.Screens;
+using System.Collections.Generic;
 
 namespace BlankMonoGameTemplate
 {
-    public class MainScreen : GameScreen
+    public class WorldScreen : Screen
     {
-        public MainScreen(Game1 game)
+        public WorldScreen(Game1 game)
         {
             Game = game;
+            Textures2D = new Dictionary<string, TextureAtlas>();
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
         }
 
@@ -33,36 +35,30 @@ namespace BlankMonoGameTemplate
 
         public override void Initialize()
         {
+            base.Initialize();
+            Console.WriteLine("Init called");
+
             var map = Map.LoadFromFile(Game.Content, "testmap.xml");
-            World = new World(Game)
-            {
-                Map = map
-            };
-            MapRenderer = new MapRenderer(Game)
-            {
-                Map = map
-			};
-
-			var texture = Game.Content.Load<Texture2D>("Tiles/Objects/Decor1");
-			var texAtlas = TextureAtlas.Create("Decor1", texture, 16, 16, int.MaxValue, 0, 0);
-            Sprite playerSprite = new Sprite(texAtlas.GetRegion(138)) {
-                Origin = Vector2.Zero
-            };
-			World.Players.Add(new Player(World, true) { Sprite = playerSprite });
-
-            var localPlayer = World.Players.Find(p => p.LocalPlayer == true);
-            World.MoveObjectToTile(localPlayer, 3, 1);
+            World = new World(Game, map);
 
             Game.KeyboardListener.KeyTyped += keyboardListener_KeyTyped;
 
-            //base.Initialize();
+ 
         }
 
         public override void LoadContent()
         {
-            
-			
             base.LoadContent();
+            Console.WriteLine("Load content called");
+            // Load all possible assets that will appear on this screen
+            // ** ENTITIES ** //
+            AddTexture2D("Player0", Game.Content.Load<Texture2D>("Tiles/Characters/Player0"));
+            AddTexture2D("Player1", Game.Content.Load<Texture2D>("Tiles/Characters/Player1"));
+            AddTexture2D("Slime0", Game.Content.Load<Texture2D>("Tiles/Characters/Slime0"));
+            AddTexture2D("Slime1", Game.Content.Load<Texture2D>("Tiles/Characters/Slime1"));
+
+
+            World.Initialize();
         }
 
         public override void UnloadContent()
@@ -72,16 +68,13 @@ namespace BlankMonoGameTemplate
 
         public override void Update(GameTime gameTime)
         {
-            World.Players.ForEach(p => p.Update(gameTime));
+            World.UpdateWorld(gameTime);
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
-            spriteBatch.Begin();
-            MapRenderer.Draw(spriteBatch);
-            spriteBatch.End();
-            World.Players.ForEach(p => p.Draw(gameTime));
+            World.DrawWorld(gameTime);
             base.Draw(gameTime);
         }
 
@@ -104,6 +97,15 @@ namespace BlankMonoGameTemplate
         }
 
 		SpriteBatch spriteBatch;
-        KeyboardListener keyboardListener;
+        public static Dictionary<string, TextureAtlas> Textures2D { get; private set; }
+
+        public void AddTexture2D(string name, Texture2D texture)
+        {         
+            if (!Textures2D.ContainsKey(name))
+            {
+                var texAtlas = TextureAtlas.Create(name, texture, 16, 16, int.MaxValue);
+                Textures2D.Add(name, texAtlas);
+            }
+        }
     }
 }

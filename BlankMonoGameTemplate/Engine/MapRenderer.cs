@@ -18,6 +18,7 @@ namespace BlankMonoGameTemplate.Engine
         public MapRenderer(Game game) 
         {
             Game = game;
+            spriteBatch = new SpriteBatch(game.GraphicsDevice);
         }
 
         public MapRenderer(Game game, Map map) : this(game)
@@ -31,11 +32,12 @@ namespace BlankMonoGameTemplate.Engine
             
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(GameTime gameTime)
         {
             if (Map == null) return;
 			for (int l = 0; l < Map.Layers.Count; l++) // Layer
 			{
+                spriteBatch.Begin();
 	            for (var i = 0; i < Map.Height; i++) // X coord
 	            {
 	                for (var j = 0; j < Map.Width; j++) // Y coord
@@ -52,13 +54,14 @@ namespace BlankMonoGameTemplate.Engine
 	                    spriteBatch.Draw(tileTexture, destinationRect, Color.White);	                    
 	                }
 	            }
+                spriteBatch.End();
             };           
         }
 
         public Vector2 Position { get; set; }
-        public bool Debug { get; set; } 
+        public bool Debug { get; set; }
 
-        //Dictionary<string, Tileset> Tilesets = new Dictionary<string, Tileset>();
+        SpriteBatch spriteBatch;
 
         public Game Game
         {

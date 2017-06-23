@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace BlankMonoGameTemplate.Screens
 {
-    public class MapEditorScreen : GameScreen
+    public class MapEditorScreen : Screen
     {
         public MapEditorScreen(Game1 game)
         {          
@@ -34,12 +34,6 @@ namespace BlankMonoGameTemplate.Screens
             MousePos = e.Position.ToVector2();
         }
         #endregion
-
-        public override void OnShow()
-        {
-
-            base.OnShow();
-        }
 
         public override void Initialize()
         {
@@ -133,7 +127,7 @@ namespace BlankMonoGameTemplate.Screens
             if (!MapLoaded) return;
 
             spriteBatch.Begin();
-            MapRenderer.Draw(spriteBatch);
+            MapRenderer.Draw(gameTime);
             spriteBatch.Draw(selectionTexture, MapRenderer.Position + (FocusedMapCoord.ToVector2() * Map.TileSize), Color.White);
 
             var relativeMousePos = Vector2.Subtract(MousePos, MapRenderer.Position);

@@ -7,7 +7,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{B9F13E67-F77B-4EA1-A4FD-F549F5A19DF0}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BlankMonoGameTemplate</RootNamespace>
     <AssemblyName>BlankMonoGameTemplate</AssemblyName>
@@ -41,9 +41,13 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Engine\Data\Map.cs" />
     <Compile Include="Engine\Entities\Entity.cs" />
+    <Compile Include="Engine\Entities\EntityManager.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -54,8 +58,7 @@
     <Compile Include="Engine\MapRenderer.cs" />
     <Compile Include="Engine\Player.cs" />
     <Compile Include="Engine\World.cs" />
-    <Compile Include="Screens\GameScreen.cs" />
-    <Compile Include="Screens\MainScreen.cs" />
+    <Compile Include="Screens\WorldScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
