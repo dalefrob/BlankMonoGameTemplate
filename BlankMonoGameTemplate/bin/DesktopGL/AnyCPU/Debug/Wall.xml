@@ -485,15 +485,15 @@
     </Tile>
     <Tile>
       <TextureId>120</TextureId>
-      <TileFlags>Walkable</TileFlags>
+      <TileFlags>Solid</TileFlags>
     </Tile>
     <Tile>
       <TextureId>121</TextureId>
-      <TileFlags>Walkable</TileFlags>
+      <TileFlags>Solid</TileFlags>
     </Tile>
     <Tile>
       <TextureId>122</TextureId>
-      <TileFlags>Walkable</TileFlags>
+      <TileFlags>Solid</TileFlags>
     </Tile>
     <Tile>
       <TextureId>123</TextureId>
@@ -565,11 +565,11 @@
     </Tile>
     <Tile>
       <TextureId>140</TextureId>
-      <TileFlags>Walkable</TileFlags>
+      <TileFlags>Solid</TileFlags>
     </Tile>
     <Tile>
       <TextureId>141</TextureId>
-      <TileFlags>Walkable</TileFlags>
+      <TileFlags>Solid</TileFlags>
     </Tile>
     <Tile>
       <TextureId>142</TextureId>
@@ -645,7 +645,7 @@
     </Tile>
     <Tile>
       <TextureId>160</TextureId>
-      <TileFlags>Walkable</TileFlags>
+      <TileFlags>Solid</TileFlags>
     </Tile>
     <Tile>
       <TextureId>161</TextureId>
@@ -653,7 +653,7 @@
     </Tile>
     <Tile>
       <TextureId>162</TextureId>
-      <TileFlags>Walkable</TileFlags>
+      <TileFlags>Solid</TileFlags>
     </Tile>
     <Tile>
       <TextureId>163</TextureId>

@@ -99,6 +99,7 @@ namespace BlankMonoGameTemplate.Engine
         public void SetTileAt(int layer, int x, int y, int tileId)
         {
             Layers[layer].Tiles[(y * Width) + x] = tileId;
+
         }
 
         public int GetTileAt(int layer, int x, int y)
@@ -112,9 +113,13 @@ namespace BlankMonoGameTemplate.Engine
         public static void SaveToFile(Map gameMap, string filename)
         {
             XmlSerializer x = new XmlSerializer(gameMap.GetType());
-            StreamWriter writer = new StreamWriter(filename);
+            using (FileStream fs = new FileStream("testmap.xml", FileMode.OpenOrCreate))
+			{
+				// do something with the file stream here
+                x.Serialize(fs, gameMap);
+                fs.Close();
+			}
 
-            x.Serialize(writer, gameMap);
         }
 
         public static Map LoadFromFile(ContentManager content, string filename)
@@ -123,8 +128,12 @@ namespace BlankMonoGameTemplate.Engine
             try
             {
 				XmlSerializer x = new XmlSerializer(typeof(Map));
-				StreamReader reader = new StreamReader(filename);
-				_map = (Map)x.Deserialize(reader); 
+				using (FileStream fs = new FileStream("testmap.xml", FileMode.OpenOrCreate))
+				{
+					// do something with the file stream here
+					_map = (Map)x.Deserialize(fs);
+					fs.Close();
+				}
             } catch (Exception ex) {
                 _map = new Map(10, 10, 16, "Floor");
                 _map.Layers.Add(new MapLayer(_map) { TilesetName = "Wall" });
