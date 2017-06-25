@@ -55,5 +55,37 @@
     <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Objects/Wall.png</File>
     <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Fonts/mainfont.spritefont</File>
     <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/UI/Selection.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Aquatic0.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Aquatic1.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Avian0.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Avian1.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Cat0.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Cat1.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Demon0.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Demon1.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Dog0.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Dog1.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Elemental0.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Elemental1.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Humanoid0.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Humanoid1.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Misc0.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Misc1.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Pest0.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Pest1.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Plant0.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Plant1.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Player0.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Player1.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Quadraped0.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Quadraped1.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Reptile0.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Reptile1.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Rodent0.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Rodent1.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Slime0.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Slime1.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Undead0.png</File>
+    <File>/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/Content/Tiles/Characters/Undead1.png</File>
   </SourceFiles>
 </SourceFileCollection>
