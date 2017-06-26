@@ -65,6 +65,8 @@
     <Compile Include="Engine\Entities\Player.cs" />
     <Compile Include="Engine\World.cs" />
     <Compile Include="Screens\WorldScreen.cs" />
+    <Compile Include="Engine\Entities\HealthBar.cs" />
+    <Compile Include="Engine\Data\MonsterData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

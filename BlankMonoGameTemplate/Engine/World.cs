@@ -42,12 +42,16 @@ namespace BlankMonoGameTemplate.Engine
             var door = (Door)entityManager.CreateEntity<Door>().SetMapPosition(3, 4);
             door.RequiresKey = true;
 
+            entityManager.CreateEntity<Monster>().SetMapPosition(9, 9);
+
+            /*
             var test = GetTileRangeCircle(new Point(6, 6), 1);
             //var test = GetTileRangeDiamond(new Point(6, 6), 4);
             foreach (var coord in test)
             {
                 entityManager.CreateEntity<Monster>().SetMapPosition(coord);
-            }         
+            } 
+            */
         }
 
 		public void UpdateWorld(GameTime gameTime)

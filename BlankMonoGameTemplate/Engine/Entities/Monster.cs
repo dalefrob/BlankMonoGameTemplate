@@ -2,9 +2,10 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended.Sprites;
 
 namespace BlankMonoGameTemplate.Engine.Entities
 {
@@ -13,7 +14,10 @@ namespace BlankMonoGameTemplate.Engine.Entities
         public Monster() : base()
         {
             Name = "Monster";
-            Sprite.TextureRegion = WorldScreen.Textures2D["Slime0"].GetRegion(0);
+            Sprite.TextureRegion = WorldScreen.Textures2D["Slime0"].GetRegion(10);
+            MaxHealth = 5;
+            Health = MaxHealth;
+            healthBar = new HealthBar(5, WorldScreen.Textures2D["GUI0"].GetRegion(22));
             Player.PlayerMoved += Player_PlayerMoved;
         }
 
@@ -27,6 +31,13 @@ namespace BlankMonoGameTemplate.Engine.Entities
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+            healthBar.Position = Position - new Vector2(0, 16);
+        }
+
+        public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            base.Draw(spriteBatch, gameTime);
+            spriteBatch.Draw(healthBar);
         }
 
         protected override bool CanMove(Point newCoord)
@@ -58,6 +69,10 @@ namespace BlankMonoGameTemplate.Engine.Entities
         public int ViewRange { get; set; }
         public int TouchDamage { get; set; }
         public bool CanGoThruWalls { get; set; }
+
+        public int MaxHealth { get; set; }
+        public int Health { get; set; }
+        HealthBar healthBar;
         
     }
 }
