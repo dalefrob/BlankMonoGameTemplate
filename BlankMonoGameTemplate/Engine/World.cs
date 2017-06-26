@@ -41,6 +41,13 @@ namespace BlankMonoGameTemplate.Engine
 
             var door = (Door)entityManager.CreateEntity<Door>().SetMapPosition(3, 4);
             door.RequiresKey = true;
+
+            var test = GetTileRangeCircle(new Point(6, 6), 1);
+            //var test = GetTileRangeDiamond(new Point(6, 6), 4);
+            foreach (var coord in test)
+            {
+                entityManager.CreateEntity<Monster>().SetMapPosition(coord);
+            }         
         }
 
 		public void UpdateWorld(GameTime gameTime)
@@ -92,6 +99,55 @@ namespace BlankMonoGameTemplate.Engine
 		{
 			MoveObjectToTile(entity, point.X, point.Y);
 		}
+
+        public List<Point> GetTileRangeCircle(Point origin, float tileRange)
+        {
+            var points = new List<Point>();
+            var worldPos = GetPositionFromMapCoord(origin) + new Vector2(Map.TileSize / 2); // Map.TileSize / 2 will get the center position of the tile
+            // Every 20 degrees, query tiles at radius distance
+            for (int a = 0; a < 360; a = a + 20)
+            {
+                for (int r = 1; r <= tileRange; r++)
+                {
+                    float x = (float)((r * Map.TileSize) * Math.Cos(a * Math.PI / 180F)) + worldPos.X;
+                    float y = (float)((r * Map.TileSize) * Math.Sin(a * Math.PI / 180F)) + worldPos.Y;
+                    var tileCoord = GetMapCoordFromPosition(new Vector2(x, y));
+                    if (!points.Contains(tileCoord))
+                    {
+                        points.Add(tileCoord);
+                    }
+                }
+            }
+
+            return points;
+        }
+
+        /// <summary>
+        /// Gets surrounding tiles in range in a diamond shape.
+        /// </summary>
+        /// <param name="origin"></param>
+        /// <param name="tileRange"></param>
+        /// <returns></returns>
+        public List<Point> GetTileRangeDiamond(Point origin, int tileRange)
+        {
+            var points = new List<Point>();
+            for (int i = 1; i <= tileRange; i++)
+            {
+                points.Add(new Point(origin.X, origin.Y + i));
+                points.Add(new Point(origin.X, origin.Y - i));
+                points.Add(new Point(origin.X + i, origin.Y));
+                points.Add(new Point(origin.X - i, origin.Y));
+                if (i > 1)
+                {
+                    var o = i - 1;
+                    points.Add(new Point(origin.X + o, origin.Y + o));
+                    points.Add(new Point(origin.X - o, origin.Y + o));
+                    points.Add(new Point(origin.X - o, origin.Y - o));
+                    points.Add(new Point(origin.X + o, origin.Y - o));
+                }
+            }
+            return points;
+        }
 
         public Game1 Game
         {

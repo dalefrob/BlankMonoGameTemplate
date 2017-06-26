@@ -10,7 +10,12 @@ using System.Threading.Tasks;
 
 namespace BlankMonoGameTemplate.Engine.Entities
 {
-    public interface IDoor
+    public interface IBlocker
+    {
+
+    }
+
+    public interface IDoor : IBlocker
     {
         bool IsOpen { get; set; }
         bool RequiresKey { get; set; }

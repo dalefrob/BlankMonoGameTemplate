@@ -93,6 +93,7 @@ namespace BlankMonoGameTemplate.Engine.Entities
         }
 
         SpriteBatch spriteBatch;
+        public Random random = new Random();
 
         #region Events
 

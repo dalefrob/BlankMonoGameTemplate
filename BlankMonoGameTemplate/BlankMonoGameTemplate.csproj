@@ -53,6 +53,7 @@
     <Compile Include="Engine\Entities\EntityManager.cs" />
     <Compile Include="Engine\Entities\ICollectible.cs" />
     <Compile Include="Engine\Entities\Key.cs" />
+    <Compile Include="Engine\Entities\Monster.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

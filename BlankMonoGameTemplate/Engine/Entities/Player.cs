@@ -64,6 +64,12 @@ namespace BlankMonoGameTemplate.Engine
             base.Update(gameTime);
 		}
 
+        public override void Move(Direction direction, int tileCount = 1)
+        {
+            base.Move(direction, tileCount);
+            if (PlayerMoved != null) PlayerMoved(this, EventArgs.Empty);
+        }
+
         protected override bool CanMove(Point newCoord)
         {
             // Check basic map bounds and collisions
@@ -92,6 +98,8 @@ namespace BlankMonoGameTemplate.Engine
         }
 
         public bool LocalPlayer { get; set; }
+
+        public static event EventHandler<EventArgs> PlayerMoved;
 
         KeyboardState oldState;
 

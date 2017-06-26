@@ -31,6 +31,12 @@ namespace BlankMonoGameTemplate.Engine.Entities
 
         #region BuilderMethods
 
+        public Entity SetMapPosition(Point p)
+        {
+            World.MoveObjectToTile(this, p);
+            return this;
+        }
+
         public Entity SetMapPosition(int x, int y)
         {
             World.MoveObjectToTile(this, new Point(x, y));

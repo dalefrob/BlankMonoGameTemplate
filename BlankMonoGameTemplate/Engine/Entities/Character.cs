@@ -62,17 +62,19 @@ namespace BlankMonoGameTemplate.Engine.Entities
         protected virtual bool CanMove(Point newCoord)
         {
             bool result = true;
-            // Check for map bounds
-            if ((newCoord.X < 0 || newCoord.X >= World.Map.Width || newCoord.Y < 0 || newCoord.Y >= World.Map.Height))
+            if (!(newCoord.X < 0 || newCoord.X >= World.Map.Width || newCoord.Y < 0 || newCoord.Y >= World.Map.Height))
             {
-                result = false;
+                if (World.Map.Collisions[newCoord.X, newCoord.Y])
+                {
+                    // Collision at next point
+                    result = false;
+                }
             }
-            // Check for collisions
-            if (World.Map.Collisions[newCoord.X, newCoord.Y])
+            else
             {
+                // Outside map range
                 result = false;
-            }
-            
+            }          
             return result;
         }
 
