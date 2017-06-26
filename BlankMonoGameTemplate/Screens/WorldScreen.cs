@@ -52,11 +52,14 @@ namespace BlankMonoGameTemplate
             Console.WriteLine("Load content called");
             // Load all possible assets that will appear on this screen
             // ** ENTITIES ** //
+            AddTexture2D("GUI0", Game.Content.Load<Texture2D>("Tiles/GUI/GUI0"));
             AddTexture2D("Player0", Game.Content.Load<Texture2D>("Tiles/Characters/Player0"));
             AddTexture2D("Player1", Game.Content.Load<Texture2D>("Tiles/Characters/Player1"));
             AddTexture2D("Slime0", Game.Content.Load<Texture2D>("Tiles/Characters/Slime0"));
             AddTexture2D("Slime1", Game.Content.Load<Texture2D>("Tiles/Characters/Slime1"));
-
+            AddTexture2D("Door0", Game.Content.Load<Texture2D>("Tiles/Objects/Door0"));
+            AddTexture2D("Door1", Game.Content.Load<Texture2D>("Tiles/Objects/Door1"));
+            AddTexture2D("Key", Game.Content.Load<Texture2D>("Tiles/Items/Key"));
 
             World.Initialize();
         }

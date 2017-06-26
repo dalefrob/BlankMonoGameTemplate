@@ -49,7 +49,11 @@ namespace BlankMonoGameTemplate.Engine.Entities
         {
             if (!Entities.Contains(e))
             {
-                e.LandedTile += Entity_LandedTile;
+                if (e is Character)
+                {
+                    var c = (Character)e;
+                    c.LandedTile += Entity_LandedTile;
+                }
                 Entities.Add(e);
             }
         }
@@ -58,12 +62,23 @@ namespace BlankMonoGameTemplate.Engine.Entities
         {
             if (Entities.Contains(e))
             {
-                e.LandedTile -= Entity_LandedTile;
-                Entities.Remove(e);
+                if (e is Character)
+                {
+                    var c = (Character)e;
+                    c.LandedTile -= Entity_LandedTile;
+                }
             }
         }
 
         List<Entity> Entities = new List<Entity>();
+
+        public List<Entity> ActiveEntities
+        {
+            get
+            {
+                return Entities.Where(e => e.ToCleanup == false).ToList();
+            }
+        }
 
         public Game1 Game
         {

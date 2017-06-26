@@ -46,8 +46,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Engine\Data\Map.cs" />
+    <Compile Include="Engine\Data\PlayerData.cs" />
+    <Compile Include="Engine\Entities\Character.cs" />
+    <Compile Include="Engine\Entities\Door.cs" />
     <Compile Include="Engine\Entities\Entity.cs" />
     <Compile Include="Engine\Entities\EntityManager.cs" />
+    <Compile Include="Engine\Entities\ICollectible.cs" />
+    <Compile Include="Engine\Entities\Key.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -56,7 +61,7 @@
     <Compile Include="Screens\MapEditorScreen.cs" />
     <Compile Include="Engine\TilesetViewer.cs" />
     <Compile Include="Engine\MapRenderer.cs" />
-    <Compile Include="Engine\Player.cs" />
+    <Compile Include="Engine\Entities\Player.cs" />
     <Compile Include="Engine\World.cs" />
     <Compile Include="Screens\WorldScreen.cs" />
   </ItemGroup>

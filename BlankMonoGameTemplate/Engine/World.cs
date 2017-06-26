@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -35,6 +36,11 @@ namespace BlankMonoGameTemplate.Engine
             var player = entityManager.CreateEntity<Player>();
             player.Name = "Player";
             player.LocalPlayer = true;
+
+            var key = (Key)entityManager.CreateEntity<Key>().SetMapPosition(7, 0);
+
+            var door = (Door)entityManager.CreateEntity<Door>().SetMapPosition(3, 4);
+            door.RequiresKey = true;
         }
 
 		public void UpdateWorld(GameTime gameTime)
@@ -58,6 +64,13 @@ namespace BlankMonoGameTemplate.Engine
             get { return mapRenderer.Map; }
         }
 
+        public List<Entity> GetEntitiesAtCoord(Point coord)
+        {
+            var result = new List<Entity>();
+            result = entityManager.ActiveEntities.Where(e => e.MapCoordinate == coord).ToList();
+            return result;
+        }
+
         public Point GetMapCoordFromPosition(Vector2 position)
         {
             var tilePos = position / Map.TileSize;
@@ -69,15 +82,15 @@ namespace BlankMonoGameTemplate.Engine
             return new Vector2(coord.X * Map.TileSize, coord.Y * Map.TileSize);
         }
 
-        public void MoveObjectToTile(IMovable movable, int x, int y)
+        public void MoveObjectToTile(Entity entity, int x, int y)
         {
             var newPos = new Vector2(Map.TileSize * x, Map.TileSize * y);
-            movable.Position = newPos;
+            entity.Position = newPos;
         }
 
-		public void MoveObjectToTile(IMovable movable, Point point)
+		public void MoveObjectToTile(Entity entity, Point point)
 		{
-			MoveObjectToTile(movable, point.X, point.Y);
+			MoveObjectToTile(entity, point.X, point.Y);
 		}
 
         public Game1 Game
