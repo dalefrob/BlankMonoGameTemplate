@@ -21,35 +21,29 @@ namespace BlankMonoGameTemplate.Engine
             spriteBatch = new SpriteBatch(game.GraphicsDevice);
         }
 
-        public MapRenderer(Game game, Map map) : this(game)
-        {           
-            Position = Vector2.Zero;
-            Map = map;
-        }
-
         public void Update(GameTime gameTime) 
         {
             
         }
 
-        public void Draw(GameTime gameTime)
+        public void Draw(MapData map, GameTime gameTime)
         {
-            if (Map == null) return;
-			for (int l = 0; l < Map.Layers.Count; l++) // Layer
+            if (map == null) return;
+            for (int l = 0; l < map.Layers.Count; l++) // Layer
 			{
                 spriteBatch.Begin();
-	            for (var i = 0; i < Map.Height; i++) // X coord
+                for (var i = 0; i < map.Height; i++) // X coord
 	            {
-	                for (var j = 0; j < Map.Width; j++) // Y coord
-	                {	                    
-	                    var tileId = Map.GetTileAt(l, i, j);
-	                    var tileTexture = Map.Tilesets[Map.Layers[l].TilesetName].GetTile(tileId).Texture;
+                    for (var j = 0; j < map.Width; j++) // Y coord
+	                {
+                        var tileId = map.GetTileIdAt(l, i, j);
+                        var tileTexture = WorldScreen.Tilesets[map.Layers[l].TilesetName].TileTextureByIndex(tileId);
                         var destinationRect = new Rectangle
                         {
-                            X = (int)Position.X + Map.TileSize * i,
-                            Y = (int)Position.Y + Map.TileSize * j,
-                            Width = Map.TileSize,
-                            Height = Map.TileSize
+                            X = (int)Position.X + map.TileSize * i,
+                            Y = (int)Position.Y + map.TileSize * j,
+                            Width = map.TileSize,
+                            Height = map.TileSize
                         };
 	                    spriteBatch.Draw(tileTexture, destinationRect, Color.White);	                    
 	                }
@@ -67,13 +61,6 @@ namespace BlankMonoGameTemplate.Engine
         {
             get;
             private set;
-        }
-
-        public Map Map
-        {
-            get;
-            set;    
-        }
-          
+        }          
     }
 }

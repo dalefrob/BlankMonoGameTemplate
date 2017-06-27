@@ -10,6 +10,7 @@ using MonoGame.Extended.Sprites;
 using MonoGame.Extended.Input.InputListeners;
 using BlankMonoGameTemplate.Screens;
 using System.Collections.Generic;
+using BlankMonoGameTemplate.Engine.Data;
 
 namespace BlankMonoGameTemplate
 {
@@ -38,7 +39,7 @@ namespace BlankMonoGameTemplate
             base.Initialize();
             Console.WriteLine("Init called");
 
-            var map = Map.LoadFromFile(Game.Content, "testmap.xml");
+            var map = Helper.LoadMapData(Game.Content, "testmap");
             World = new World(Game, map);
 
             Game.KeyboardListener.KeyTyped += keyboardListener_KeyTyped;
@@ -51,6 +52,9 @@ namespace BlankMonoGameTemplate
             base.LoadContent();
             Console.WriteLine("Load content called");
             // Load all possible assets that will appear on this screen
+            // ** TILESETS ** //
+            AddTileset("Floor", Helper.LoadTilesetData("Floor"));
+            AddTileset("Wall", Helper.LoadTilesetData("Wall"));
             // ** ENTITIES ** //
             AddTexture2D("GUI0", Game.Content.Load<Texture2D>("Tiles/GUI/GUI0"));
             AddTexture2D("Player0", Game.Content.Load<Texture2D>("Tiles/Characters/Player0"));
@@ -100,7 +104,9 @@ namespace BlankMonoGameTemplate
         }
 
 		SpriteBatch spriteBatch;
+
         public static Dictionary<string, TextureAtlas> Textures2D { get; private set; }
+        public static Dictionary<string, Tileset> Tilesets = new Dictionary<string, Tileset>();
 
         public void AddTexture2D(string name, Texture2D texture)
         {         
@@ -108,6 +114,15 @@ namespace BlankMonoGameTemplate
             {
                 var texAtlas = TextureAtlas.Create(name, texture, 16, 16, int.MaxValue);
                 Textures2D.Add(name, texAtlas);
+            }
+        }
+
+        public void AddTileset(string name, TilesetData tsData)
+        {
+            if (!Tilesets.ContainsKey(name))
+            {
+                var tset = new Tileset(Game.Content, tsData.Name, tsData);
+                Tilesets.Add(name, tset);
             }
         }
     }

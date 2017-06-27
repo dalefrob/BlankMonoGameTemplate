@@ -8,6 +8,7 @@ using BlankMonoGameTemplate.Engine.Entities;
 using MonoGame.Extended.Sprites;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.TextureAtlases;
+using BlankMonoGameTemplate.Engine.Data;
 
 namespace BlankMonoGameTemplate.Engine
 {
@@ -24,15 +25,23 @@ namespace BlankMonoGameTemplate.Engine
     /// </summary>
     public class World
     {
-        public World(Game1 game, Map map)
+        public World(Game1 game, MapData map)
         {
             Game = game;
+            Map = map;
             entityManager = new EntityManager(game, this);
-            mapRenderer = new MapRenderer(game, map);
+            mapRenderer = new MapRenderer(game);
         }
 
         public void Initialize()
         {
+            InitMap();
+            InitEntities();
+        }
+
+        private void InitEntities()
+        {
+            /* CREATE ENTITIES FOR TESTING */
             var player = entityManager.CreateEntity<Player>();
             player.Name = "Player";
             player.LocalPlayer = true;
@@ -43,15 +52,31 @@ namespace BlankMonoGameTemplate.Engine
             door.RequiresKey = true;
 
             entityManager.CreateEntity<Monster>().SetMapPosition(9, 9);
+        }
 
-            /*
-            var test = GetTileRangeCircle(new Point(6, 6), 1);
-            //var test = GetTileRangeDiamond(new Point(6, 6), 4);
-            foreach (var coord in test)
+        private void InitMap()
+        {
+            /* INIT MAP */
+            Collisions = new bool[Map.Width, Map.Height];
+            AStarNodes = new AStarNode[Map.Width, Map.Height];
+            for (int i = 0; i < Map.Width * Map.Height; i++)
             {
-                entityManager.CreateEntity<Monster>().SetMapPosition(coord);
-            } 
-            */
+                var x = i % Map.Width;
+                var y = i / Map.Width;
+                var currentNode = new AStarNode();
+                foreach (var layer in Map.Layers)
+                {
+                    var index = (y * Map.Width) + x;
+                    var tile = WorldScreen.Tilesets[layer.TilesetName].GetTileData(layer.Tiles[index]);
+                    if (tile.Obstacle)
+                    {
+                        currentNode.Obstacle = true;
+
+                        AStarNodes[x, y] = currentNode;
+                        Collisions[x, y] = true;
+                    }
+                }
+            }
         }
 
 		public void UpdateWorld(GameTime gameTime)
@@ -65,15 +90,12 @@ namespace BlankMonoGameTemplate.Engine
         public void DrawWorld(GameTime gameTime)
         {
             // Draw map
-            mapRenderer.Draw(gameTime);
+            mapRenderer.Draw(Map, gameTime);
             // Draw entities
             entityManager.Draw(gameTime);
         }
 
-        public Map Map
-        {
-            get { return mapRenderer.Map; }
-        }
+        public MapData Map { get; set; }
 
         public List<Entity> GetEntitiesAtCoord(Point coord)
         {
@@ -157,6 +179,18 @@ namespace BlankMonoGameTemplate.Engine
         {
             get;
             private set;
+        }
+
+        public bool[,] Collisions
+        {
+            get;
+            private set;
+        }
+
+        public AStarNode[,] AStarNodes
+        {
+            get;
+            set;
         }
 
         EntityManager entityManager;

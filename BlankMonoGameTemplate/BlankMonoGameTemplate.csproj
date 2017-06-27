@@ -45,8 +45,11 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Engine\Data\Map.cs" />
+    <Compile Include="Engine\Data\MapData.cs" />
+    <Compile Include="Engine\Data\AStarNode.cs" />
     <Compile Include="Engine\Data\PlayerData.cs" />
+    <Compile Include="Engine\Data\Tile.cs" />
+    <Compile Include="Engine\Data\TilesetData.cs" />
     <Compile Include="Engine\Entities\Character.cs" />
     <Compile Include="Engine\Entities\Door.cs" />
     <Compile Include="Engine\Entities\Entity.cs" />
@@ -54,6 +57,7 @@
     <Compile Include="Engine\Entities\ICollectible.cs" />
     <Compile Include="Engine\Entities\Key.cs" />
     <Compile Include="Engine\Entities\Monster.cs" />
+    <Compile Include="Engine\Helper.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

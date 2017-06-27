@@ -12,10 +12,17 @@ namespace BlankMonoGameTemplate.Engine
     /// </summary>
     public class MapLayer
     {
+        public enum LayerType
+        {
+            Tile,
+            Entity
+        }
+
         public MapLayer() { }
 
-        public MapLayer(Map map)
+        public MapLayer(MapData map, LayerType typeOfLayer)
         {
+            TypeOfLayer = typeOfLayer;
             for (int i = 0; i < map.Width * map.Height; i++)
             {
                 Tiles.Add(0);
@@ -29,6 +36,6 @@ namespace BlankMonoGameTemplate.Engine
 		}
 
         public List<int> Tiles = new List<int>();
-
+        public LayerType TypeOfLayer { get; set; }
     }
 }

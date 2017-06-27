@@ -6,146 +6,68 @@ using System.Xml.Serialization;
 using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
+using BlankMonoGameTemplate.Engine.Data;
 
 namespace BlankMonoGameTemplate.Engine
 {
-    [Flags]
-    public enum TileFlags 
-    {
-        Walkable = 0,
-        Solid = 1,
-        Water = 2,
-        Lava = 4,
-        Spikes = 8,
-        Pit = 16
-    }
-
     public class Tileset
     {
-        public Tileset() { }
-
-        public Tileset(TextureAtlas textureAtlas, int tileSize) {
-			TileSize = tileSize;
-            TextureSheetName = textureAtlas.Name;
-			TileSheet = textureAtlas;
-            GenerateTiles();
-        }
-
-        public Tileset(Texture2D texture, int tileSize, string textureSheetName)
+        public Tileset(ContentManager content, string name, TilesetData data) 
         {
-            TileSize = tileSize;
-            TextureSheetName = textureSheetName;
-            TileSheet = TextureAtlas.Create(TextureSheetName, texture, tileSize, tileSize);
-            GenerateTiles();
-        }
-
-        void GenerateTiles()
-        {
-            Tiles = new List<Tile>();
-            for (int i = 0; i < TileSheet.RegionCount; i++)
+            Data = data;
+            TextureAtlas = TextureAtlas.Create(data.Name, content.Load<Texture2D>("Tiles/Objects/" + data.ImageFilename), data.TileSize, data.TileSize);
+            if (Data.TileData.Count == 0)
             {
-                Tiles.Add(new Tile(i, TileSheet.GetRegion(i), TileFlags.Walkable));
+                for (int i = 0; i < TextureAtlas.RegionCount; i++)
+                {
+                    Data.TileData.Add(new Tile() { TextureId = i });
+                }
             }
         }
 
-        public Tile GetTile(int x, int y) 
+        /// <summary>
+        /// XML loaded Tileset Data
+        /// </summary>
+        public TilesetData Data { get; private set; }
+        /// <summary>
+        /// Atlas holding the textures of individual tiles
+        /// </summary>
+        public TextureAtlas TextureAtlas { get; private set; }
+
+        public int TilesVertical
         {
-            return Tiles[Index2dTo1d(TilesHorizontal, x, y)];
-        }
-
-        public Tile GetTile(int index) {
-            return Tiles[index];
-        }
-
-        public string TextureSheetName
-        {
-            get;
-            set;
-        }
-
-        public int TileSize
-        {
-            get;
-            set;
-        }
-
-        public List<Tile> Tiles
-        {
-            get;
-            set;
-        }
-
-        [XmlIgnore]
-        public TextureAtlas TileSheet
-        {
-            get;
-            set;
-        }
-
-        public int TilesHorizontal {
-            get {
-                return TileSheet.Texture.Width / TileSize;
+            get
+            {
+                return TextureAtlas.Texture.Height / Data.TileSize;
             }
         }
 
-        public int TilesVertical {
-            get {
-                return TileSheet.Texture.Height / TileSize;
+        public int TilesHorizontal
+        {
+            get
+            {
+                return TextureAtlas.Texture.Width / Data.TileSize;
             }
         }
 
-        int Index2dTo1d(int xMax, int x, int y) {
-            return (y * xMax) + x;
-        }
-
-        #region Static
-        public static void SaveToFile(Tileset tileset, string filename)
+        public Tile GetTileData(int x, int y)
         {
-            XmlSerializer x = new XmlSerializer(tileset.GetType());
-            StreamWriter writer = new StreamWriter(filename);
-            x.Serialize(writer, tileset);
+            return Data.TileData[(y * TilesHorizontal) + x];
         }
 
-        public static Tileset LoadFromFile(ContentManager content, string filename)
+        public Tile GetTileData(int index)
         {
-            Tileset _tileset;
-            XmlSerializer x = new XmlSerializer(typeof(Tileset));
-            StreamReader reader = new StreamReader(filename);
-            _tileset = (Tileset)x.Deserialize(reader);
-            var texture = content.Load<Texture2D>("Tiles/Objects/" + _tileset.TextureSheetName);
-            var sheet = TextureAtlas.Create(_tileset.TextureSheetName, texture, _tileset.TileSize, _tileset.TileSize);
-            _tileset.TileSheet = sheet;
-            _tileset.Tiles.ForEach(t => {
-                t.Texture = GetTextureRegion(sheet, t.TextureId);
-            });
-            return _tileset;
+            return Data.TileData[index];
         }
-        #endregion
 
-        public static TextureRegion2D GetTextureRegion(TextureAtlas atlas, int index) {
-            return atlas.GetRegion(index);
-        }
-    }
-
-    public class Tile
-    {
-        [XmlIgnore]
-        public TextureRegion2D Texture { get; set; }
-        public int TextureId { get; set; }
-        public TileFlags TileFlags { get; set; }
-
-        public Tile() {}
-
-        public Tile(int id, TextureRegion2D texture, TileFlags flags)
+        public TextureRegion2D TileTextureByIndex(int index)
         {
-            TextureId = id;
-            Texture = texture;
-            TileFlags = flags;
+            return TextureAtlas.GetRegion(index);
         }
 
-        public override string ToString()
+        public TextureRegion2D TileTextureByCoord(int x, int y)
         {
-            return string.Format("TextureId: {0} \nType: {1}", TextureId, TileFlags.ToString());
-        }
+            return TileTextureByIndex((y * TilesHorizontal) + x);
+        }     
     }
 }

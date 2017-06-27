@@ -84,20 +84,20 @@ namespace BlankMonoGameTemplate.Screens
                     FocusedMapCoord += new Point(1, 0);
                     break;
                 case Keys.Enter:
-                    MapRenderer.Map.SetTileAt(CurrentLayerIndex, FocusedMapCoord.X, FocusedMapCoord.Y, Tilesets[CurrentLayerIndex].GetTile(_selTileCoord.X, _selTileCoord.Y).TextureId);
+                    Map.SetTileIdAt(CurrentLayerIndex, FocusedMapCoord.X, FocusedMapCoord.Y, Tilesets[CurrentLayerIndex].GetTileData(_selTileCoord.X, _selTileCoord.Y).TextureId);
                     break;
                 case Keys.S:
-                    Map.SaveToFile(Map, "testmap.xml");
+                    Helper.SaveMapData(Map, "testmap");
                     break;
                 case Keys.T:
-                    Tileset.SaveToFile(Tilesets[CurrentLayerIndex], Tilesets[CurrentLayerIndex].TextureSheetName + ".xml");
+                    Helper.SaveTilesetData(Tilesets[CurrentLayerIndex].Data, Tilesets[CurrentLayerIndex].Data.Name);
                     break;
                 case Keys.F:
                     FloodLayer();
                     break;
                 case Keys.C:
-                    var tile = Tilesets[CurrentLayerIndex].GetTile(_selTileCoord.X, _selTileCoord.Y);
-                    tile.TileFlags |= TileFlags.Solid;
+                    var tile = Tilesets[CurrentLayerIndex].GetTileData(_selTileCoord.X, _selTileCoord.Y);
+                    tile.Obstacle = !tile.Obstacle;
                     break;
             }
         }
@@ -105,7 +105,7 @@ namespace BlankMonoGameTemplate.Screens
 		public void FloodLayer()
 		{
             var _selTileCoord = tilesetViewer.SelectedTileCoord;
-            int tileId = Tilesets[CurrentLayerIndex].GetTile(_selTileCoord.X, _selTileCoord.Y).TextureId;
+            int tileId = Tilesets[CurrentLayerIndex].GetTileData(_selTileCoord.X, _selTileCoord.Y).TextureId;
             for (int i = 0; i < Map.Width * Map.Height; i++) {
 				Map.Layers[CurrentLayerIndex].Tiles[i] = tileId;
             }		
@@ -127,17 +127,17 @@ namespace BlankMonoGameTemplate.Screens
             if (!MapLoaded) return;
 
             spriteBatch.Begin();
-            MapRenderer.Draw(gameTime);
+            MapRenderer.Draw(Map, gameTime);
             spriteBatch.Draw(selectionTexture, MapRenderer.Position + (FocusedMapCoord.ToVector2() * Map.TileSize), Color.White);
 
             var relativeMousePos = Vector2.Subtract(MousePos, MapRenderer.Position);
             spriteBatch.DrawString(Game1.Mainfont, string.Format("RelMousePos: {0},{1}", relativeMousePos.X, relativeMousePos.Y), new Vector2(216, 0), Color.Blue);
             spriteBatch.DrawString(Game1.Mainfont, string.Format("MapTile: {0},{1}", FocusedMapCoord.X, FocusedMapCoord.Y), new Vector2(132, 0), Color.Blue);
             spriteBatch.DrawString(Game1.Mainfont, string.Format("RelMousePos: {0},{1}", relativeMousePos.X, relativeMousePos.Y), new Vector2(16, 0), Color.Red);
-            var tile = Tilesets[CurrentLayerIndex].GetTile(tilesetViewer.SelectedTileCoord.X, tilesetViewer.SelectedTileCoord.Y);
-            spriteBatch.DrawString(Game1.Mainfont, string.Format("TileFlags:{0}", tile.TileFlags), new Vector2(316, 0), Color.Red);
+            var tile = Tilesets[CurrentLayerIndex].GetTileData(tilesetViewer.SelectedTileCoord.X, tilesetViewer.SelectedTileCoord.Y);
+            spriteBatch.DrawString(Game1.Mainfont, string.Format("Obstacle:{0}", tile.Obstacle), new Vector2(316, 0), Color.Red);
 
-            var textureSheetRect = tilesetViewer.Tileset.TileSheet.Texture.Bounds;
+            var textureSheetRect = tilesetViewer.Tileset.TextureAtlas.Texture.Bounds;
             tilesetViewer.Draw(gameTime);
             spriteBatch.End();
 
@@ -146,14 +146,15 @@ namespace BlankMonoGameTemplate.Screens
 
         public void LoadMap(string filename)
         {
-            Map = Map.LoadFromFile(Game.Content, "testmap.xml");
+            Map = Helper.LoadMapData(Game.Content, "testmap");
             foreach (var layer in Map.Layers)
             {
                 var tilesetName = layer.TilesetName;
-                Tilesets.Add(Tileset.LoadFromFile(Game.Content, tilesetName + ".xml"));
+                var tileset = new Tileset(Game.Content, tilesetName, Helper.LoadTilesetData(tilesetName));
+                Tilesets.Add(tileset);
             }
 
-            MapRenderer = new MapRenderer(Game, Map)
+            MapRenderer = new MapRenderer(Game)
             {
                 Debug = true,
                 Position = new Vector2(16, 16)
@@ -169,7 +170,7 @@ namespace BlankMonoGameTemplate.Screens
         /// <summary>
         /// The map we're editing
         /// </summary>
-        public Map Map { get; set; }
+        public MapData Map { get; set; }
         public bool MapLoaded { get; set; }
         /// <summary>
         /// Loaded tilesets

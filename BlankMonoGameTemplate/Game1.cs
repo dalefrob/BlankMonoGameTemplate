@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using MonoGame.Extended.TextureAtlases;
 using MonoGame.Extended.Input.InputListeners;
 using BlankMonoGameTemplate.Screens;
+using BlankMonoGameTemplate.Engine.Data;
 
 namespace BlankMonoGameTemplate
 {
@@ -57,14 +58,14 @@ namespace BlankMonoGameTemplate
         /// </summary>
         protected override void Initialize()
         {
-
             // TODO: Add your initialization logic here
+            //CreateTestData();
 
             mainScreen = new WorldScreen(this);
             var mapEditor = new MapEditorScreen(this);
-            mapEditor.LoadMap("testmap.xml");
+            //mapEditor.LoadMap("testmap");
             ScreenComponent.Register(mainScreen);
-            ScreenComponent.Register(mapEditor);
+            //ScreenComponent.Register(mapEditor);
             base.Initialize();
         }
 
@@ -79,16 +80,28 @@ namespace BlankMonoGameTemplate
    
         }
 
-        void CreateTestMap()
+        
+        void CreateTestData()
         {
-            var floorTileset = new Tileset(Content.Load<Texture2D>("Tiles/Objects/Floor"), 16, "Floor");
-            Tileset.SaveToFile(floorTileset, "Floor.xml");
-			var wallTileset = new Tileset(Content.Load<Texture2D>("Tiles/Objects/Wall"), 16, "Wall");
-			Tileset.SaveToFile(wallTileset, "Wall.xml");
-            var map = new Map(24, 24, 16, "Floor");
-            map.Layers.Add(new MapLayer(map) { TilesetName = "Wall" });
+            var tsFloorData = new TilesetData()
+            {
+                 Name = "Floor",
+                 ImageFilename = "Floor",
+                 TileSize = 16
+            };
+            //Helper.SaveTilesetData(tsFloorData, "Floor");
+            var tsWallData = new TilesetData()
+            {
+                Name = "Wall",
+                ImageFilename = "Wall",
+                TileSize = 16
+            };
+            //Helper.SaveTilesetData(tsWallData, "Wall");
+
+            var map = new MapData(24, 24, 16, "Floor");
+            map.Layers.Add(new MapLayer(map, MapLayer.LayerType.Tile) { TilesetName = "Wall" });
             map.Jumble(50);
-            //Map.SaveToFile(map, "testmap.xml");
+            Helper.SaveMapData(map, "testmap");
         }
 
         /// <summary>

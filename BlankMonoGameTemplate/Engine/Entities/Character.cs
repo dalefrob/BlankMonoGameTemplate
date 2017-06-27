@@ -64,7 +64,7 @@ namespace BlankMonoGameTemplate.Engine.Entities
             bool result = true;
             if (!(newCoord.X < 0 || newCoord.X >= World.Map.Width || newCoord.Y < 0 || newCoord.Y >= World.Map.Height))
             {
-                if (World.Map.Collisions[newCoord.X, newCoord.Y])
+                if (World.Collisions[newCoord.X, newCoord.Y])
                 {
                     // Collision at next point
                     result = false;
