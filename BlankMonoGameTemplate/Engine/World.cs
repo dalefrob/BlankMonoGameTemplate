@@ -25,12 +25,15 @@ namespace BlankMonoGameTemplate.Engine
     /// </summary>
     public class World
     {
-        public World(Game1 game, MapData map)
+        public World(Game game, MapData map)
         {
             Game = game;
             Map = map;
             entityManager = new EntityManager(game, this);
-            mapRenderer = new MapRenderer(game);
+            mapViewer = new MapViewer
+            {
+                Position = new Vector2(32, 32)
+            };
         }
 
         public void Initialize()
@@ -42,7 +45,7 @@ namespace BlankMonoGameTemplate.Engine
         private void InitEntities()
         {
             /* CREATE ENTITIES FOR TESTING */
-            var player = entityManager.CreateEntity<Player>();
+            var player = (Player)entityManager.CreateEntity<Player>().SetMapPosition(0, 0);
             player.Name = "Player";
             player.LocalPlayer = true;
 
@@ -90,7 +93,7 @@ namespace BlankMonoGameTemplate.Engine
         public void DrawWorld(GameTime gameTime)
         {
             // Draw map
-            mapRenderer.Draw(Map, gameTime);
+            mapViewer.Draw(Map, gameTime);
             // Draw entities
             entityManager.Draw(gameTime);
         }
@@ -106,19 +109,18 @@ namespace BlankMonoGameTemplate.Engine
 
         public Point GetMapCoordFromPosition(Vector2 position)
         {
-            var tilePos = position / Map.TileSize;
-            return tilePos.ToPoint();
+            var offsetPos = position - mapViewer.Position;          
+            return (offsetPos / Map.TileSize).ToPoint();
         }
 
         public Vector2 GetPositionFromMapCoord(Point coord)
         {
-            return new Vector2(coord.X * Map.TileSize, coord.Y * Map.TileSize);
+            return mapViewer.Position + new Vector2(coord.X * Map.TileSize, coord.Y * Map.TileSize);
         }
 
         public void MoveObjectToTile(Entity entity, int x, int y)
         {
-            var newPos = new Vector2(Map.TileSize * x, Map.TileSize * y);
-            entity.Position = newPos;
+            entity.Position = GetPositionFromMapCoord(new Point(x, y));
         }
 
 		public void MoveObjectToTile(Entity entity, Point point)
@@ -175,7 +177,7 @@ namespace BlankMonoGameTemplate.Engine
             return points;
         }
 
-        public Game1 Game
+        public Game Game
         {
             get;
             private set;
@@ -194,6 +196,6 @@ namespace BlankMonoGameTemplate.Engine
         }
 
         EntityManager entityManager;
-        MapRenderer mapRenderer;
+        MapViewer mapViewer;
     }
 }

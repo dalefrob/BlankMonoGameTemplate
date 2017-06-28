@@ -13,12 +13,11 @@ namespace BlankMonoGameTemplate.Engine
     /// <summary>
     /// Renders a map and its layers with the appropriate tileset
     /// </summary>
-    public class MapRenderer
+    public class MapViewer
     {
-        public MapRenderer(Game game) 
+        public MapViewer() 
         {
-            Game = game;
-            spriteBatch = new SpriteBatch(game.GraphicsDevice);
+            spriteBatch = new SpriteBatch(GameServices.GetService<GraphicsDevice>());
         }
 
         public void Update(GameTime gameTime) 
@@ -56,11 +55,5 @@ namespace BlankMonoGameTemplate.Engine
         public bool Debug { get; set; }
 
         SpriteBatch spriteBatch;
-
-        public Game Game
-        {
-            get;
-            private set;
-        }          
     }
 }

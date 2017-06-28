@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using BlankMonoGameTemplate.Engine;
-using MonoGame.Extended.Screens;
 using MonoGame.Extended.TextureAtlases;
 using MonoGame.Extended.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -16,42 +15,53 @@ namespace BlankMonoGameTemplate
 {
     public class WorldScreen : Screen
     {
-        public WorldScreen(Game1 game)
+        public WorldScreen()
         {
-            Game = game;
-            Textures2D = new Dictionary<string, TextureAtlas>();
-            spriteBatch = new SpriteBatch(Game.GraphicsDevice);
-        }
-
-        void keyboardListener_KeyTyped(object sender, KeyboardEventArgs e)
-        {
-            switch (e.Key)
-            {
-                case Keys.E:
-                    this.IsVisible = false;
-                    this.FindScreen<MapEditorScreen>().Show();
-                    break;
-            }
+            
         }
 
         public override void Initialize()
         {
             base.Initialize();
-            Console.WriteLine("Init called");
 
-            var map = Helper.LoadMapData(Game.Content, "testmap");
-            World = new World(Game, map);
+            keyboardListener = new KeyboardListener();
+            Textures2D = new Dictionary<string, TextureAtlas>();
+            spriteBatch = new SpriteBatch(Game.GraphicsDevice);
+        }
 
-            Game.KeyboardListener.KeyTyped += keyboardListener_KeyTyped;
+        public override void Activate()
+        {
+            Game.Window.Title = "Mini Roguelike";
+            keyboardListener.KeyReleased += KeyboardListener_KeyReleased;
+            base.Activate();
+        }
 
- 
+        public override void Deactivate()
+        {
+            keyboardListener.KeyReleased -= KeyboardListener_KeyReleased;
+            base.Deactivate();
+        }
+
+        void KeyboardListener_KeyReleased(object sender, KeyboardEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Keys.E:
+                    var mapEditor = Manager.GetScreen<MapEditorScreen>();
+                    mapEditor.Map = World.Map;                 
+                    Manager.ChangeScreen<MapEditorScreen>();
+                    break;
+            }
         }
 
         public override void LoadContent()
         {
-            base.LoadContent();
+
             Console.WriteLine("Load content called");
             // Load all possible assets that will appear on this screen
+            // ** WORLD ** //
+            var map = Helper.LoadMapData(Game.Content, "testmap");
+            World = new World(Game, map);
             // ** TILESETS ** //
             AddTileset("Floor", Helper.LoadTilesetData("Floor"));
             AddTileset("Wall", Helper.LoadTilesetData("Wall"));
@@ -75,6 +85,7 @@ namespace BlankMonoGameTemplate
 
         public override void Update(GameTime gameTime)
         {
+            keyboardListener.Update(gameTime);
             World.UpdateWorld(gameTime);
             base.Update(gameTime);
         }
@@ -85,13 +96,7 @@ namespace BlankMonoGameTemplate
             base.Draw(gameTime);
         }
 
-        public Game1 Game 
-        {
-            get;
-            private set;
-        }
-
-        public MapRenderer MapRenderer
+        public MapViewer MapViewer
         {
             get;
             private set;
@@ -125,5 +130,7 @@ namespace BlankMonoGameTemplate
                 Tilesets.Add(name, tset);
             }
         }
+
+        KeyboardListener keyboardListener;
     }
 }

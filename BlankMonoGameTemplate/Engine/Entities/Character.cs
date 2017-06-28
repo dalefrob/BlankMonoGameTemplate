@@ -25,6 +25,7 @@ namespace BlankMonoGameTemplate.Engine.Entities
                     {
                         MapCoord = World.GetMapCoordFromPosition(Position)
                     };
+
                     if (LandedTile != null) LandedTile(this, args);
                 }
             }
@@ -34,7 +35,7 @@ namespace BlankMonoGameTemplate.Engine.Entities
         {
             if (moving) return; // TODO - change this
 
-            var _mapCoord = World.GetMapCoordFromPosition(Position);
+            var _mapCoord = MapCoordinate;
             int x = _mapCoord.X;
             int y = _mapCoord.Y;
             switch (direction)

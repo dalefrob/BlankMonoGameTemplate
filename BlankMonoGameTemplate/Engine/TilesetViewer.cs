@@ -9,16 +9,13 @@ using BlankMonoGameTemplate.Engine.Data;
 
 namespace BlankMonoGameTemplate.Engine
 {
-    public class TilesetViewer : IDrawable
+    public class TilesetViewer
     {
-        public TilesetViewer(SpriteBatch spriteBatch, GraphicsDevice graphics, Tileset tileset)
-        {
-            Tileset = tileset;
-            this.spriteBatch = spriteBatch;
-        }
+        public TilesetViewer() { }
 
-        public void Draw(GameTime gameTime)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
+            if (!IsTilesetLoaded) return;
             for (int y = 0; y < Tileset.TilesVertical; y++)
             {
                 for (int x = 0; x < Tileset.TilesHorizontal; x++)
@@ -30,11 +27,13 @@ namespace BlankMonoGameTemplate.Engine
             }
         }
 
-        SpriteBatch spriteBatch;
-
         public Vector2 Position { get; set; }
         public Vector2 ScrollOffsetPosition { get; set; }
         public Tileset Tileset { get; set; }
+        public bool IsTilesetLoaded
+        {
+            get { return (Tileset != null); }
+        }
 
         Point _selectedTile = Point.Zero;
         public event EventHandler<TileViewerEventArgs> SelectionChanged;
@@ -47,15 +46,7 @@ namespace BlankMonoGameTemplate.Engine
                 var eventArgs =  new TileViewerEventArgs() { SelectedTile = Tileset.GetTileData(value.X, value.Y) };
                 if (SelectionChanged != null) SelectionChanged(this, eventArgs);
             }
-        }
-
-        public int DrawOrder { get; set; }
-        public bool Visible { get; set; }
-
-        public event EventHandler<EventArgs> DrawOrderChanged;
-        public event EventHandler<EventArgs> VisibleChanged;
-
-        
+        }        
     }
 
     public class TileViewerEventArgs : EventArgs

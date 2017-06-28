@@ -53,7 +53,7 @@ namespace BlankMonoGameTemplate.Engine.Entities
         {
             get
             {
-                return (Position / World.Map.TileSize).ToPoint();
+                return World.GetMapCoordFromPosition(Position);
             }
         }
         public Sprite Sprite { get; set; }

@@ -11,7 +11,7 @@ namespace BlankMonoGameTemplate.Engine.Entities
 {
     public class EntityManager : IUpdate
     {
-        public EntityManager(Game1 game, World world)
+        public EntityManager(Game game, World world)
         {
             Game = game;
             World = world;
@@ -80,7 +80,7 @@ namespace BlankMonoGameTemplate.Engine.Entities
             }
         }
 
-        public Game1 Game
+        public Game Game
         {
             get;
             private set;

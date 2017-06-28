@@ -11,6 +11,7 @@ using MonoGame.Extended.TextureAtlases;
 using MonoGame.Extended.Input.InputListeners;
 using BlankMonoGameTemplate.Screens;
 using BlankMonoGameTemplate.Engine.Data;
+using Microsoft.Xna.Framework.Content;
 
 namespace BlankMonoGameTemplate
 {
@@ -21,13 +22,14 @@ namespace BlankMonoGameTemplate
     {
         GraphicsDeviceManager graphics;
 
-        public ScreenGameComponent ScreenComponent { get; private set; }
+        //public ScreenGameComponent ScreenComponent { get; private set; }
         public InputListenerComponent InputListenerComponent { get; private set; }
         public MouseListener MouseListener { get; private set; }
         public KeyboardListener KeyboardListener { get; private set; }
 
         // Screens
-        WorldScreen mainScreen;
+        ScreenManagerComponent screenManagerComponent;
+        WorldScreen worldScreen;
 
         public static SpriteFont Mainfont;
         
@@ -40,8 +42,8 @@ namespace BlankMonoGameTemplate
             IsFixedTimeStep = false;
 
             // Create components
-            ScreenComponent = new ScreenGameComponent(this);
-            Components.Add(ScreenComponent);
+            screenManagerComponent = new ScreenManagerComponent(this);
+            Components.Add(screenManagerComponent);
 
             KeyboardListener = new KeyboardListener();
             MouseListener = new MouseListener();
@@ -59,13 +61,11 @@ namespace BlankMonoGameTemplate
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            //CreateTestData();
-
-            mainScreen = new WorldScreen(this);
-            var mapEditor = new MapEditorScreen(this);
-            //mapEditor.LoadMap("testmap");
-            ScreenComponent.Register(mainScreen);
-            //ScreenComponent.Register(mapEditor);
+            GameServices.AddService<GraphicsDevice>(GraphicsDevice);
+            GameServices.AddService<ContentManager>(Content);
+            /* CreateTestData(); */
+            screenManagerComponent.AddScreen<WorldScreen>(true);
+            screenManagerComponent.AddScreen<MapEditorScreen>();
             base.Initialize();
         }
 
@@ -120,9 +120,10 @@ namespace BlankMonoGameTemplate
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            /*
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
+            */
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -135,7 +136,7 @@ namespace BlankMonoGameTemplate
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
+      
             // TODO: Add your drawing code here
             base.Draw(gameTime);
         }
