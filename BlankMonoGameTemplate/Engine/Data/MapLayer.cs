@@ -18,9 +18,12 @@ namespace BlankMonoGameTemplate.Engine
             Entity
         }
 
-        public MapLayer() { }
+        public MapLayer() 
+        {
+            Tiles = new List<int>();
+        }
 
-        public MapLayer(MapData map, LayerType typeOfLayer)
+        public MapLayer(MapData map, LayerType typeOfLayer) : this()
         {
             TypeOfLayer = typeOfLayer;
             for (int i = 0; i < map.Width * map.Height; i++)

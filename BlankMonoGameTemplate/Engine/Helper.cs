@@ -55,12 +55,20 @@ namespace BlankMonoGameTemplate.Engine
         public static MapData LoadMapData(ContentManager content, string filename)
         {
             MapData _mapData;
-            XmlSerializer x = new XmlSerializer(typeof(MapData));
-            using (FileStream fs = new FileStream(filename + ".xml", FileMode.OpenOrCreate))
+            try
             {
-                // do something with the file stream here
-                _mapData = (MapData)x.Deserialize(fs);
-                fs.Close();
+                XmlSerializer x = new XmlSerializer(typeof(MapData));
+                using (FileStream fs = new FileStream(filename + ".xml", FileMode.OpenOrCreate))
+                {
+                    // do something with the file stream here
+                    _mapData = (MapData)x.Deserialize(fs);
+                    fs.Close();
+                }
+            } 
+            catch (Exception ex)
+            {
+                _mapData = new MapData(16, 16, 16, "Floor");
+                _mapData.Layers.Add(new MapLayer(_mapData, MapLayer.LayerType.Tile) { TilesetName = "Wall" });
             }
           
             return _mapData;

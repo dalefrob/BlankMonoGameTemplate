@@ -18,13 +18,13 @@ namespace BlankMonoGameTemplate.Screens
         public MapEditorScreen() { }
 
         #region Events
-        void mouseListener_MouseClicked(object sender, MouseEventArgs e)
+        void MouseListener_MouseClicked(object sender, MouseEventArgs e)
         {
             var relativeMousePos = Vector2.Subtract(MousePos, tilesetViewer.Position);
             tilesetViewer.SelectedTileCoord = new Vector2(relativeMousePos.X / Map.TileSize, relativeMousePos.Y / Map.TileSize).ToPoint();
         }
 
-        void mouseListener_MouseMoved(object sender, MouseEventArgs e)
+        void MouseListener_MouseMoved(object sender, MouseEventArgs e)
         {
             MousePos = e.Position.ToVector2();
         }
@@ -33,7 +33,10 @@ namespace BlankMonoGameTemplate.Screens
         public override void Initialize()
         {
             spriteBatch = new SpriteBatch(Manager.GraphicsDevice);
-            mapViewer = new MapViewer();
+            mapViewer = new MapViewer
+            {
+                Position = new Vector2(0, 16)
+            };
             tilesetViewer = new TilesetViewer
             {
                 Position = new Vector2(400, 0)
@@ -48,12 +51,16 @@ namespace BlankMonoGameTemplate.Screens
         {
             Game.Window.Title = "Map Editor";
             keyboardListener.KeyReleased += KeyboardListener_KeyReleased;
+            mouseListener.MouseMoved += MouseListener_MouseMoved;
+            mouseListener.MouseClicked += MouseListener_MouseClicked;
             base.Activate();
         }
 
         public override void Deactivate()
         {
             keyboardListener.KeyReleased -= KeyboardListener_KeyReleased;
+			mouseListener.MouseMoved -= MouseListener_MouseMoved;
+			mouseListener.MouseClicked -= MouseListener_MouseClicked;
             base.Deactivate();
         }
 
@@ -101,7 +108,7 @@ namespace BlankMonoGameTemplate.Screens
                     FocusedMapCoord += new Point(1, 0);
                     break;
                 case Keys.Enter:
-                    Map.SetTileIdAt(CurrentLayerIndex, FocusedMapCoord.X, FocusedMapCoord.Y, CurrentLayerTileset.GetTileData(_selTileCoord.X, _selTileCoord.Y).TextureId);
+                    Map.SetTileIdAt(CurrentLayerIndex, FocusedMapCoord.X, FocusedMapCoord.Y, tilesetViewer.TileSlots[0].Tile.TextureId);
                     break;
                 case Keys.S:
                     Helper.SaveMapData(Map, "testmap");
@@ -138,6 +145,7 @@ namespace BlankMonoGameTemplate.Screens
 
         public override void Update(GameTime gameTime)
         {
+            mouseListener.Update(gameTime);
             keyboardListener.Update(gameTime);
             base.Update(gameTime);
         }
