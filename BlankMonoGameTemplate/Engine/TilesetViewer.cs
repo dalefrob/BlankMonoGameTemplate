@@ -18,14 +18,15 @@ namespace BlankMonoGameTemplate.Engine
         {
             if (!IsTilesetLoaded) return;
 
+            var tileSize = Tileset.Data.TileSize;
+
             for (int i = 0; i < TileSlots.Count; i++)
             {
 				var x = i % TileSlotsHorizontal;
 				var y = i / TileSlotsHorizontal;
-                var tileSize = Tileset.Data.TileSize;
 
                 var _tileSlot = TileSlots[i];
-				var color = (Equals(new Point(x, y), SelectedTileCoord)) ? Color.Red : Color.White;
+				var color = Equals(_tileSlot, SelectedTileSlot) ? Color.Red : Color.White;
 				
 				var destinationRect = new Rectangle
 				{
@@ -36,23 +37,27 @@ namespace BlankMonoGameTemplate.Engine
 				};
 
                 spriteBatch.Draw(_tileSlot.Texture, destinationRect, color);
-                //spriteBatch.DrawString(Game1.Mainfont, string.Format("{0}", (y * Tileset.TilesHorizontal) + x), new Vector2(destinationRect.Left, destinationRect.Top), Color.Lime);
+                spriteBatch.DrawRectangle(destinationRect, Color.DimGray, 0.5f);               
             }
-
-            /*// The old way!
-            for (int y = 0; y < Tileset.TilesVertical; y++)
-            {
-                for (int x = 0; x < Tileset.TilesHorizontal; x++)
-                {
-                    var color = (Equals(new Point(x, y), SelectedTileCoord)) ? Color.Red : Color.White;
-                    var destinationRect = new Rectangle(Position.ToPoint() + new Point(x * Tileset.Data.TileSize, y * Tileset.Data.TileSize), new Point(Tileset.Data.TileSize));
-                    spriteBatch.Draw(Tileset.TileTextureByCoord(x, y), destinationRect, color);
-                    spriteBatch.DrawString(Game1.Mainfont, string.Format("{0}", (y * Tileset.TilesHorizontal) + x), new Vector2(destinationRect.Left, destinationRect.Top), Color.Lime);
-                }
-            }
-            */
+            var fullRect = new Rectangle
+			{
+				X = (int)Position.X,
+				Y = (int)Position.Y,
+				Width = TileSlotsHorizontal * tileSize,
+				Height = (TileSlots.Count / TileSlotsHorizontal) * tileSize
+			};
+            spriteBatch.DrawRectangle(fullRect, Color.Black);
         }
 
+        public TileSlot SelectTileSlotFromPosition(Vector2 screenPosition)
+        {
+            var relativePosition = screenPosition - Position;
+            var coordinate = (relativePosition / Tileset.Data.TileSize).ToPoint();
+            SelectedTileSlot = TileSlots[(coordinate.Y * TileSlotsHorizontal) + coordinate.X];
+            return SelectedTileSlot;
+        }
+
+        public TileSlot SelectedTileSlot { get; set; }
         public List<TileSlot> TileSlots = new List<TileSlot>();
 
         public Vector2 Position { get; set; }
@@ -83,6 +88,18 @@ namespace BlankMonoGameTemplate.Engine
                 _tileset = value;
                 // Create a new set of tileslots to show
                 TileSlots.Clear();
+                var blankTexture = new Texture2D(GameServices.GetService<GraphicsDevice>(), value.Data.TileSize, value.Data.TileSize);
+                var blankSlot = new TileSlot
+                {
+                    TilesetName = value.Data.Name,
+                    Texture = new TextureRegion2D(blankTexture, 0, 0, value.Data.TileSize, value.Data.TileSize),
+                    Tile = new Tile
+                    {
+                        TextureId = -1,
+                        Obstacle = false                      
+                    }                   
+                };
+                TileSlots.Add(blankSlot);
                 for (int i = 0; i < Tileset.TilesHorizontal * Tileset.TilesVertical; i++)
                 {
 					var x = i % TileSlotsHorizontal;
@@ -95,6 +112,7 @@ namespace BlankMonoGameTemplate.Engine
                     };
                     TileSlots.Add(tileSlot);
                 }
+                SelectedTileSlot = TileSlots[0];
             }
         }
 
