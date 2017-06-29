@@ -1,4 +1,5 @@
 ﻿﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using MonoGame.Extended.TextureAtlases;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,54 +11,65 @@ using BlankMonoGameTemplate.Engine.Data;
 
 namespace BlankMonoGameTemplate.Engine
 {
+    /// <summary>
+    /// Tileset.
+    /// </summary>
     public class Tileset
     {
-        public Tileset(ContentManager content, string name, TilesetData data) 
+        public static Tileset Create(ContentManager content, TilesetData data)
+        {
+            var _tileset = new Tileset();
+            foreach (string filename in data.Filenames.Values)
+            {
+                var _newAltas = TextureAtlas.Create(filename, content.Load<Texture2D>("Tiles/Objects/" + filename), data.TileSize, data.TileSize);
+                if(!_tileset.Atlases.ContainsKey(filename))
+                {
+                    _tileset.Atlases.Add(filename, _newAltas);
+                    for (int r = 0; r < _newAltas.RegionCount; r++)
+                    {
+                        var newTile = new Tile(r, filename);
+                        _tileset.AllTiles.Add();
+                    }
+                }
+
+            }
+            return _tileset;
+        }
+
+        public Tileset() { }
+
+        public Tileset(ContentManager content, TilesetData data) 
         {
             Data = data;
             TextureAtlas = TextureAtlas.Create(data.Name, content.Load<Texture2D>("Tiles/Objects/" + data.ImageFilename), data.TileSize, data.TileSize);
-            if (Data.TileData.Count == 0)
+            if (Data.Tiles.Count == 0)
             {
                 for (int i = 0; i < TextureAtlas.RegionCount; i++)
                 {
-                    Data.TileData.Add(new Tile() { TextureId = i });
+                    Data.Tiles.Add(new Tile() { TextureId = i });
                 }
             }
         }
 
+
+        public List<Tile> AllTiles = new List<Tile>();
         /// <summary>
         /// XML loaded Tileset Data
         /// </summary>
         public TilesetData Data { get; private set; }
         /// <summary>
-        /// Atlas holding the textures of individual tiles
+        /// Atlases holding the textures of individual tiles
         /// </summary>
-        public TextureAtlas TextureAtlas { get; private set; }
+        public Dictionary<string, TextureAtlas> Atlases = new Dictionary<string, TextureAtlas>();
 
-        public int TilesVertical
+        public Tile GetTileData(string tileset, int x, int y)
         {
-            get
-            {
-                return TextureAtlas.Texture.Height / Data.TileSize;
-            }
-        }
-
-        public int TilesHorizontal
-        {
-            get
-            {
-                return TextureAtlas.Texture.Width / Data.TileSize;
-            }
-        }
-
-        public Tile GetTileData(int x, int y)
-        {
-            return Data.TileData[(y * TilesHorizontal) + x];
+            return Data.Tiles[(y * TilesHorizontal) + x];
         }
 
         public Tile GetTileData(int index)
         {
-            return Data.TileData[index];
+            return Data.Tiles[index];
         }
 
         public TextureRegion2D TileTextureByIndex(int index)
@@ -68,6 +80,14 @@ namespace BlankMonoGameTemplate.Engine
         public TextureRegion2D TileTextureByCoord(int x, int y)
         {
             return TileTextureByIndex((y * TilesHorizontal) + x);
-        }     
+        }
+
+        public Dictionary<TileSetKey, Tile> Tiles = new Dictionary<TileSetKey, Tile>(); 
+
+        public struct TileSetKey
+        {
+            public string TilesetName { get; set; }
+            public int TextureRegionId { get; set; }
+        }
     }
 }

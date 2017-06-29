@@ -20,10 +20,21 @@ namespace BlankMonoGameTemplate.Engine.Data
     public class Tile
     {
         public int TextureId { get; set; }
+        public string AtlasName { get; set; }
         public TileFlags TileFlags { get; set; }
         public bool Obstacle { get; set; }
 
-        public Tile() { }
+        public Tile() 
+        {
+            TileFlags = TileFlags.Walkable;
+            Obstacle = false;
+        }
+
+        public Tile(int textureId, string atlasName) : this()
+        {
+            TextureId = textureId;
+            AtlasName = atlasName;
+        }
 
         public override string ToString()
         {

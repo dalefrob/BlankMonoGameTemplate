@@ -10,21 +10,19 @@ namespace BlankMonoGameTemplate.Engine.Data
     {
         public TilesetData() 
         {
-            TileData = new List<Tile>();
+            Filenames = new Dictionary<int, string>();
+            Tiles = new List<Tile>();
         }
 
+        public Dictionary<int, string> Filenames;
         /// <summary>
         /// Name of this tileset
         /// </summary>
         public string Name { get; set; }
         /// <summary>
-        /// PNG etc. file
-        /// </summary>
-        public string ImageFilename { get; set; }
-        /// <summary>
         /// Properties that correspond to tiles
         /// </summary>
-        public List<Tile> TileData { get; set; }
+        public List<Tile> Tiles { get; set; }
         /// <summary>
         /// Size of the individual tiles
         /// </summary>

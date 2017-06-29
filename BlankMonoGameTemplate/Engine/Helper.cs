@@ -18,7 +18,7 @@ namespace BlankMonoGameTemplate.Engine
         public static void SaveTilesetData(TilesetData tilesetData, string filename)
         {
             XmlSerializer x = new XmlSerializer(typeof(TilesetData));
-            using (FileStream fs = new FileStream(filename + ".xml", FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(filename + ".xml", FileMode.Create))
             {
                 // do something with the file stream here
                 x.Serialize(fs, tilesetData);
@@ -44,7 +44,7 @@ namespace BlankMonoGameTemplate.Engine
         public static void SaveMapData(MapData gameMap, string filename)
         {
             XmlSerializer x = new XmlSerializer(typeof(MapData));
-            using (FileStream fs = new FileStream(filename + ".xml", FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(filename + ".xml", FileMode.Create))
             {
                 // do something with the file stream here
                 x.Serialize(fs, gameMap);

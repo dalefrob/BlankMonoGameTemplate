@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -99,7 +99,7 @@ namespace BlankMonoGameTemplate.Engine
                         Obstacle = false                      
                     }                   
                 };
-                TileSlots.Add(blankSlot);
+                //TileSlots.Add(blankSlot);
                 for (int i = 0; i < Tileset.TilesHorizontal * Tileset.TilesVertical; i++)
                 {
 					var x = i % TileSlotsHorizontal;

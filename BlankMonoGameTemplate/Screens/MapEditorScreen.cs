@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Linq;
 using BlankMonoGameTemplate.Engine;
 using Microsoft.Xna.Framework;
@@ -18,7 +18,7 @@ namespace BlankMonoGameTemplate.Screens
         public MapEditorScreen() { }
 
         #region Events
-        void MouseListener_MouseClicked(object sender, MouseEventArgs e)
+        void MouseUp_MouseClicked(object sender, MouseEventArgs e)
         {
             tilesetViewer.SelectTileSlotFromPosition(e.Position.ToVector2());
         }
@@ -51,7 +51,7 @@ namespace BlankMonoGameTemplate.Screens
             Game.Window.Title = "Map Editor";
             keyboardListener.KeyReleased += KeyboardListener_KeyReleased;
             mouseListener.MouseMoved += MouseListener_MouseMoved;
-            mouseListener.MouseClicked += MouseListener_MouseClicked;
+            mouseListener.MouseUp += MouseUp_MouseClicked;
             base.Activate();
         }
 
@@ -59,7 +59,7 @@ namespace BlankMonoGameTemplate.Screens
         {
             keyboardListener.KeyReleased -= KeyboardListener_KeyReleased;
 			mouseListener.MouseMoved -= MouseListener_MouseMoved;
-			mouseListener.MouseClicked -= MouseListener_MouseClicked;
+			mouseListener.MouseClicked -= MouseUp_MouseClicked;
             base.Deactivate();
         }
 
