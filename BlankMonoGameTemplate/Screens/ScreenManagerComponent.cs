@@ -19,10 +19,10 @@ namespace BlankMonoGameTemplate.Screens
             T newScreen = new T();
 
             // Make sure there is no duplicate screen type
-            if (!Screens.OfType<T>().Any())
+            if (!_screens.OfType<T>().Any())
             {
                 // Mark this as the first screen added as a fallback
-                if (Screens.Count == 0)
+                if (_screens.Count == 0)
                 {
                     _firstScreen = newScreen;
                 }
@@ -36,12 +36,12 @@ namespace BlankMonoGameTemplate.Screens
                 if (activateNow)
                 {
                     // Put the new screen at position 0
-                    Screens.Insert(0, newScreen);
+                    _screens.Insert(0, newScreen);
                     newScreen.Activate();
                 }
                 else
                 {
-                    Screens.Add(newScreen);
+                    _screens.Add(newScreen);
                 }
             }
             else
@@ -54,19 +54,19 @@ namespace BlankMonoGameTemplate.Screens
         {
             var screenToRemove = GetScreen<T>();
             screenToRemove.UnloadContent();
-            Screens.Remove(screenToRemove);
+            _screens.Remove(screenToRemove);
         }
 
         internal void DeleteScreen(Screen screen)
         {
-            Screens.Remove(screen);
+            _screens.Remove(screen);
             screen.UnloadContent();
             screen = null;
         }
 
         public T GetScreen<T>() where T : Screen
         {
-            var result = (T)Screens.OfType<T>().First();
+            var result = (T)_screens.OfType<T>().First();
             return result;
         }
 
@@ -74,7 +74,7 @@ namespace BlankMonoGameTemplate.Screens
         {
             // Try and get the next screen
             Screen nextScreen = null;
-            foreach (var screen in Screens)
+            foreach (var screen in _screens)
             {
                 if (screen.GetType() == typeof(T))
                 {
@@ -90,8 +90,8 @@ namespace BlankMonoGameTemplate.Screens
                 _prevScreen.Deactivate();
 
                 // Reinsert the next screen at position zero
-                Screens.Remove(nextScreen);
-                Screens.Insert(0, nextScreen);
+                _screens.Remove(nextScreen);
+                _screens.Insert(0, nextScreen);
 
                 if (removeCurrent)
                 {
@@ -108,18 +108,18 @@ namespace BlankMonoGameTemplate.Screens
 
         public override void Update(GameTime gameTime)
         {
-            for (int i = 0; i < Screens.Count; i++)
+            for (int i = 0; i < _screens.Count; i++)
             {
                 // Not visible? Skip this iteration
-                if (!Screens[i].Visible)
+                if (!_screens[i].Visible)
                 {
                     continue;
                 }
 
-                Screens[i].Update(gameTime);
+                _screens[i].Update(gameTime);
 
                 // Not see-through? Stop drawing 
-                if (!Screens[i].Translucent)
+                if (!_screens[i].Translucent)
                 {
                     break;
                 }
@@ -128,18 +128,18 @@ namespace BlankMonoGameTemplate.Screens
 
         public override void Draw(GameTime gameTime)
         {
-            for (int i = 0; i < Screens.Count; i++)
+            for (int i = 0; i < _screens.Count; i++)
             {
                 // Not visible? Skip this iteration
-                if (!Screens[i].Visible)
+                if (!_screens[i].Visible)
                 {
                     continue;
                 }
 
-                Screens[i].Draw(gameTime);
+                _screens[i].Draw(gameTime);
 
                 // Not see-through? Stop drawing 
-                if (!Screens[i].Translucent)
+                if (!_screens[i].Translucent)
                 {
                     break;
                 }
@@ -148,11 +148,18 @@ namespace BlankMonoGameTemplate.Screens
 
         public Screen ActiveScreen
         {
-            get { return Screens[0]; }
+            get { return _screens[0]; }
         }
 
         Screen _firstScreen;
-        List<Screen> Screens = new List<Screen>();
+        List<Screen> _screens = new List<Screen>();
+        public List<Screen> Screens
+        {
+            get
+            {
+                return _screens;
+            }
+        }
 
     }
 }

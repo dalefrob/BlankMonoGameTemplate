@@ -35,7 +35,7 @@ namespace BlankMonoGameTemplate.Engine
 					Width = tileSize,
 					Height = tileSize
 				};
-
+                var _tileData = Tileset.GetTile(i).TileData;
                 spriteBatch.Draw(_tileSlot.Texture, destinationRect, color);
                 spriteBatch.DrawRectangle(destinationRect, Color.DimGray, 0.5f);               
             }
@@ -88,26 +88,16 @@ namespace BlankMonoGameTemplate.Engine
                 _tileset = value;
                 // Create a new set of tileslots to show
                 TileSlots.Clear();
-                var blankTexture = new Texture2D(GameServices.GetService<GraphicsDevice>(), value.Data.TileSize, value.Data.TileSize);
-                var blankSlot = new TileSlot
-                {
-                    TilesetName = value.Data.Name,
-                    Texture = new TextureRegion2D(blankTexture, 0, 0, value.Data.TileSize, value.Data.TileSize),
-                    Tile = new Tile
-                    {
-                        TextureId = -1,
-                        Obstacle = false                      
-                    }                   
-                };
-                //TileSlots.Add(blankSlot);
-                for (int i = 0; i < Tileset.TilesHorizontal * Tileset.TilesVertical; i++)
+
+                for (int i = 0; i < value.TotalTiles; i++)
                 {
 					var x = i % TileSlotsHorizontal;
 					var y = i / TileSlotsHorizontal;
+                    var _tile = value.GetTile(i);
                     var tileSlot = new TileSlot
                     {
-                        Tile = value.GetTileData(i),
-                        Texture = value.TileTextureByIndex(i),
+                        Tile = _tile,
+                        Texture = Tileset.GetTile(i).Texture,
                         ViewerCoord = new Point(x, y)
                     };
                     TileSlots.Add(tileSlot);
@@ -120,30 +110,17 @@ namespace BlankMonoGameTemplate.Engine
         {
             get { return (_tileset != null); }
         }
-
-        Point _selectedTile = Point.Zero;
-        public event EventHandler<TileViewerEventArgs> SelectionChanged;
-        public Point SelectedTileCoord
-        {
-            get { return _selectedTile; }
-            set
-            {
-                _selectedTile = value;
-                var eventArgs =  new TileViewerEventArgs() { SelectedTile = Tileset.GetTileData(value.X, value.Y) };
-                if (SelectionChanged != null) SelectionChanged(this, eventArgs);
-            }
-        }        
+          
     }
 
     public class TileViewerEventArgs : EventArgs
     {
-        public Tile SelectedTile { get; set; }
+        public TileTemplate SelectedTile { get; set; }
         public TileViewerEventArgs() : base() { }
     }
 
     public class TileSlot 
     {
-        public string TilesetName { get; set; }
         public Tile Tile { get; set; }
         public TextureRegion2D Texture { get; set; }
         public Point ViewerCoord { get; set; }

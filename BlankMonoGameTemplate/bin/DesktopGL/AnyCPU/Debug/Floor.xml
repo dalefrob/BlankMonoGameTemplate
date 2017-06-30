@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<TilesetData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Name>Floor</Name>
-  <ImageFilename>Floor</ImageFilename>
-  <TileData />
-  <TileSize>16</TileSize>
-</TilesetData>

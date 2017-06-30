@@ -63,7 +63,7 @@ namespace BlankMonoGameTemplate
             // TODO: Add your initialization logic here
             GameServices.AddService<GraphicsDevice>(GraphicsDevice);
             GameServices.AddService<ContentManager>(Content);
-            /* CreateTestData(); */
+            CreateTestData();
             screenManagerComponent.AddScreen<WorldScreen>(true);
             screenManagerComponent.AddScreen<MapEditorScreen>();
             base.Initialize();
@@ -79,29 +79,17 @@ namespace BlankMonoGameTemplate
             Mainfont = Content.Load<SpriteFont>("Fonts/mainfont");
    
         }
-
-        
+      
         void CreateTestData()
         {
-            var tsFloorData = new TilesetData()
-            {
-                 Name = "Floor",
-                 ImageFilename = "Floor",
-                 TileSize = 16
-            };
-            //Helper.SaveTilesetData(tsFloorData, "Floor");
-            var tsWallData = new TilesetData()
-            {
-                Name = "Wall",
-                ImageFilename = "Wall",
-                TileSize = 16
-            };
-            //Helper.SaveTilesetData(tsWallData, "Wall");
-
+            var tileset = Tileset.CreateNew(Content, "Test Tileset", 16, new string[]{ "Floor", "Wall" });
+            
+            /*
             var map = new MapData(24, 24, 16, "Floor");
             map.Layers.Add(new MapLayer(map, MapLayer.LayerType.Tile) { TilesetName = "Wall" });
             map.Jumble(50);
             Helper.SaveMapData(map, "testmap");
+             */
         }
 
         /// <summary>
@@ -111,6 +99,17 @@ namespace BlankMonoGameTemplate
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
+        }
+
+        protected override void OnExiting(object sender, EventArgs args)
+        {
+            foreach (var s in screenManagerComponent.Screens)
+            {
+                s.UnloadContent();
+            }
+
+            Tileset.Loaded.Clear();
+            Tileset.Loaded = null;
         }
 
         /// <summary>

@@ -15,10 +15,10 @@ namespace BlankMonoGameTemplate.Engine
     public static class Helper
     {
         #region Loaders
-        public static void SaveTilesetData(TilesetData tilesetData, string filename)
+        public static void SaveTilesetData(TilesetTemplate tilesetData)
         {
-            XmlSerializer x = new XmlSerializer(typeof(TilesetData));
-            using (FileStream fs = new FileStream(filename + ".xml", FileMode.Create))
+            XmlSerializer x = new XmlSerializer(typeof(TilesetTemplate));
+            using (FileStream fs = new FileStream(tilesetData.Name + ".xml", FileMode.Create))
             {
                 // do something with the file stream here
                 x.Serialize(fs, tilesetData);
@@ -26,15 +26,15 @@ namespace BlankMonoGameTemplate.Engine
             }
         }
 
-        public static TilesetData LoadTilesetData(string filename)
+        public static TilesetTemplate LoadTilesetData(string filename)
         {
-            TilesetData _tilesetData;
+            TilesetTemplate _tilesetData;
 
-            XmlSerializer x = new XmlSerializer(typeof(TilesetData));
+            XmlSerializer x = new XmlSerializer(typeof(TilesetTemplate));
             using (FileStream fs = new FileStream(filename + ".xml", FileMode.OpenOrCreate))
             {
                 // do something with the file stream here
-                _tilesetData = (TilesetData)x.Deserialize(fs);
+                _tilesetData = (TilesetTemplate)x.Deserialize(fs);
                 fs.Close();
             }
 

@@ -260,7 +260,7 @@
         <int>148</int>
         <int>148</int>
       </Tiles>
-      <TilesetName>Floor</TilesetName>
+      <TilesetName>Test Tileset</TilesetName>
       <TypeOfLayer>Tile</TypeOfLayer>
     </MapLayer>
     <MapLayer>
@@ -522,7 +522,7 @@
         <int>5</int>
         <int>5</int>
       </Tiles>
-      <TilesetName>Wall</TilesetName>
+      <TilesetName>Test Tileset</TilesetName>
       <TypeOfLayer>Tile</TypeOfLayer>
     </MapLayer>
   </Layers>

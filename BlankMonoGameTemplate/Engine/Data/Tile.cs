@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MonoGame.Extended.TextureAtlases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,39 +7,17 @@ using System.Threading.Tasks;
 
 namespace BlankMonoGameTemplate.Engine.Data
 {
-    [Flags]
-    public enum TileFlags
-    {
-        Walkable = 0,
-        Solid = 1,
-        Water = 2,
-        Lava = 4,
-        Spikes = 8,
-        Pit = 16
-    }
-
+    /// <summary>
+    /// Tile as represented on a map or in a tileset viewer
+    /// </summary>
     public class Tile
     {
-        public int TextureId { get; set; }
-        public string AtlasName { get; set; }
-        public TileFlags TileFlags { get; set; }
-        public bool Obstacle { get; set; }
+        public TextureRegion2D Texture { get; set; }
+        public TileTemplate TileData { get; set; }
 
-        public Tile() 
+        public Tile()
         {
-            TileFlags = TileFlags.Walkable;
-            Obstacle = false;
-        }
 
-        public Tile(int textureId, string atlasName) : this()
-        {
-            TextureId = textureId;
-            AtlasName = atlasName;
-        }
-
-        public override string ToString()
-        {
-            return string.Format("TextureId: {0} \nType: {1}", TextureId, TileFlags.ToString());
         }
     }
 }

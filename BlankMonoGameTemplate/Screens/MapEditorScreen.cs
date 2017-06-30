@@ -82,9 +82,7 @@ namespace BlankMonoGameTemplate.Screens
                         CurrentLayerIndex = num;
                     }
                 }
-            }
-
-            var _selTileCoord = tilesetViewer.SelectedTileCoord;
+            }           
 
             switch (e.Key)
             {
@@ -107,20 +105,20 @@ namespace BlankMonoGameTemplate.Screens
                     FocusedMapCoord += new Point(1, 0);
                     break;
                 case Keys.Enter:
-                    Map.SetTileIdAt(CurrentLayerIndex, FocusedMapCoord.X, FocusedMapCoord.Y, tilesetViewer.SelectedTileSlot.Tile.TextureId);
+                    Map.SetTileIdAt(CurrentLayerIndex, FocusedMapCoord.X, FocusedMapCoord.Y, tilesetViewer.SelectedTileSlot.Tile.TileData.RegionId);
                     break;
                 case Keys.S:
                     Helper.SaveMapData(Map, "testmap");
                     break;
                 case Keys.T:
-                    Helper.SaveTilesetData(CurrentLayerTileset.Data, CurrentLayerTileset.Data.Name);
+                    //Helper.SaveTilesetData(CurrentLayerTileset.Data, CurrentLayerTileset.Data.Name);
                     break;
                 case Keys.F:
                     FloodLayer();
                     break;
                 case Keys.C:
-                    var tile = CurrentLayerTileset.GetTileData(_selTileCoord.X, _selTileCoord.Y);
-                    tile.Obstacle = !tile.Obstacle;
+                    //var tile = CurrentLayerTileset.GetTileData(_selTileCoord.X, _selTileCoord.Y);
+                    //tile.Obstacle = !tile.Obstacle;
                     break;
                 case Keys.Escape:
                     Manager.ChangeScreen<WorldScreen>();
@@ -130,7 +128,7 @@ namespace BlankMonoGameTemplate.Screens
 
 		public void FloodLayer()
 		{
-            int tileId = tilesetViewer.SelectedTileSlot.Tile.TextureId;
+            int tileId = tilesetViewer.SelectedTileSlot.Tile.TileData.RegionId;
             for (int i = 0; i < Map.Width * Map.Height; i++) {
 				Map.Layers[CurrentLayerIndex].Tiles[i] = tileId;
             }		
@@ -165,7 +163,6 @@ namespace BlankMonoGameTemplate.Screens
             //var tile = WorldScreen.Tilesets[Map.Layers[CurrentLayerIndex].TilesetName].GetTileData(tilesetViewer.SelectedTileCoord.X, tilesetViewer.SelectedTileCoord.Y);
             //spriteBatch.DrawString(Game1.Mainfont, string.Format("Obstacle:{0}", tile.Obstacle), new Vector2(316, 0), Color.Red);
 
-            var textureSheetRect = WorldScreen.Tilesets[Map.Layers[CurrentLayerIndex].TilesetName].TextureAtlas.Texture.Bounds;
             tilesetViewer.Draw(spriteBatch, gameTime);
             spriteBatch.End();
 

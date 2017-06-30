@@ -36,7 +36,7 @@ namespace BlankMonoGameTemplate.Engine
                     for (var j = 0; j < map.Width; j++) // Y coord
 	                {
                         var tileId = map.GetTileIdAt(l, i, j);
-                        var tileTexture = WorldScreen.Tilesets[map.Layers[l].TilesetName].TileTextureByIndex(tileId);
+                        var tile = Tileset.Loaded[map.Layers[l].TilesetName].GetTile(tileId);
                         var destinationRect = new Rectangle
                         {
                             X = (int)Position.X + map.TileSize * i,
@@ -44,7 +44,7 @@ namespace BlankMonoGameTemplate.Engine
                             Width = map.TileSize,
                             Height = map.TileSize
                         };
-	                    spriteBatch.Draw(tileTexture, destinationRect, Color.White);	                    
+                        spriteBatch.Draw(tile.Texture, destinationRect, Color.White);	                    
 	                }
 	            }
                 spriteBatch.End();

@@ -63,8 +63,8 @@ namespace BlankMonoGameTemplate
             var map = Helper.LoadMapData(Game.Content, "testmap");
             World = new World(Game, map);
             // ** TILESETS ** //
-            AddTileset("Floor", Helper.LoadTilesetData("Floor"));
-            AddTileset("Wall", Helper.LoadTilesetData("Wall"));
+            Tileset.Loaded.Add("Test Tileset", new Tileset(Helper.LoadTilesetData("Test Tileset")));
+ 
             // ** ENTITIES ** //
             AddTexture2D("GUI0", Game.Content.Load<Texture2D>("Tiles/GUI/GUI0"));
             AddTexture2D("Player0", Game.Content.Load<Texture2D>("Tiles/Characters/Player0"));
@@ -122,12 +122,11 @@ namespace BlankMonoGameTemplate
             }
         }
 
-        public void AddTileset(string name, TilesetData tsData)
+        public void AddTileset(Tileset tileset)
         {
-            if (!Tilesets.ContainsKey(name))
+            if (!Tilesets.ContainsKey(tileset.Name))
             {
-                var tset = new Tileset(Game.Content, tsData.Name, tsData);
-                Tilesets.Add(name, tset);
+                Tilesets.Add(tileset.Name, tileset);
             }
         }
 

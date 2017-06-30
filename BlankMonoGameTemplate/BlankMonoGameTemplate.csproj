@@ -49,7 +49,9 @@
     <Compile Include="Engine\Data\AStarNode.cs" />
     <Compile Include="Engine\Data\PlayerData.cs" />
     <Compile Include="Engine\Data\Tile.cs" />
-    <Compile Include="Engine\Data\TilesetData.cs" />
+    <Compile Include="Engine\Data\TileTemplate.cs" />
+    <Compile Include="Engine\Data\TileFlagsEnum.cs" />
+    <Compile Include="Engine\Data\TilesetTemplate.cs" />
     <Compile Include="Engine\Entities\Character.cs" />
     <Compile Include="Engine\Entities\Door.cs" />
     <Compile Include="Engine\Entities\Entity.cs" />
