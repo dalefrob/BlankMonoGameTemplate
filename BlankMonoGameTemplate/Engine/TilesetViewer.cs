@@ -1,4 +1,5 @@
 ﻿﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -35,8 +36,8 @@ namespace BlankMonoGameTemplate.Engine
 					Width = tileSize,
 					Height = tileSize
 				};
-                var _tileData = Tileset.GetTile(i).TileData;
-                spriteBatch.Draw(_tileSlot.Texture, destinationRect, color);
+
+                spriteBatch.Draw(_tileSlot.Tile.Texture, destinationRect, color);
                 spriteBatch.DrawRectangle(destinationRect, Color.DimGray, 0.5f);               
             }
             var fullRect = new Rectangle
@@ -53,7 +54,7 @@ namespace BlankMonoGameTemplate.Engine
         {
             var relativePosition = screenPosition - Position;
             var coordinate = (relativePosition / Tileset.Data.TileSize).ToPoint();
-            SelectedTileSlot = TileSlots[(coordinate.Y * TileSlotsHorizontal) + coordinate.X];
+            SelectedTileSlot = TileSlots.Where(t => t.ViewerCoord == coordinate).First();
             return SelectedTileSlot;
         }
 
@@ -94,14 +95,16 @@ namespace BlankMonoGameTemplate.Engine
 					var x = i % TileSlotsHorizontal;
 					var y = i / TileSlotsHorizontal;
                     var _tile = value.GetTile(i);
+
                     var tileSlot = new TileSlot
                     {
                         Tile = _tile,
-                        Texture = Tileset.GetTile(i).Texture,
                         ViewerCoord = new Point(x, y)
                     };
+
                     TileSlots.Add(tileSlot);
                 }
+                // Set default selected
                 SelectedTileSlot = TileSlots[0];
             }
         }
@@ -122,7 +125,6 @@ namespace BlankMonoGameTemplate.Engine
     public class TileSlot 
     {
         public Tile Tile { get; set; }
-        public TextureRegion2D Texture { get; set; }
         public Point ViewerCoord { get; set; }
 
         public TileSlot()

@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿﻿﻿using System;
 using System.Linq;
 using System.Collections.Generic;
 using MonoGame.Extended.TextureAtlases;
@@ -133,33 +133,36 @@ namespace BlankMonoGameTemplate.Engine
                 }
             }
 
-            allTileData = new Dictionary<int, Tile>();
+            tiles = new Dictionary<int, Tile>();
             for (int i = 0; i < Data.TileData.Count; i++)
             {
+                var _currTemplate = Data.TileData[i];
+                TextureRegion2D region;
+                if(_currTemplate.AtlasName == null)
+                {
+					var _blankTexture = new Texture2D(GameServices.GetService<GraphicsDevice>(), Data.TileSize, Data.TileSize);
+					var _blankRegion = new TextureRegion2D(_blankTexture);
+					region = _blankRegion;
+                } else {
+                    region = atlases[_currTemplate.AtlasName].GetRegion(_currTemplate.RegionId);
+                }
                 var tile = new Tile
                 {
                     TileData = Data.TileData[i],
-                    Texture = atlases[
+                    Texture = region
                 };
-                allTileData.Add(i, tile);
+                tiles.Add(i, tile);
             }
         }
 
+        /// <summary>
+        /// Gets the tile. Public accessor to the dictionary.
+        /// </summary>
+        /// <returns>The tile.</returns>
+        /// <param name="globalId">Global identifier.</param>
         public Tile GetTile(int globalId)
         {
-            var _newTile = new Tile();
-            _newTile.TileData = allTileData[globalId];
-            if (_newTile.TileData.AtlasName == null)
-            {
-                var _blankTexture = new Texture2D(GameServices.GetService<GraphicsDevice>(), Data.TileSize, Data.TileSize);
-                var _blankRegion = new TextureRegion2D(_blankTexture);
-                _newTile.Texture = _blankRegion;
-            }
-            else
-            {
-                _newTile.Texture = atlases[_newTile.TileData.AtlasName].GetRegion(_newTile.TileData.RegionId);
-            }
-            return _newTile;
+            return tiles[globalId];
         }
 
         /// <summary>
@@ -170,13 +173,13 @@ namespace BlankMonoGameTemplate.Engine
         /// <summary>
         /// Map of global tile id to its data
         /// </summary>
-        private Dictionary<int, Tile> allTileData = new Dictionary<int, Tile>();
+        private Dictionary<int, Tile> tiles = new Dictionary<int, Tile>();
 
         public int TotalTiles
         {
             get
             {
-                return allTileData.Count;
+                return tiles.Count;
             }
         }
     }

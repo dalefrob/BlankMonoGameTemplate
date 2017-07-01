@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿﻿﻿using System;
 using System.Linq;
 using BlankMonoGameTemplate.Engine;
 using Microsoft.Xna.Framework;
@@ -179,7 +179,7 @@ namespace BlankMonoGameTemplate.Screens
             {
                 _map = value;
                 // Load the first later tileset
-                tilesetViewer.Tileset = WorldScreen.Tilesets[value.Layers[0].TilesetName];
+                tilesetViewer.Tileset = Tileset.Loaded[value.Layers[0].TilesetName];
             }
         }
 
