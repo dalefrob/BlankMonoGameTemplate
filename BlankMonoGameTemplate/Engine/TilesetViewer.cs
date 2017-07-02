@@ -53,8 +53,11 @@ namespace BlankMonoGameTemplate.Engine
         public TileSlot SelectTileSlotFromPosition(Vector2 screenPosition)
         {
             var relativePosition = screenPosition - Position;
-            var coordinate = (relativePosition / Tileset.Data.TileSize).ToPoint();
-            SelectedTileSlot = TileSlots.Where(t => t.ViewerCoord == coordinate).First();
+            if (relativePosition.X >= 0 && relativePosition.Y >= 0)
+            {
+                var coordinate = (relativePosition / Tileset.Data.TileSize).ToPoint();
+                SelectedTileSlot = TileSlots.Where(t => t.ViewerCoord == coordinate).First();
+            }
             return SelectedTileSlot;
         }
 

@@ -117,7 +117,7 @@ namespace BlankMonoGameTemplate.Screens
                     FloodLayer();
                     break;
                 case Keys.C:
-                    //var tile = CurrentLayerTileset.GetTileData(_selTileCoord.X, _selTileCoord.Y);
+                    tilesetViewer.SelectedTileSlot.Tile.TileData.Obstacle = !tilesetViewer.SelectedTileSlot.Tile.TileData.Obstacle;
                     //tile.Obstacle = !tile.Obstacle;
                     break;
                 case Keys.Escape:
@@ -128,7 +128,7 @@ namespace BlankMonoGameTemplate.Screens
 
 		public void FloodLayer()
 		{
-            int tileId = tilesetViewer.SelectedTileSlot.Tile.TileData.RegionId;
+            int tileId = tilesetViewer.SelectedTileSlot.Tile.TileData.RegionId + 1;
             for (int i = 0; i < Map.Width * Map.Height; i++) {
 				Map.Layers[CurrentLayerIndex].Tiles[i] = tileId;
             }		
@@ -188,24 +188,17 @@ namespace BlankMonoGameTemplate.Screens
             get { return (Map != null); }
         }
 
-        public Tileset CurrentLayerTileset
-        {
-            get
-            {
-                return WorldScreen.Tilesets[Map.Layers[CurrentLayerIndex].TilesetName];
-            }
-        }
-
         int _currentLayerIndex;
         public int CurrentLayerIndex
         {
             get { return _currentLayerIndex; }
             set
             {
-                _currentLayerIndex = value;
-                if (_currentLayerIndex < 0) _currentLayerIndex = Map.Layers.Count - 1;
-                if (_currentLayerIndex > Map.Layers.Count - 1) _currentLayerIndex = 0;
-                tilesetViewer.Tileset = CurrentLayerTileset;
+                var _val = value;
+
+                if (_val < 0) _val = Map.Layers.Count - 1;
+                if (_val > Map.Layers.Count - 1) _val = 0;
+                _currentLayerIndex = _val;
             }
         }
 

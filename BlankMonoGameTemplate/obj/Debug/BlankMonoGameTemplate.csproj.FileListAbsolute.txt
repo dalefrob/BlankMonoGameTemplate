@@ -240,3 +240,4 @@ C:/WorkspacePersonal/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debu
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debug/BlankMonoGameTemplate.csproj.CoreCompileInputs.cache
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debug/BlankMonoGameTemplate.exe
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debug/BlankMonoGameTemplate.pdb
+/Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debug/BlankMonoGameTemplate.csprojResolveAssemblyReference.cache
