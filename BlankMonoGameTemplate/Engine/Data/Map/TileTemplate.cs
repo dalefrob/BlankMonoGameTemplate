@@ -5,21 +5,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlankMonoGameTemplate.Engine.Data
+namespace BlankMonoGameTemplate.Engine
 {
     /// <summary>
     /// Tile specific data for import and export
     /// </summary>
-    [System.Serializable]
     public class TileTemplate
     {
         // Identifying properties
+        public int ID { get; set; }
         public int RegionId { get; set; }
         public string AtlasName { get; set; }
 
         // Game specific properties
-        public TileFlags TileFlags { get; set; }
-        public bool Obstacle { get; set; }
+        public MovementFlags TileFlags { get; set; }
+        public SpecialFlags SpecialFlags { get; set; }
 
         public TileTemplate() { }
 
@@ -34,7 +34,10 @@ namespace BlankMonoGameTemplate.Engine.Data
         {
             return new TileTemplate
             {
-                // Initialize here
+                RegionId = 0,
+                AtlasName = null,
+                TileFlags = MovementFlags.None,
+                SpecialFlags = SpecialFlags.None
             };
         }
     }

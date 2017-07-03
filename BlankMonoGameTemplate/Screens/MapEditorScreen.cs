@@ -105,7 +105,7 @@ namespace BlankMonoGameTemplate.Screens
                     FocusedMapCoord += new Point(1, 0);
                     break;
                 case Keys.Enter:
-                    Map.SetTileIdAt(CurrentLayerIndex, FocusedMapCoord.X, FocusedMapCoord.Y, tilesetViewer.SelectedTileSlot.Tile.TileData.RegionId);
+                    Map.SetTileIdAt(CurrentLayerIndex, FocusedMapCoord.X, FocusedMapCoord.Y, tilesetViewer.SelectedTileSlot.Tile.TileTemplate.RegionId);
                     break;
                 case Keys.S:
                     Helper.SaveMapData(Map, "testmap");
@@ -117,7 +117,7 @@ namespace BlankMonoGameTemplate.Screens
                     FloodLayer();
                     break;
                 case Keys.C:
-                    tilesetViewer.SelectedTileSlot.Tile.TileData.Obstacle = !tilesetViewer.SelectedTileSlot.Tile.TileData.Obstacle;
+                    tilesetViewer.SelectedTileSlot.Tile.TileTemplate.Obstacle = !tilesetViewer.SelectedTileSlot.Tile.TileTemplate.Obstacle;
                     //tile.Obstacle = !tile.Obstacle;
                     break;
                 case Keys.Escape:
@@ -128,9 +128,9 @@ namespace BlankMonoGameTemplate.Screens
 
 		public void FloodLayer()
 		{
-            int tileId = tilesetViewer.SelectedTileSlot.Tile.TileData.RegionId + 1;
+            int tileId = tilesetViewer.SelectedTileSlot.Tile.TileTemplate.RegionId + 1;
             for (int i = 0; i < Map.Width * Map.Height; i++) {
-				Map.Layers[CurrentLayerIndex].Tiles[i] = tileId;
+				Map.Layers[CurrentLayerIndex].TileIds[i] = tileId;
             }		
 		}
 
@@ -169,8 +169,8 @@ namespace BlankMonoGameTemplate.Screens
             base.Draw(gameTime);
         }
 
-        MapData _map;
-        public MapData Map {
+        MapTemplate _map;
+        public MapTemplate Map {
             get
             {
                 return _map;
@@ -179,7 +179,7 @@ namespace BlankMonoGameTemplate.Screens
             {
                 _map = value;
                 // Load the first later tileset
-                tilesetViewer.Tileset = Tileset.Loaded[value.Layers[0].TilesetName];
+                tilesetViewer.Tileset = Tileset.loadedTilesets[value.Layers[0].TilesetName];
             }
         }
 

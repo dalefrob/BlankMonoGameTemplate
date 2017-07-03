@@ -25,7 +25,7 @@ namespace BlankMonoGameTemplate.Engine
     /// </summary>
     public class World
     {
-        public World(Game game, MapData map)
+        public World(Game game, MapTemplate map)
         {
             Game = game;
             Map = map;
@@ -70,7 +70,7 @@ namespace BlankMonoGameTemplate.Engine
                 foreach (var layer in Map.Layers)
                 {
                     var index = (y * Map.Width) + x;
-                    var tileData = Tileset.Loaded[layer.TilesetName].GetTile(index).TileData;
+                    var tileData = Tileset.loadedTilesets[layer.TilesetName].GetTile(index).TileTemplate;
                     if (tileData.Obstacle)
                     {
                         currentNode.Obstacle = true;
@@ -98,7 +98,7 @@ namespace BlankMonoGameTemplate.Engine
             entityManager.Draw(gameTime);
         }
 
-        public MapData Map { get; set; }
+        public MapTemplate Map { get; set; }
 
         public List<Entity> GetEntitiesAtCoord(Point coord)
         {

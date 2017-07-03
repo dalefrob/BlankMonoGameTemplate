@@ -10,7 +10,7 @@ namespace BlankMonoGameTemplate.Engine
     /// Map layer.
     /// 2D array of int with associated texture atlas.
     /// </summary>
-    public class MapLayer
+    public class MapLayerTemplate
     {
         public enum LayerType
         {
@@ -18,27 +18,24 @@ namespace BlankMonoGameTemplate.Engine
             Entity
         }
 
-        public MapLayer() 
+        public MapLayerTemplate() 
         {
-            Tiles = new List<int>();
+            TileIds = new List<int>();
         }
 
-        public MapLayer(MapData map, LayerType typeOfLayer) : this()
+        public MapLayerTemplate(MapTemplate map, LayerType typeOfLayer) : this()
         {
             TypeOfLayer = typeOfLayer;
             for (int i = 0; i < map.Width * map.Height; i++)
             {
-                Tiles.Add(0);
+                TileIds.Add(0);
             }
         }
 
-        public string TilesetName
-		{
-			get;
-			set;
-		}
+        public string LayerName { get; set; }
+        public string TilesetName {	get; set; }
 
-        public List<int> Tiles = new List<int>();
+        public List<int> TileIds = new List<int>();
         public LayerType TypeOfLayer { get; set; }
     }
 }

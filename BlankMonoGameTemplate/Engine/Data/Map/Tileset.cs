@@ -17,7 +17,20 @@ namespace BlankMonoGameTemplate.Engine
     public class Tileset
     {
         #region Static
-        public static Dictionary<string, Tileset> Loaded = new Dictionary<string, Tileset>();
+        static Dictionary<string, Tileset> loadedTilesets = new Dictionary<string, Tileset>();
+
+        public static Tileset GetTileset(string _tilesetName)
+        {
+            Tileset result;
+            if (!loadedTilesets.ContainsKey(_tilesetName))
+            {
+                // Load the tileset if its not in the dictionary
+                result = new Tileset(Helper.LoadTilesetData(_tilesetName));
+                loadedTilesets.Add(_tilesetName, result);
+            }
+
+            return loadedTilesets[_tilesetName];
+        }
 
         /// <summary>
         /// Create a tileset from scratch as well as generate Data
@@ -37,7 +50,7 @@ namespace BlankMonoGameTemplate.Engine
 
             // Add blank tile
             var _blankTileData = new TileTemplate(0, null);
-            _tilesetData.TileData.Add(_blankTileData);
+            _tilesetData.TileTemplates.Add(_blankTileData);
 
             var _gIndex = 1; // Global index starts at 1 due to blank tile being zero
             // Add tiles in all files
@@ -60,7 +73,7 @@ namespace BlankMonoGameTemplate.Engine
                             RegionId = i
                         };
 
-                        _tilesetData.TileData.Add(_tileData);
+                        _tilesetData.TileTemplates.Add(_tileData);
                         _gIndex++;
                     }
                 }
@@ -70,7 +83,7 @@ namespace BlankMonoGameTemplate.Engine
 
             // Save the data
             Helper.SaveTilesetData(_tilesetData);
-            _tileset.Data = _tilesetData;
+            _tileset.Template = _tilesetData;
 
             return _tileset;
         }
@@ -90,24 +103,20 @@ namespace BlankMonoGameTemplate.Engine
         {
             get
             {
-                return Data.Name;
+                return Template.Name;
             }
         }
         /// <summary>
         /// XML loaded Tileset Data
         /// </summary>
-        public TilesetTemplate Data
-        {
-            get;
-            private set;
-        }
+        public TilesetTemplate Template { get; private set; }
 
         public void SetData(TilesetTemplate _data)
         {
-            Data = _data;
+            Template = _data;
 
             var _gIndex = 0;
-            foreach (var filename in Data.Filenames)
+            foreach (var filename in Template.Filenames)
             {
                 var contentMgr = GameServices.GetService<ContentManager>();
                 var _texture = contentMgr.Load<Texture2D>("Tiles/Objects/" + filename);
@@ -127,20 +136,20 @@ namespace BlankMonoGameTemplate.Engine
                             AtlasName = filename,
                             RegionId = i
                         };
-                        _data.TileData.Add(_tileData);
+                        _data.TileTemplates.Add(_tileData);
                         _gIndex++;
                     }
                 }
             }
 
             tiles = new Dictionary<int, Tile>();
-            for (int i = 0; i < Data.TileData.Count; i++)
+            for (int i = 0; i < Template.TileTemplates.Count; i++)
             {
-                var _currTemplate = Data.TileData[i];
+                var _currTemplate = Template.TileTemplates[i];
                 TextureRegion2D region;
                 if(_currTemplate.AtlasName == null)
                 {
-					var _blankTexture = new Texture2D(GameServices.GetService<GraphicsDevice>(), Data.TileSize, Data.TileSize);
+					var _blankTexture = new Texture2D(GameServices.GetService<GraphicsDevice>(), Template.TileSize, Template.TileSize);
 					var _blankRegion = new TextureRegion2D(_blankTexture);
 					region = _blankRegion;
                 } else {
@@ -148,8 +157,7 @@ namespace BlankMonoGameTemplate.Engine
                 }
                 var tile = new Tile
                 {
-                    TileData = Data.TileData[i],
-                    Texture = region
+                    TemplateID = Template.TileTemplates[i],
                 };
                 tiles.Add(i, tile);
             }
@@ -162,7 +170,10 @@ namespace BlankMonoGameTemplate.Engine
         /// <param name="globalId">Global identifier.</param>
         public Tile GetTile(int globalId)
         {
-            return tiles[globalId];
+            var tileTemplate = Template.TileTemplates[globalId];
+            var textureRegion = atlases[tileTemplate.AtlasName].GetRegion(tileTemplate.RegionId);
+            var newTile = new Tile(textureRegion).LoadTemplate(tileTemplate);
+            return newTile;
         }
 
         /// <summary>
@@ -173,7 +184,7 @@ namespace BlankMonoGameTemplate.Engine
         /// <summary>
         /// Map of global tile id to its data
         /// </summary>
-        private Dictionary<int, Tile> tiles = new Dictionary<int, Tile>();
+        private Dictionary<int, TileTemplate> tiles = new Dictionary<int, TileTemplate>();
 
         public int TotalTiles
         {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlankMonoGameTemplate.Engine.Data
+namespace BlankMonoGameTemplate.Engine
 {
     /// <summary>
     /// Tileset specific data for XML import and export
@@ -14,7 +14,7 @@ namespace BlankMonoGameTemplate.Engine.Data
         public TilesetTemplate() 
         {
             Filenames = new List<string>();
-            TileData = new List<TileTemplate>();
+            TileTemplates = new List<TileTemplate>();
         }
 
         public List<string> Filenames;
@@ -29,6 +29,6 @@ namespace BlankMonoGameTemplate.Engine.Data
         /// <summary>
         /// Properties that correspond to tiles
         /// </summary>
-        public List<TileTemplate> TileData { get; set; }
+        public List<TileTemplate> TileTemplates { get; set; }
     }
 }

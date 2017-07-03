@@ -41,9 +41,9 @@ namespace BlankMonoGameTemplate.Engine
             return _tilesetData;
         }
 
-        public static void SaveMapData(MapData gameMap, string filename)
+        public static void SaveMapData(MapTemplate gameMap, string filename)
         {
-            XmlSerializer x = new XmlSerializer(typeof(MapData));
+            XmlSerializer x = new XmlSerializer(typeof(MapTemplate));
             using (FileStream fs = new FileStream(filename + ".xml", FileMode.Create))
             {
                 // do something with the file stream here
@@ -52,23 +52,23 @@ namespace BlankMonoGameTemplate.Engine
             }
         }
 
-        public static MapData LoadMapData(ContentManager content, string filename)
+        public static MapTemplate LoadMapData(ContentManager content, string filename)
         {
-            MapData _mapData;
+            MapTemplate _mapData;
             try
             {
-                XmlSerializer x = new XmlSerializer(typeof(MapData));
+                XmlSerializer x = new XmlSerializer(typeof(MapTemplate));
                 using (FileStream fs = new FileStream(filename + ".xml", FileMode.OpenOrCreate))
                 {
                     // do something with the file stream here
-                    _mapData = (MapData)x.Deserialize(fs);
+                    _mapData = (MapTemplate)x.Deserialize(fs);
                     fs.Close();
                 }
             } 
             catch (Exception ex)
             {
-                _mapData = new MapData(16, 16, 16, "Floor");
-                _mapData.Layers.Add(new MapLayer(_mapData, MapLayer.LayerType.Tile) { TilesetName = "Wall" });
+                _mapData = new MapTemplate(16, 16, 16, "Floor");
+                _mapData.Layers.Add(new MapLayerTemplate(_mapData, MapLayerTemplate.LayerType.Tile) { TilesetName = "Wall" });
             }
           
             return _mapData;

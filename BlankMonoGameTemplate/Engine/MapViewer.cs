@@ -25,7 +25,7 @@ namespace BlankMonoGameTemplate.Engine
             
         }
 
-        public void Draw(MapData map, GameTime gameTime)
+        public void Draw(MapTemplate map, GameTime gameTime)
         {
             if (map == null) return;
             for (int l = 0; l < map.Layers.Count; l++) // Layer
@@ -36,7 +36,7 @@ namespace BlankMonoGameTemplate.Engine
                     for (var j = 0; j < map.Width; j++) // Y coord
 	                {
                         var tileId = map.GetTileIdAt(l, i, j);
-                        var tile = Tileset.Loaded[map.Layers[l].TilesetName].GetTile(tileId);
+                        var tile = Tileset.loadedTilesets[map.Layers[l].TilesetName].GetTile(tileId);
                         var destinationRect = new Rectangle
                         {
                             X = (int)Position.X + map.TileSize * i,

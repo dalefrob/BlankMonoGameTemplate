@@ -63,7 +63,7 @@ namespace BlankMonoGameTemplate
             var map = Helper.LoadMapData(Game.Content, "testmap");
             World = new World(Game, map);
             // ** TILESETS ** //
-            Tileset.Loaded.Add("Test Tileset", new Tileset(Helper.LoadTilesetData("Test Tileset")));
+            Tileset.loadedTilesets.Add("Test Tileset", new Tileset(Helper.LoadTilesetData("Test Tileset")));
  
             // ** ENTITIES ** //
             AddTexture2D("GUI0", Game.Content.Load<Texture2D>("Tiles/GUI/GUI0"));

@@ -45,13 +45,15 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Engine\Data\MapData.cs" />
+    <Compile Include="Engine\Data\Map\Map.cs" />
+    <Compile Include="Engine\Data\Map\MapLoader.cs" />
+    <Compile Include="Engine\Data\Map\MapTemplate.cs" />
     <Compile Include="Engine\Data\AStarNode.cs" />
     <Compile Include="Engine\Data\PlayerData.cs" />
-    <Compile Include="Engine\Data\Tile.cs" />
-    <Compile Include="Engine\Data\TileTemplate.cs" />
-    <Compile Include="Engine\Data\TileFlagsEnum.cs" />
-    <Compile Include="Engine\Data\TilesetTemplate.cs" />
+    <Compile Include="Engine\Data\Map\Tile.cs" />
+    <Compile Include="Engine\Data\Map\TileTemplate.cs" />
+    <Compile Include="Engine\Data\Map\TileFlagsEnum.cs" />
+    <Compile Include="Engine\Data\Map\TilesetTemplate.cs" />
     <Compile Include="Engine\Entities\Character.cs" />
     <Compile Include="Engine\Entities\Door.cs" />
     <Compile Include="Engine\Entities\Entity.cs" />
@@ -61,11 +63,12 @@
     <Compile Include="Engine\Entities\Monster.cs" />
     <Compile Include="Engine\GameServices.cs" />
     <Compile Include="Engine\Helper.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Engine\Data\MapLayer.cs" />
-    <Compile Include="Engine\Data\Tileset.cs" />
+    <Compile Include="Engine\Data\Map\MapLayerTemplate.cs" />
+    <Compile Include="Engine\Data\Map\Tileset.cs" />
     <Compile Include="Screens\MapEditorScreen.cs" />
     <Compile Include="Engine\TilesetViewer.cs" />
     <Compile Include="Engine\MapViewer.cs" />

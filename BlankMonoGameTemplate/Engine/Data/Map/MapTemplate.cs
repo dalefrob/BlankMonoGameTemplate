@@ -13,18 +13,18 @@ using BlankMonoGameTemplate.Engine.Data;
 
 namespace BlankMonoGameTemplate.Engine
 {
-    public class MapData
+    public class MapTemplate
     {
         #region XML
 
-        public MapData() { }
-        public MapData(int width, int height, int tileSize, string baseTilesetName) 
+        public MapTemplate() { }
+        public MapTemplate(int width, int height, int tileSize, string baseTilesetName) 
         {
             Width = width;
             Height = height;
             TileSize = tileSize;
 
-            Layers.Add(new MapLayer(this, MapLayer.LayerType.Tile) { TilesetName = baseTilesetName });
+            Layers.Add(new MapLayerTemplate(this, MapLayerTemplate.LayerType.Tile) { TilesetName = baseTilesetName });
         }
 
         public int Width
@@ -44,7 +44,7 @@ namespace BlankMonoGameTemplate.Engine
             set;
         }
 
-        public List<MapLayer> Layers = new List<MapLayer>();
+        public List<MapLayerTemplate> Layers = new List<MapLayerTemplate>();
 
         #endregion
        
@@ -53,22 +53,22 @@ namespace BlankMonoGameTemplate.Engine
         public void Jumble(int maxRandomValue) {
             var random = new Random();
             foreach(var layer in Layers) {
-                for (int i = 0; i < layer.Tiles.Count(); i++)
+                for (int i = 0; i < layer.TileIds.Count(); i++)
                 {
-                    layer.Tiles[i] = random.Next(maxRandomValue);
+                    layer.TileIds[i] = random.Next(maxRandomValue);
                 }
             }
         }
 
         public void SetTileIdAt(int layer, int x, int y, int tileId)
         {
-            Layers[layer].Tiles[(y * Width) + x] = tileId;
+            Layers[layer].TileIds[(y * Width) + x] = tileId;
 
         }
 
         public int GetTileIdAt(int layer, int x, int y)
         {
-            return Layers[layer].Tiles[(y * Width) + x];
+            return Layers[layer].TileIds[(y * Width) + x];
         }
 
         #endregion

@@ -108,8 +108,8 @@ namespace BlankMonoGameTemplate
                 s.UnloadContent();
             }
 
-            Tileset.Loaded.Clear();
-            Tileset.Loaded = null;
+            Tileset.loadedTilesets.Clear();
+            Tileset.loadedTilesets = null;
         }
 
         /// <summary>

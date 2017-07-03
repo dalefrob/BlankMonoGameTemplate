@@ -19,7 +19,7 @@ namespace BlankMonoGameTemplate.Engine
         {
             if (!IsTilesetLoaded) return;
 
-            var tileSize = Tileset.Data.TileSize;
+            var tileSize = Tileset.Template.TileSize;
 
             for (int i = 0; i < TileSlots.Count; i++)
             {
@@ -55,7 +55,7 @@ namespace BlankMonoGameTemplate.Engine
             var relativePosition = screenPosition - Position;
             if (relativePosition.X >= 0 && relativePosition.Y >= 0)
             {
-                var coordinate = (relativePosition / Tileset.Data.TileSize).ToPoint();
+                var coordinate = (relativePosition / Tileset.Template.TileSize).ToPoint();
                 SelectedTileSlot = TileSlots.Where(t => t.ViewerCoord == coordinate).First();
             }
             return SelectedTileSlot;
