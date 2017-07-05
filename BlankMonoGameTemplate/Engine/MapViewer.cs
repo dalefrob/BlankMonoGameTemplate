@@ -36,7 +36,7 @@ namespace BlankMonoGameTemplate.Engine
                     for (var j = 0; j < map.Width; j++) // Y coord
 	                {
                         var tileId = map.GetTileIdAt(l, i, j);
-                        var tile = Tileset.loadedTilesets[map.Layers[l].TilesetName].GetTile(tileId);
+                        var tile = Tileset.GetTileset(map.Layers[l].TilesetName).GetTile(tileId);
                         var destinationRect = new Rectangle
                         {
                             X = (int)Position.X + map.TileSize * i,

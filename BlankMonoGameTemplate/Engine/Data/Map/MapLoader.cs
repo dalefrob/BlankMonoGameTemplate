@@ -14,16 +14,13 @@ namespace BlankMonoGameTemplate.Engine
 
             foreach (var layer in _mapData.Layers)
             {
-                // Embed tileset
-                result.tilesets.Add(layer.TilesetName, Tileset.GetTileset(layer.TilesetName));
-
                 var tiles = new List<Tile>();
                 for (int i = 0; i < layer.TileIds.Count; i++)
                 {
                     var tile = new Tile();
                     tile.TemplateID = layer.TileIds[i];
                 }
-                result.TryAddLayer(layer.LayerName, ConvertTo2dTileArray(_mapData.Width, _mapData.Height, tiles));
+                result.TryAddLayer(layer.Name, ConvertTo2dTileArray(_mapData.Width, _mapData.Height, tiles));
             }
 
             return result;

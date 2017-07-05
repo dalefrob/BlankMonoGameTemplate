@@ -70,8 +70,8 @@ namespace BlankMonoGameTemplate.Engine
                 foreach (var layer in Map.Layers)
                 {
                     var index = (y * Map.Width) + x;
-                    var tileData = Tileset.loadedTilesets[layer.TilesetName].GetTile(index).TileTemplate;
-                    if (tileData.Obstacle)
+                    var tile = Tileset.GetTileset(layer.TilesetName).GetTile(index);
+                    if (tile.Obstacle)
                     {
                         currentNode.Obstacle = true;
 

@@ -6,6 +6,16 @@ using System.Threading.Tasks;
 
 namespace BlankMonoGameTemplate.Engine
 {
+    // Map
+
+    public enum MapLayerType
+    {
+        Tile,
+        Entity
+    }
+
+    // Tiles
+
     [Flags]
     public enum MovementFlags
     {

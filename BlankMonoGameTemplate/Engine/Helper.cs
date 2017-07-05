@@ -68,7 +68,7 @@ namespace BlankMonoGameTemplate.Engine
             catch (Exception ex)
             {
                 _mapData = new MapTemplate(16, 16, 16, "Floor");
-                _mapData.Layers.Add(new MapLayerTemplate(_mapData, MapLayerTemplate.LayerType.Tile) { TilesetName = "Wall" });
+                _mapData.Layers.Add(new MapLayer(_mapData, MapLayer.MapLayerType.Tile) { TilesetName = "Wall" });
             }
           
             return _mapData;

@@ -13,7 +13,7 @@ namespace BlankMonoGameTemplate.Engine
     public class TileTemplate
     {
         // Identifying properties
-        public int ID { get; set; }
+        //public int GlobalID { get; set; }
         public int RegionId { get; set; }
         public string AtlasName { get; set; }
 

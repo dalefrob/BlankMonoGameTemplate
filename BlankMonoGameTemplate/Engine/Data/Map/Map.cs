@@ -12,23 +12,60 @@ namespace BlankMonoGameTemplate.Engine
     /// </summary>
     public class Map
     {
-        public Map(int _width, int _height, params string[] _layerNames)
+        #region Static
+
+        public static Map CreateNew(int _width, int _height, int _tileSize, params string[] _layerNames)
+        {
+            Map map = new Map(16, 16);
+            MapTemplate template = new MapTemplate
+            {
+                Width = _width,
+                Height = _height,
+                TileSize = _tileSize,
+               
+            };
+            
+            return map;
+        }
+
+        public static Map FromTemplate(MapTemplate _template)
+        {
+            Map map = new Map(_template.Width, _template.Height, null);
+            foreach (var layerTemplate in _template.LayerTemplates)
+            {
+                MapLayer newLayer = new MapLayer(map, layerTemplate.Name, 
+            }
+        }
+
+        #endregion
+
+        public Map(MapTemplate _template)
+        {
+
+        }
+
+        public Map(int _width, int _height, params MapLayer[] _layers)
         {
             Width = _width;
             Height = _height;
 
-            for (int i = 0; i < _layerNames.Length; i++)
+            if (_layers.Length == 0)
             {
-                var tileArray = new Tile[Width, Height];
-                for (int y = 0; y < Height; y++)
-                {
-                    for (int x = 0; x < Width; x++)
-                    {
-                        tileArray[x, y] = Tile.Default();
-                    }
-                }
-                TryAddLayer(_layerNames[i], tileArray);
+                _layers[0] = new MapLayer(this, "Default", Tileset.GetTileset("Default"), MapLayerType.Tile);
             }
+
+            for (int i = 0; i < _layers.Length; i++)
+            {
+                TryAddLayer(_layers[i].Name, _layers[i]);
+            }
+        }
+
+        /// <summary>
+        /// Load things like tilesets etc.
+        /// </summary>
+        public void Load()
+        {
+
         }
 
         /// <summary>
@@ -37,11 +74,11 @@ namespace BlankMonoGameTemplate.Engine
         /// <param name="_key"></param>
         /// <param name="_array"></param>
         /// <returns></returns>
-        internal bool TryAddLayer(string _key, Tile[,] _array)
+        internal bool TryAddLayer(string _key, MapLayer _layer)
         {
-            if (!layers.ContainsKey(_key) && (_array.Length == Size))
-            {               
-                layers.Add(_key, _array);
+            if (!layers.ContainsKey(_key) && (_layer.Tiles.Length == Size))
+            {
+                layers.Add(_key, _layer);
                 return true;
             }
             else
@@ -61,11 +98,11 @@ namespace BlankMonoGameTemplate.Engine
         {
             if (_layer != null)
             {
-                return layers[_layer][_x, _y];
+                return layers[_layer].Tiles[_x, _y];
             }
             else
             {
-                return layers[layers.Keys.Last()][_x, _y];
+                return layers[layers.Keys.Last()].Tiles[_x, _y];
             }
         }
 
@@ -87,14 +124,13 @@ namespace BlankMonoGameTemplate.Engine
             get { return Width * Height; }
         }
 
-        Dictionary<string, Tile[,]> layers = new Dictionary<string, Tile[,]>();
-        Dictionary<string, Tileset> tilesets = new Dictionary<string, Tileset>();
+        Dictionary<string, MapLayer> layers = new Dictionary<string, MapLayer>();
 
-        public Dictionary<string, Tileset> EmbeddedTilesets
+        public List<Tileset> EmbeddedTilesets
         {
             get
             {
-                return tilesets;
+                return layers.Values.Select(l => l.Tileset).ToList();
             }
         }
     }
