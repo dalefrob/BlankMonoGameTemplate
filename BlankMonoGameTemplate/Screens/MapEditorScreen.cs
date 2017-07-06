@@ -105,10 +105,11 @@ namespace BlankMonoGameTemplate.Screens
                     FocusedMapCoord += new Point(1, 0);
                     break;
                 case Keys.Enter:
-                    Map.SetTileIdAt(CurrentLayerIndex, FocusedMapCoord.X, FocusedMapCoord.Y, tilesetViewer.SelectedTileSlot.Tile.TemplateID);
+                    var selectedTile = tilesetViewer.SelectedTileSlot.Tile;
+                    Map.SetTileAt(selectedTile, FocusedMapCoord.X, FocusedMapCoord.Y, Map.Layers.Keys.ToList()[CurrentLayerIndex]);
                     break;
                 case Keys.S:
-                    Helper.SaveMapData(Map, "testmap");
+                    Helper.SaveMapData(Map.ToTemplate("testmap"), "testmap");
                     break;
                 case Keys.T:
                     //Helper.SaveTilesetData(CurrentLayerTileset.Data, CurrentLayerTileset.Data.Name);
@@ -153,7 +154,7 @@ namespace BlankMonoGameTemplate.Screens
             
             spriteBatch.Begin();
             mapViewer.Draw(Map, gameTime);
-            spriteBatch.Draw(selectionTexture, mapViewer.Position + (FocusedMapCoord.ToVector2() * Map.TileSize), Color.White);
+            spriteBatch.Draw(selectionTexture, mapViewer.Position + (FocusedMapCoord.ToVector2() * Map.Tilesize), Color.White);
 
             var relativeMousePos = Vector2.Subtract(MousePos, mapViewer.Position);
             spriteBatch.DrawString(Game1.Mainfont, string.Format("RelMousePos: {0},{1}", relativeMousePos.X, relativeMousePos.Y), new Vector2(216, 0), Color.Blue);
@@ -169,8 +170,8 @@ namespace BlankMonoGameTemplate.Screens
             base.Draw(gameTime);
         }
 
-        MapTemplate _map;
-        public MapTemplate Map {
+        Map _map;
+        public Map Map {
             get
             {
                 return _map;
@@ -178,8 +179,9 @@ namespace BlankMonoGameTemplate.Screens
             set
             {
                 _map = value;
-                // Load the first later tileset
-                tilesetViewer.Tileset = Tileset.GetTileset(value.Layers[0].TilesetName);
+                // Load the first tileset
+                var layerName = value.Layers.Keys.ToArray()[0];
+                tilesetViewer.Tileset = Tileset.GetTileset(value.Layers[layerName].TilesetName);
             }
         }
 

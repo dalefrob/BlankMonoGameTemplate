@@ -25,7 +25,7 @@ namespace BlankMonoGameTemplate.Engine
     /// </summary>
     public class World
     {
-        public World(Game game, MapTemplate map)
+        public World(Game game, Map map)
         {
             Game = game;
             Map = map;
@@ -70,7 +70,7 @@ namespace BlankMonoGameTemplate.Engine
                 foreach (var layer in Map.Layers)
                 {
                     var index = (y * Map.Width) + x;
-                    var tile = Tileset.GetTileset(layer.TilesetName).GetTile(index);
+                    var tile = layer.Value.Tiles[x, y];
                     if (tile.Obstacle)
                     {
                         currentNode.Obstacle = true;
@@ -98,7 +98,7 @@ namespace BlankMonoGameTemplate.Engine
             entityManager.Draw(gameTime);
         }
 
-        public MapTemplate Map { get; set; }
+        public Map Map { get; set; }
 
         public List<Entity> GetEntitiesAtCoord(Point coord)
         {
@@ -110,12 +110,12 @@ namespace BlankMonoGameTemplate.Engine
         public Point GetMapCoordFromPosition(Vector2 position)
         {
             var offsetPos = position - mapViewer.Position;          
-            return (offsetPos / Map.TileSize).ToPoint();
+            return (offsetPos / Map.Tilesize).ToPoint();
         }
 
         public Vector2 GetPositionFromMapCoord(Point coord)
         {
-            return mapViewer.Position + new Vector2(coord.X * Map.TileSize, coord.Y * Map.TileSize);
+            return mapViewer.Position + new Vector2(coord.X * Map.Tilesize, coord.Y * Map.Tilesize);
         }
 
         public void MoveObjectToTile(Entity entity, int x, int y)
@@ -131,14 +131,14 @@ namespace BlankMonoGameTemplate.Engine
         public List<Point> GetTileRangeCircle(Point origin, float tileRange)
         {
             var points = new List<Point>();
-            var worldPos = GetPositionFromMapCoord(origin) + new Vector2(Map.TileSize / 2); // Map.TileSize / 2 will get the center position of the tile
+            var worldPos = GetPositionFromMapCoord(origin) + new Vector2(Map.Tilesize / 2); // Map.TileSize / 2 will get the center position of the tile
             // Every 20 degrees, query tiles at radius distance
             for (int a = 0; a < 360; a = a + 20)
             {
                 for (int r = 1; r <= tileRange; r++)
                 {
-                    float x = (float)((r * Map.TileSize) * Math.Cos(a * Math.PI / 180F)) + worldPos.X;
-                    float y = (float)((r * Map.TileSize) * Math.Sin(a * Math.PI / 180F)) + worldPos.Y;
+                    float x = (float)((r * Map.Tilesize) * Math.Cos(a * Math.PI / 180F)) + worldPos.X;
+                    float y = (float)((r * Map.Tilesize) * Math.Sin(a * Math.PI / 180F)) + worldPos.Y;
                     var tileCoord = GetMapCoordFromPosition(new Vector2(x, y));
                     if (!points.Contains(tileCoord))
                     {

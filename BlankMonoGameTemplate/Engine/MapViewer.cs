@@ -25,24 +25,24 @@ namespace BlankMonoGameTemplate.Engine
             
         }
 
-        public void Draw(MapTemplate map, GameTime gameTime)
+        public void Draw(Map map, GameTime gameTime)
         {
             if (map == null) return;
-            for (int l = 0; l < map.Layers.Count; l++) // Layer
+            var layerNames = map.Layers.Keys.ToList();
+            for (int l = 0; l < layerNames.Count; l++) // Layer
 			{
                 spriteBatch.Begin();
                 for (var i = 0; i < map.Height; i++) // X coord
 	            {
                     for (var j = 0; j < map.Width; j++) // Y coord
 	                {
-                        var tileId = map.GetTileIdAt(l, i, j);
-                        var tile = Tileset.GetTileset(map.Layers[l].TilesetName).GetTile(tileId);
+                        var tile = map.GetTileAt(i, j, layerNames[l]);
                         var destinationRect = new Rectangle
                         {
-                            X = (int)Position.X + map.TileSize * i,
-                            Y = (int)Position.Y + map.TileSize * j,
-                            Width = map.TileSize,
-                            Height = map.TileSize
+                            X = (int)Position.X + map.Tilesize * i,
+                            Y = (int)Position.Y + map.Tilesize * j,
+                            Width = map.Tilesize,
+                            Height = map.Tilesize
                         };
                         spriteBatch.Draw(tile.Texture, destinationRect, Color.White);	                    
 	                }

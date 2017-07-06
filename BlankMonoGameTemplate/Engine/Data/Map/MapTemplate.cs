@@ -21,13 +21,14 @@ namespace BlankMonoGameTemplate.Engine
         #region XML
 
         public MapTemplate() { }
-        public MapTemplate(string _name, int _width, int _height, int _tileSize, string _baseTilesetName) 
+        public MapTemplate(string _name, int _width, int _height, int _tileSize) 
         {
             Name = _name;
             Width = _width;
             Height = _height;
             TileSize = _tileSize;
-            var newLayer = new LayerTemplate(_width, _height);
+            // Add a default layer
+            var newLayer = new LayerTemplate();
             LayerTemplates.Add(newLayer);           
         }
 
@@ -44,9 +45,9 @@ namespace BlankMonoGameTemplate.Engine
             var random = new Random();
             foreach (var layer in LayerTemplates)
             {
-                for (int i = 0; i < layer.TileTemplateId.Count(); i++)
+                for (int i = 0; i < layer.TileTemplateIds.Count(); i++)
                 {
-                    layer.TileTemplateId[i] = random.Next(maxRandomValue);
+                    layer.TileTemplateIds[i] = random.Next(maxRandomValue);
                 }
             }
         }    

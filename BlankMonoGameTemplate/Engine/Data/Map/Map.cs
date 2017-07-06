@@ -12,46 +12,16 @@ namespace BlankMonoGameTemplate.Engine
     /// </summary>
     public class Map
     {
-        #region Static
-
-        public static Map CreateNew(int _width, int _height, int _tileSize, params string[] _layerNames)
-        {
-            Map map = new Map(16, 16);
-            MapTemplate template = new MapTemplate
-            {
-                Width = _width,
-                Height = _height,
-                TileSize = _tileSize,
-               
-            };
-            
-            return map;
-        }
-
-        public static Map FromTemplate(MapTemplate _template)
-        {
-            Map map = new Map(_template.Width, _template.Height, null);
-            foreach (var layerTemplate in _template.LayerTemplates)
-            {
-                MapLayer newLayer = new MapLayer(map, layerTemplate.Name, 
-            }
-        }
-
-        #endregion
-
-        public Map(MapTemplate _template)
-        {
-
-        }
-
-        public Map(int _width, int _height, params MapLayer[] _layers)
+        public Map(int _width, int _height, int _tilesize, params MapLayer[] _layers)
         {
             Width = _width;
             Height = _height;
+            Tilesize = _tilesize;
+
 
             if (_layers.Length == 0)
             {
-                _layers[0] = new MapLayer(this, "Default", Tileset.GetTileset("Default"), MapLayerType.Tile);
+                _layers[0] = new MapLayer();
             }
 
             for (int i = 0; i < _layers.Length; i++)
@@ -61,11 +31,35 @@ namespace BlankMonoGameTemplate.Engine
         }
 
         /// <summary>
-        /// Load things like tilesets etc.
+        /// Load a map from a template including layers
         /// </summary>
-        public void Load()
+        /// <param name="_template"></param>
+        public Map(MapTemplate _template)
         {
+            Width = _template.Width;
+            Height = _template.Height;
+            Tilesize = _template.TileSize;
+            foreach (LayerTemplate lTemplate in _template.LayerTemplates)
+            {
+                MapLayer mapLayer = new MapLayer(Width, Height, lTemplate);
+                TryAddLayer(lTemplate.Name, mapLayer);
+            }
+        }
 
+        /// <summary>
+        /// Save a map to a template including layers
+        /// </summary>
+        /// <param name="_name"></param>
+        /// <returns></returns>
+        public MapTemplate ToTemplate(string _name)
+        {
+            MapTemplate mapTemplate = new MapTemplate(_name, Width, Height, Tilesize);
+            foreach (MapLayer layer in Layers.Values)
+            {
+                LayerTemplate lTemplate = new LayerTemplate(Width, Height, layer);
+                mapTemplate.LayerTemplates.Add(lTemplate);
+            }
+            return mapTemplate;
         }
 
         /// <summary>
@@ -76,9 +70,9 @@ namespace BlankMonoGameTemplate.Engine
         /// <returns></returns>
         internal bool TryAddLayer(string _key, MapLayer _layer)
         {
-            if (!layers.ContainsKey(_key) && (_layer.Tiles.Length == Size))
+            if (!Layers.ContainsKey(_key) && (_layer.Tiles.Length == Size))
             {
-                layers.Add(_key, _layer);
+                Layers.Add(_key, _layer);
                 return true;
             }
             else
@@ -98,12 +92,26 @@ namespace BlankMonoGameTemplate.Engine
         {
             if (_layer != null)
             {
-                return layers[_layer].Tiles[_x, _y];
+                return Layers[_layer].Tiles[_x, _y];
             }
             else
             {
-                return layers[layers.Keys.Last()].Tiles[_x, _y];
+                return Layers[Layers.Keys.Last()].Tiles[_x, _y];
             }
+        }
+
+        /// <summary>
+        /// Set a tile at a specific map point. No layer? get first.
+        /// </summary>
+        /// <param name="_x"></param>
+        /// <param name="_y"></param>
+        /// <param name="_layer"></param>
+        /// <returns></returns>
+        public void SetTileAt(Tile _tile, int _x, int _y, string _layer = null)
+        {
+            var keys = Layers.Keys.ToList();
+            var layerKey = (_layer == null) ? keys[0] : _layer;
+            Layers[layerKey].Tiles[_x, _y] = _tile;
         }
 
         /// <summary>
@@ -117,6 +125,7 @@ namespace BlankMonoGameTemplate.Engine
             return GetTileAt(_point.X, _point.Y, _layer);
         }
 
+        public int Tilesize { get; set; }
         public int Width { get; private set; }
         public int Height { get; private set; }
         public int Size
@@ -124,13 +133,17 @@ namespace BlankMonoGameTemplate.Engine
             get { return Width * Height; }
         }
 
-        Dictionary<string, MapLayer> layers = new Dictionary<string, MapLayer>();
+        Dictionary<string, MapLayer> _layers = new Dictionary<string, MapLayer>();
+        public Dictionary<string, MapLayer> Layers {
+            get { return _layers; }
+            internal set { _layers = value; }
+        }
 
         public List<Tileset> EmbeddedTilesets
         {
             get
             {
-                return layers.Values.Select(l => l.Tileset).ToList();
+                return Layers.Values.Select(l => l.Tileset).ToList();
             }
         }
     }

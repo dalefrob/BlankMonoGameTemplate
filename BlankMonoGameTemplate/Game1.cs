@@ -84,12 +84,8 @@ namespace BlankMonoGameTemplate
         {
             var tileset = Tileset.CreateNew(Content, "Test Tileset", 16, new string[]{ "Floor", "Wall" });
             
-            
-            var map = new MapData(24, 24, 16, "Floor");
-            map.Layers.Add(new MapLayer(map, MapLayer.MapLayerType.Tile) { TilesetName = "Wall" });
-            map.Jumble(50);
-            Helper.SaveMapData(map, "testmap");
-            
+            Map map = new Map(16, 16, 16);
+            Helper.SaveMapData(map.ToTemplate("testmap"), "testmap");          
         }
 
         /// <summary>

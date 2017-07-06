@@ -47,7 +47,6 @@
   <ItemGroup>
     <Compile Include="Engine\Data\Map\LayerTemplate.cs" />
     <Compile Include="Engine\Data\Map\Map.cs" />
-    <Compile Include="Engine\Data\Map\MapLoader.cs" />
     <Compile Include="Engine\Data\Map\MapTemplate.cs" />
     <Compile Include="Engine\Data\AStarNode.cs" />
     <Compile Include="Engine\Data\PlayerData.cs" />

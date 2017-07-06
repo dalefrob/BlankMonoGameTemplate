@@ -60,7 +60,8 @@ namespace BlankMonoGameTemplate
             Console.WriteLine("Load content called");
             // Load all possible assets that will appear on this screen
             // ** WORLD ** //
-            var map = Helper.LoadMapData(Game.Content, "testmap");
+            var mapTemplate = Helper.LoadMapData(Game.Content, "testmap");
+            var map = new Map(mapTemplate);
             World = new World(Game, map);
             // ** TILESETS ** //
             Tileset.GetTileset("Test Tileset");

@@ -129,4 +129,3 @@ D:/Projects/C#/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debug/Blan
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debug/BlankMonoGameTemplate.exe
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debug/BlankMonoGameTemplate.pdb
 /Users/daleroberts/Documents/GitHub/BlankMonoGameTemplate/BlankMonoGameTemplate/obj/Debug/BlankMonoGameTemplate.csprojResolveAssemblyReference.cache
-C:\WorkspacePersonal\GitHub\BlankMonoGameTemplate\BlankMonoGameTemplate\obj\Debug\BlankMonoGameTemplate.csprojResolveAssemblyReference.cache

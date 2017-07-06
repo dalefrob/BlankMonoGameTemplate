@@ -53,5 +53,18 @@ namespace BlankMonoGameTemplate.Engine
             var region = new TextureRegion2D(blankTexture);
             return region;
         }
+
+        public static Tile[,] ListTo2dArray(int _width, int _height, List<Tile> _tiles)
+        {
+            Tile[,] result = new Tile[_width, _height];
+            for (int i = 0; i < _tiles.Count; i++)
+            {
+                var x = i % _width;
+                var y = i / _width;
+                result[x, y] = _tiles[i];
+            }
+
+            return result;
+        }
     }
 }

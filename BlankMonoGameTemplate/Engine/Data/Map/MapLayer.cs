@@ -25,10 +25,8 @@ namespace BlankMonoGameTemplate.Engine
             template = _template; 
 
             Name = _template.Name;
-            TilesetName = _template.TilesetName;
             TypeOfLayer = _template.TypeOfLayer;
-            return newLayer;
-                       
+            Initialize();         
         }
 
         public void Initialize()
@@ -42,7 +40,7 @@ namespace BlankMonoGameTemplate.Engine
                 for (int x = 0; x < width; x++)
                 {
                     var singleDimIndex = (y * width) + x;
-                    Tiles[x, y] = Tileset.GetTile(template.TileTemplateId[singleDimIndex]);
+                    Tiles[x, y] = Tileset.GetTile(template.TileTemplateIds[singleDimIndex]);
                 }
             }
         }
@@ -54,8 +52,13 @@ namespace BlankMonoGameTemplate.Engine
         public string Name { get; set; }
         public MapLayerType TypeOfLayer { get; set; }
 
-        public string TilesetName { get; set; }
+        public string TilesetName {
+            get { return Tileset.Name; } 
+        }
         public Tileset Tileset { get; set; }
+        /// <summary>
+        /// GAME READY TILES. Don't get confused!!
+        /// </summary>
         public Tile[,] Tiles { get; set; }
         
         // Experimental Properties
