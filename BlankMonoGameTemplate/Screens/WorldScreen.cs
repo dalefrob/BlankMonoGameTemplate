@@ -60,11 +60,9 @@ namespace BlankMonoGameTemplate
             Console.WriteLine("Load content called");
             // Load all possible assets that will appear on this screen
             // ** WORLD ** //
-            var mapTemplate = Helper.LoadMapData(Game.Content, "testmap");
-            var map = new Map(mapTemplate);
+            var map = Helper.LoadMap(Game.Content, "testmap");
             World = new World(Game, map);
-            // ** TILESETS ** //
-            Tileset.GetTileset("Test Tileset");
+            Tileset.GetTileset("Default");
  
             // ** ENTITIES ** //
             AddTexture2D("GUI0", Game.Content.Load<Texture2D>("Tiles/GUI/GUI0"));

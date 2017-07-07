@@ -19,7 +19,7 @@ namespace BlankMonoGameTemplate.Engine
         {
             if (!IsTilesetLoaded) return;
 
-            var tileSize = Tileset.Template.TileSize;
+            var tileSize = Tileset.Tilesize;
 
             for (int i = 0; i < TileSlots.Count; i++)
             {
@@ -55,7 +55,7 @@ namespace BlankMonoGameTemplate.Engine
             var relativePosition = screenPosition - Position;
             if (relativePosition.X >= 0 && relativePosition.Y >= 0)
             {
-                var coordinate = (relativePosition / Tileset.Template.TileSize).ToPoint();
+                var coordinate = (relativePosition / Tileset.Tilesize).ToPoint();
                 SelectedTileSlot = TileSlots.Where(t => t.ViewerCoord == coordinate).First();
             }
             return SelectedTileSlot;
@@ -121,7 +121,7 @@ namespace BlankMonoGameTemplate.Engine
 
     public class TileViewerEventArgs : EventArgs
     {
-        public TileTemplate SelectedTile { get; set; }
+        public TileModel SelectedTile { get; set; }
         public TileViewerEventArgs() : base() { }
     }
 

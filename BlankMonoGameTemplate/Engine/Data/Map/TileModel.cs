@@ -1,4 +1,5 @@
 ﻿using MonoGame.Extended.TextureAtlases;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +11,28 @@ namespace BlankMonoGameTemplate.Engine
     /// <summary>
     /// Tile specific data for import and export
     /// </summary>
-    public class TileTemplate
+    public class TileModel
     {
-        // Identifying properties
-        //public int GlobalID { get; set; }
-        public int RegionId { get; set; }
-        public string AtlasName { get; set; }
+        public TileModel() { }
 
-        // Game specific properties
-        public MovementFlags TileFlags { get; set; }
-        public SpecialFlags SpecialFlags { get; set; }
-
-        public TileTemplate() { }
-
-        public TileTemplate(int regionId, string atlasName)
+        public TileModel(int regionId, string atlasName)
             : this()
         {
             RegionId = regionId;
             AtlasName = atlasName;
         }
-      
-        public static TileTemplate Default()
+
+        [JsonIgnore]
+        public int ID { get; set; }
+        public int RegionId { get; set; }
+        public string AtlasName { get; set; }
+
+        public MovementFlags TileFlags { get; set; }
+        public SpecialFlags SpecialFlags { get; set; }
+
+        public static TileModel Default()
         {
-            return new TileTemplate
+            return new TileModel
             {
                 RegionId = 0,
                 AtlasName = null,

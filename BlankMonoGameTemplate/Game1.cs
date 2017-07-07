@@ -82,10 +82,10 @@ namespace BlankMonoGameTemplate
       
         void CreateTestData()
         {
-            var tileset = Tileset.CreateNew(Content, "Test Tileset", 16, new string[]{ "Floor", "Wall" });
-            
-            Map map = new Map(16, 16, 16);
-            Helper.SaveMapData(map.ToTemplate("testmap"), "testmap");          
+            var tileset = new Tileset("Default", 16, new string[]{ "Floor", "Wall" });
+            Helper.SaveTileset(tileset);
+            Map map = new Map("Testmap", 16, 16, 16);
+            Helper.SaveMap(map);          
         }
 
         /// <summary>

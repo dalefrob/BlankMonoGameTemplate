@@ -45,15 +45,12 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Engine\Data\Map\LayerTemplate.cs" />
     <Compile Include="Engine\Data\Map\Map.cs" />
-    <Compile Include="Engine\Data\Map\MapTemplate.cs" />
     <Compile Include="Engine\Data\AStarNode.cs" />
     <Compile Include="Engine\Data\PlayerData.cs" />
     <Compile Include="Engine\Data\Map\Tile.cs" />
-    <Compile Include="Engine\Data\Map\TileTemplate.cs" />
+    <Compile Include="Engine\Data\Map\TileModel.cs" />
     <Compile Include="Engine\Data\Map\Enums.cs" />
-    <Compile Include="Engine\Data\Map\TilesetTemplate.cs" />
     <Compile Include="Engine\Entities\Character.cs" />
     <Compile Include="Engine\Entities\Door.cs" />
     <Compile Include="Engine\Entities\Entity.cs" />

@@ -4,6 +4,8 @@ using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.TextureAtlases;
 using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace BlankMonoGameTemplate.Engine
 {
@@ -17,35 +19,32 @@ namespace BlankMonoGameTemplate.Engine
         {
             width = _width;
             height = _height;
-            Tileset = Tileset.GetTileset("Default");
-            Tiles = new Tile[width, height];
+            TileIds = new int[_width, _height];
             for (int y = 0; y < height; y++)
             {
                 for (int x = 0; x < width; x++)
                 {
-                    var singleDimIndex = (y * width) + x;
-                    Tiles[x, y] = Tileset.GetTile(0);
+                    TileIds[x, y] = 0;
                 }
-            }    
+            }             
         }
 
-        public void LoadTemplate(LayerTemplate _template)
+        public void Build(Map _map)
         {
-            Name = _template.Name;
-            TypeOfLayer = _template.TypeOfLayer;
-            Tileset = Tileset.GetTileset(TilesetName);
-            Tiles = new Tile[width, height];
-            for (int y = 0; y < height; y++)
+            Tileset = Tileset.GetTileset("Default");
+            Tiles = new Tile[_map.Width, _map.Height];
+            for (int y = 0; y < _map.Height; y++)
             {
-                for (int x = 0; x < width; x++)
+                for (int x = 0; x < _map.Width; x++)
                 {
-                    var singleDimIndex = (y * width) + x;
-                    Tiles[x, y] = Tileset.GetTile(_template.TileTemplateIds[singleDimIndex]);
+                    Tiles[x, y] = Tileset.GetTile(TileIds[x, y]);
                 }
             }
         }
 
+        [JsonIgnore]
         public readonly int width;
+        [JsonIgnore]
         public readonly int height;
 
         string _name = "Default";
@@ -53,23 +52,21 @@ namespace BlankMonoGameTemplate.Engine
             get { return _name; }
             set { _name = value; }
         }
-        MapLayerType _typeOfLayer = MapLayerType.Tile;
-        public MapLayerType TypeOfLayer {
-            get { return _typeOfLayer; }
-            set { _typeOfLayer = value; }
-        }
 
+        [JsonConverter(typeof(StringEnumConverter))]
+        public MapLayerType TypeOfLayer = MapLayerType.Tile;
+
+        [JsonIgnore]
         public string TilesetName {
             get { return Tileset.Name; } 
         }
-        public Tileset Tileset { get; set; }
-        /// <summary>
-        /// GAME READY TILES. Don't get confused!!
-        /// </summary>
-        public Tile[,] Tiles { get; set; }
-        
-        // Experimental Properties
-        public Color Tint { get; set; }
 
+        [JsonIgnore]
+        public Color Tint { get; set; }
+        [JsonIgnore]
+        public Tileset Tileset { get; set; }
+        [JsonIgnore]
+        public Tile[,] Tiles { get; set; }
+        public int[,] TileIds { get; set; }
     }
 }

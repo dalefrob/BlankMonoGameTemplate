@@ -8,6 +8,7 @@ using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using BlankMonoGameTemplate.Engine.Data;
+using Newtonsoft.Json;
 
 namespace BlankMonoGameTemplate.Engine
 {
@@ -25,119 +26,73 @@ namespace BlankMonoGameTemplate.Engine
             if (!loadedTilesets.ContainsKey(_tilesetName))
             {
                 // Load the tileset if its not in the dictionary
-                result = new Tileset(Helper.LoadTilesetData(_tilesetName));
+                result = Helper.LoadTileset(_tilesetName);
                 loadedTilesets.Add(_tilesetName, result);
             }
 
             return loadedTilesets[_tilesetName];
         }
+        #endregion
 
         /// <summary>
         /// Create a tileset with a template from scratch.
         /// </summary>
-        /// <param name="content"></param>
+        /// <param name="_content"></param>
         /// <param name="data"></param>
         /// <returns></returns>
-        public static Tileset CreateNew(ContentManager content, string name, int tileSize, string[] filenames)
+        public Tileset (string _name, int _tilesize, string[] _filenames)
         {
-            var _tileset = new Tileset();
-            var _tilesetData = new TilesetTemplate
-            {
-                Filenames = filenames.ToList(),
-                Name = name,
-                TileSize = tileSize
-            };
-
-            // Add blank tile
-            var _blankTileData = new TileTemplate(0, null);
-            _tilesetData.TileTemplates.Add(_blankTileData);
-
-            var _gIndex = 1; // Global index starts at 1 due to blank tile being zero
-            // Add tiles in all files
-            foreach (string filename in _tilesetData.Filenames)
-            {
-                var _texture = content.Load<Texture2D>("Tiles/Objects/" + filename);
-                var _newAtlas = new TextureAtlas(filename, _texture);
-                var _tilesX = _texture.Width / _tilesetData.TileSize;
-                var _tilesY = _texture.Height / _tilesetData.TileSize;
-                for (int y = 0; y < _tilesY; y++)
-                {
-                    for (int x = 0; x < _tilesX; x++)
-                    {
-                        var i = (y * _tilesX) + x;
-                        _newAtlas.CreateRegion(filename + i, x * _tilesetData.TileSize, y * _tilesetData.TileSize, _tilesetData.TileSize, _tilesetData.TileSize);
-
-                        var _tileData = new TileTemplate
-                        {
-                            AtlasName = filename,
-                            RegionId = i
-                        };
-
-                        _tilesetData.TileTemplates.Add(_tileData);
-                        _gIndex++;
-                    }
-                }
-                // Add a reference to the initialized atlas
-                _tileset.atlases.Add(filename, _newAtlas);
-            }
-
-            // Save the data
-            Helper.SaveTilesetData(_tilesetData);
-            _tileset.Template = _tilesetData;
-
-            return _tileset;
+            Name = _name;
+            Tilesize = _tilesize;
+            Filenames = _filenames;
+            BuildAtlases();
+            loadedTilesets.Add(Name, this);
         }
-        #endregion
 
         public Tileset() { }
 
-        public Tileset(TilesetTemplate _template)
+        public void BuildAtlases()
         {
-            LoadTemplate(_template);
-        }
+            Dictionary<int, TileModel> tilemodels = new Dictionary<int, TileModel>();
+            var blankTileData = new TileModel(0, null);
+            tilemodels.Add(0, blankTileData);
 
-        /// <summary>
-        /// Name of the tileset, not the texture atlas.
-        /// </summary>
-        public string Name
-        {
-            get
+            var globalIndex = 1;
+            foreach (string filename in Filenames)
             {
-                return Template.Name;
-            }
-        }
-        /// <summary>
-        /// XML loaded Tileset Data
-        /// </summary>
-        public TilesetTemplate Template { get; private set; }
-
-        /// <summary>
-        /// Load the template data into this tileset. Doesn't assign tile textures!
-        /// </summary>
-        /// <param name="_template"></param>
-        public void LoadTemplate(TilesetTemplate _template)
-        {
-            tileTemplates.Clear(); 
-
-            var globalIndex = 0;
-            foreach (var filename in _template.Filenames)
-            {
-                // Load the tileset texture
-                var contentMgr = GameServices.GetService<ContentManager>();
-                var _texture = contentMgr.Load<Texture2D>("Tiles/Objects/" + filename);
-                var _newAtlas = new TextureAtlas(filename, _texture);
-                atlases.Add(filename, _newAtlas);
-
-                for (int i = 0; i < _template.TileTemplates.Count; i++)
+                var texture = Content.Load<Texture2D>("Tiles/Objects/" + filename);
+                var newAtlas = new TextureAtlas(filename, texture);
+                var tilesHorizontal = newAtlas.Texture.Width / Tilesize;
+                var tilesVertical = newAtlas.Texture.Height / Tilesize;
+                
+                for (int y = 0; y < tilesVertical; y++)
                 {
-                    this.tileTemplates.Add(globalIndex, _template.TileTemplates[i]);
-                    globalIndex++;
-                }              
+                    for (int x = 0; x < tilesHorizontal; x++)
+                    {
+                        var i = (y * tilesHorizontal) + x;
+                        newAtlas.CreateRegion(filename + i, x * Tilesize, y * Tilesize, Tilesize, Tilesize);
+                        
+                        var tileModel = new TileModel
+                        {
+                            ID = globalIndex,
+                            AtlasName = filename,
+                            RegionId = i,
+                        };
+
+                        tilemodels.Add(globalIndex, tileModel);
+                        globalIndex++;
+                    }
+                }
+
+                atlases.Add(filename, newAtlas);
             }
 
-            Template = _template;
+            if (tileModels.Count == 0)
+            {
+                tileModels = tilemodels;
+            }
         }
-        
+
         /// <summary>
         /// Gets a new tile. Public accessor to the dictionary.
         /// </summary>
@@ -145,7 +100,7 @@ namespace BlankMonoGameTemplate.Engine
         /// <param name="globalId">Global identifier.</param>
         public Tile GetTile(int globalId)
         {
-            var tileTemplate = Template.TileTemplates[globalId];
+            var tileTemplate = tileModels[globalId];
             var textureRegion = Tile.BlankRegion(16);
             if (tileTemplate.AtlasName != null)
             {
@@ -164,14 +119,31 @@ namespace BlankMonoGameTemplate.Engine
         /// <summary>
         /// Map of global tile id to its data
         /// </summary>
-        private Dictionary<int, TileTemplate> tileTemplates = new Dictionary<int, TileTemplate>();
+        private Dictionary<int, TileModel> tileModels = new Dictionary<int, TileModel>();
 
+        [JsonIgnore]
         public int TotalTiles
         {
             get
             {
-                return tileTemplates.Count;
+                return tileModels.Count;
             }
         }
+
+        [JsonIgnore]
+        public ContentManager Content
+        {
+            get { return GameServices.GetService<ContentManager>(); }
+        }
+
+        #region JSONSerialization
+        public string Name { get; set; }
+        public int Tilesize { get; set; }
+        public string[] Filenames { get; set; }
+        public Dictionary<int, TileModel> TileTemplates
+        {
+            get { return tileModels; }
+        }
+        #endregion
     }
 }

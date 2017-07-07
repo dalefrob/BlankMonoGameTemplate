@@ -109,7 +109,7 @@ namespace BlankMonoGameTemplate.Screens
                     Map.SetTileAt(selectedTile, FocusedMapCoord.X, FocusedMapCoord.Y, Map.Layers.Keys.ToList()[CurrentLayerIndex]);
                     break;
                 case Keys.S:
-                    Helper.SaveMapData(Map.ToTemplate("testmap"), "testmap");
+                    Helper.SaveMap(Map);
                     break;
                 case Keys.T:
                     //Helper.SaveTilesetData(CurrentLayerTileset.Data, CurrentLayerTileset.Data.Name);

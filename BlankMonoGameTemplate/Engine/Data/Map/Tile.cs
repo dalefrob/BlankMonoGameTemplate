@@ -28,23 +28,11 @@ namespace BlankMonoGameTemplate.Engine
             Texture = texture;
         }
 
-        public Tile LoadTemplate(TileTemplate _template)
+        public Tile LoadTemplate(TileModel _model)
         {
-            Obstacle = _template.TileFlags.HasFlag(MovementFlags.Obstacle);
+            TemplateID = _model.ID;
+            Obstacle = _model.TileFlags.HasFlag(MovementFlags.Obstacle);
             return this;
-        }
-
-        public static Tile Default()
-        {
-            return new Tile
-            {
-                WorldID = 0,
-                TemplateID = 0,
-                Texture = null,
-                LightLevel = 0,
-                Obstacle = false,
-                OnPlayerLanded = null
-            };
         }
 
         public static TextureRegion2D BlankRegion(int size)

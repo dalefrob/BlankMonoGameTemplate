@@ -9,61 +9,74 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace BlankMonoGameTemplate.Engine
 {
     public static class Helper
     {
         #region Loaders
-        public static void SaveTilesetData(TilesetTemplate tilesetData)
+        public static void SaveTileset(Tileset _tileset)
         {
-            XmlSerializer x = new XmlSerializer(typeof(TilesetTemplate));
-            using (FileStream fs = new FileStream(tilesetData.Name + ".xml", FileMode.Create))
+            var jsonResult = JsonConvert.SerializeObject(_tileset, Formatting.Indented);
+            File.WriteAllText(_tileset.Name + ".json", jsonResult);
+            /*
+            XmlSerializer x = new XmlSerializer(typeof(Tileset));
+            using (FileStream fs = new FileStream(_tileset.Name + ".xml", FileMode.Create))
             {
                 // do something with the file stream here
-                x.Serialize(fs, tilesetData);
+                x.Serialize(fs, _tileset);
                 fs.Close();
-            }
+            }*/
         }
 
-        public static TilesetTemplate LoadTilesetData(string filename)
+        public static Tileset LoadTileset(string filename)
         {
-            TilesetTemplate _tilesetData;
-
-            XmlSerializer x = new XmlSerializer(typeof(TilesetTemplate));
+            var json = File.ReadAllText(filename + ".json");
+            Tileset _tileset = JsonConvert.DeserializeObject<Tileset>(json);
+            _tileset.BuildAtlases();
+            /*
+            XmlSerializer x = new XmlSerializer(typeof(Tileset));
             using (FileStream fs = new FileStream(filename + ".xml", FileMode.OpenOrCreate))
             {
                 // do something with the file stream here
-                _tilesetData = (TilesetTemplate)x.Deserialize(fs);
+                _tilesetData = (Tileset)x.Deserialize(fs);
                 fs.Close();
             }
-
-            return _tilesetData;
+            */
+            return _tileset;
         }
 
-        public static void SaveMapData(MapTemplate gameMap, string filename)
+        public static void SaveMap(Map _map)
         {
-            XmlSerializer x = new XmlSerializer(typeof(MapTemplate));
-            using (FileStream fs = new FileStream(filename + ".xml", FileMode.Create))
+            var jsonResult = JsonConvert.SerializeObject(_map, Formatting.Indented);
+            File.WriteAllText(_map.Name + ".json", jsonResult);
+            /*
+            XmlSerializer x = new XmlSerializer(typeof(Map));
+            using (FileStream fs = new FileStream(_map.Name + ".xml", FileMode.Create))
             {
                 // do something with the file stream here
-                x.Serialize(fs, gameMap);
+                x.Serialize(fs, _map);             
                 fs.Close();
             }
+             */
         }
 
-        public static MapTemplate LoadMapData(ContentManager content, string filename)
+        public static Map LoadMap(ContentManager content, string filename)
         {
-            MapTemplate _mapData;
-            XmlSerializer x = new XmlSerializer(typeof(MapTemplate));
+            var json = File.ReadAllText(filename + ".json");
+            Map _map = JsonConvert.DeserializeObject<Map>(json);
+            _map.Build();
+            /*
+            XmlSerializer x = new XmlSerializer(typeof(Map));
             using (FileStream fs = new FileStream(filename + ".xml", FileMode.OpenOrCreate))
             {
                 // do something with the file stream here
-                _mapData = (MapTemplate)x.Deserialize(fs);
+                _mapData = (Map)x.Deserialize(fs);
                 fs.Close();
             }
-          
-            return _mapData;
+                       * */
+            return _map;
         }
         
         #endregion
