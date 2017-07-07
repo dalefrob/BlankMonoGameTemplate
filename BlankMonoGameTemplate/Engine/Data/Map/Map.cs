@@ -18,10 +18,9 @@ namespace BlankMonoGameTemplate.Engine
             Height = _height;
             Tilesize = _tilesize;
 
-
             if (_layers.Length == 0)
             {
-                _layers[0] = new MapLayer();
+                TryAddLayer("Default", new MapLayer(_width, _height));
             }
 
             for (int i = 0; i < _layers.Length; i++)
@@ -41,7 +40,13 @@ namespace BlankMonoGameTemplate.Engine
             Tilesize = _template.TileSize;
             foreach (LayerTemplate lTemplate in _template.LayerTemplates)
             {
-                MapLayer mapLayer = new MapLayer(Width, Height, lTemplate);
+                MapLayer mapLayer = new MapLayer(Width, Height)
+                {
+                     Name = lTemplate.Name,
+                     TypeOfLayer = lTemplate.TypeOfLayer,
+                     Tileset = Tileset.GetTileset(lTemplate.TilesetName),                 
+                };
+
                 TryAddLayer(lTemplate.Name, mapLayer);
             }
         }
@@ -137,6 +142,10 @@ namespace BlankMonoGameTemplate.Engine
         public Dictionary<string, MapLayer> Layers {
             get { return _layers; }
             internal set { _layers = value; }
+        }
+        public List<MapLayer> LayersAsList
+        {
+            get { return Layers.Values.ToList(); }
         }
 
         public List<Tileset> EmbeddedTilesets

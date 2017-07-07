@@ -129,9 +129,11 @@ namespace BlankMonoGameTemplate.Screens
 
 		public void FloodLayer()
 		{
-            int tileId = tilesetViewer.SelectedTileSlot.Tile.TemplateID + 1;
+            var tile = tilesetViewer.SelectedTileSlot.Tile;
             for (int i = 0; i < Map.Width * Map.Height; i++) {
-				Map.Layers[CurrentLayerIndex].TileIds[i] = tileId;
+                int x = i % Map.Width;
+                int y = i / Map.Width;
+				Map.LayersAsList[CurrentLayerIndex].Tiles[x ,y] = tile;
             }		
 		}
 

@@ -146,7 +146,11 @@ namespace BlankMonoGameTemplate.Engine
         public Tile GetTile(int globalId)
         {
             var tileTemplate = Template.TileTemplates[globalId];
-            var textureRegion = atlases[tileTemplate.AtlasName].GetRegion(tileTemplate.RegionId);
+            var textureRegion = Tile.BlankRegion(16);
+            if (tileTemplate.AtlasName != null)
+            {
+                textureRegion = atlases[tileTemplate.AtlasName].GetRegion(tileTemplate.RegionId);
+            }
 
             var newTile = new Tile(textureRegion).LoadTemplate(tileTemplate);
             return newTile;
