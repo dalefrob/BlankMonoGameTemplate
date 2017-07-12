@@ -28,6 +28,7 @@ namespace BlankMonoGameTemplate.Engine
         public void Draw(Map map, GameTime gameTime)
         {
             if (map == null) return;
+            var tileTint = Color.White;
             var layerNames = map.Layers.Keys.ToList();
             for (int l = 0; l < layerNames.Count; l++) // Layer
 			{
@@ -44,11 +45,21 @@ namespace BlankMonoGameTemplate.Engine
                             Width = map.Tilesize,
                             Height = map.Tilesize
                         };
-                        spriteBatch.Draw(tile.Texture, destinationRect, Color.White);	                    
+                        var color = LightLevelToColor(map.LightMap[i, j]);
+                        spriteBatch.Draw(tile.Texture, destinationRect, color);	                    
 	                }
 	            }
                 spriteBatch.End();
             };           
+        }
+
+        Color LightLevelToColor(int _lightLevel)
+        {
+            if (_lightLevel > 10)
+                return Color.White;
+
+            Color color = new Color(_lightLevel * 10, _lightLevel * 10, _lightLevel * 10);
+            return color;
         }
 
         public Vector2 Position { get; set; }

@@ -31,8 +31,8 @@ namespace BlankMonoGameTemplate.Engine
 				
 				var destinationRect = new Rectangle
 				{
-					X = (int)Position.X + tileSize * x,
-					Y = (int)Position.Y + tileSize * y,
+					X = (int)(Position.X + ScrollOffsetPosition.X) + tileSize * x,
+					Y = (int)(Position.Y + ScrollOffsetPosition.Y) + tileSize * y,
 					Width = tileSize,
 					Height = tileSize
 				};
@@ -52,7 +52,7 @@ namespace BlankMonoGameTemplate.Engine
 
         public TileSlot SelectTileSlotFromPosition(Vector2 screenPosition)
         {
-            var relativePosition = screenPosition - Position;
+            var relativePosition = screenPosition - (Position + ScrollOffsetPosition);
             if (relativePosition.X >= 0 && relativePosition.Y >= 0)
             {
                 var coordinate = (relativePosition / Tileset.Tilesize).ToPoint();
@@ -119,15 +119,15 @@ namespace BlankMonoGameTemplate.Engine
           
     }
 
-    public class TileViewerEventArgs : EventArgs
-    {
-        public TileModel SelectedTile { get; set; }
-        public TileViewerEventArgs() : base() { }
-    }
-
     public class TileSlot 
     {
+        /// <summary>
+        /// The tile information
+        /// </summary>
         public Tile Tile { get; set; }
+        /// <summary>
+        /// The location of this tile "slot" in the viewer editor
+        /// </summary>
         public Point ViewerCoord { get; set; }
 
         public TileSlot()

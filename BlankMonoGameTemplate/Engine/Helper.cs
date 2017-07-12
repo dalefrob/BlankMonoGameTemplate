@@ -48,7 +48,7 @@ namespace BlankMonoGameTemplate.Engine
         }
 
         public static void SaveMap(Map _map)
-        {
+        {            
             var jsonResult = JsonConvert.SerializeObject(_map, Formatting.Indented);
             File.WriteAllText(_map.Name + ".json", jsonResult);
             /*
@@ -60,6 +60,7 @@ namespace BlankMonoGameTemplate.Engine
                 fs.Close();
             }
              */
+            Console.WriteLine("Map Saved: " + _map.Name);
         }
 
         public static Map LoadMap(ContentManager content, string filename)

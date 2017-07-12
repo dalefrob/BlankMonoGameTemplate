@@ -86,6 +86,34 @@ namespace BlankMonoGameTemplate.Screens
 
             switch (e.Key)
             {
+                case Keys.OemPlus:
+                    if (e.Modifiers == KeyboardModifiers.Shift)
+                    {
+                        tilesetViewer.ScrollOffsetPosition -= new Vector2(0, Map.Tilesize * 10);
+                    }
+                    else if (e.Modifiers == KeyboardModifiers.Alt)
+                    {
+                        Map.TryAddLayer("Layer" + Map.Layers.Count.ToString(), new MapLayer(Map.Width, Map.Height));
+                    } 
+                    else
+                    {
+                        CurrentLayerIndex++;
+                    }
+                    break;
+                case Keys.OemMinus:
+                    if (e.Modifiers == KeyboardModifiers.Shift)
+                    {
+                        tilesetViewer.ScrollOffsetPosition += new Vector2(0, Map.Tilesize * 10);               
+                    }
+                    else if (e.Modifiers == KeyboardModifiers.Alt)
+                    {
+                        
+                    } 
+                    else
+                    {
+                        CurrentLayerIndex--;
+                    }
+                    break;
                 case Keys.PageUp:
                     CurrentLayerIndex++;
                     break;
@@ -133,7 +161,7 @@ namespace BlankMonoGameTemplate.Screens
             for (int i = 0; i < Map.Width * Map.Height; i++) {
                 int x = i % Map.Width;
                 int y = i / Map.Width;
-				Map.LayersAsList[CurrentLayerIndex].Tiles[x ,y] = tile;
+                Map.SetTileAt(tile, x, y, Map.Layers.Keys.ToList()[CurrentLayerIndex]);
             }		
 		}
 
@@ -161,7 +189,7 @@ namespace BlankMonoGameTemplate.Screens
             var relativeMousePos = Vector2.Subtract(MousePos, mapViewer.Position);
             spriteBatch.DrawString(Game1.Mainfont, string.Format("RelMousePos: {0},{1}", relativeMousePos.X, relativeMousePos.Y), new Vector2(216, 0), Color.Blue);
             spriteBatch.DrawString(Game1.Mainfont, string.Format("MapTile: {0},{1}", FocusedMapCoord.X, FocusedMapCoord.Y), new Vector2(132, 0), Color.Blue);
-            spriteBatch.DrawString(Game1.Mainfont, string.Format("RelMousePos: {0},{1}", relativeMousePos.X, relativeMousePos.Y), new Vector2(16, 0), Color.Red);
+            spriteBatch.DrawString(Game1.Mainfont, string.Format("Current Layer: {0}", CurrentLayerIndex), new Vector2(16, 0), Color.Red);
 
             //var tile = WorldScreen.Tilesets[Map.Layers[CurrentLayerIndex].TilesetName].GetTileData(tilesetViewer.SelectedTileCoord.X, tilesetViewer.SelectedTileCoord.Y);
             //spriteBatch.DrawString(Game1.Mainfont, string.Format("Obstacle:{0}", tile.Obstacle), new Vector2(316, 0), Color.Red);

@@ -16,6 +16,7 @@ namespace BlankMonoGameTemplate.Engine.Entities
             Game = game;
             World = world;
             spriteBatch = new SpriteBatch(game.GraphicsDevice);
+            GameServices.AddService<EntityManager>(this);
         }
 
         public void Update(GameTime gameTime)
@@ -104,5 +105,10 @@ namespace BlankMonoGameTemplate.Engine.Entities
 
 
         #endregion
+
+        ~EntityManager()
+        {
+            GameServices.RemoveService<EntityManager>();
+        }
     }
 }

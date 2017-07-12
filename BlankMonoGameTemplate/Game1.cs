@@ -63,7 +63,7 @@ namespace BlankMonoGameTemplate
             // TODO: Add your initialization logic here
             GameServices.AddService<GraphicsDevice>(GraphicsDevice);
             GameServices.AddService<ContentManager>(Content);
-            CreateTestData();
+            CreateDefaultTileset();
             screenManagerComponent.AddScreen<WorldScreen>(true);
             screenManagerComponent.AddScreen<MapEditorScreen>();
             base.Initialize();
@@ -80,12 +80,17 @@ namespace BlankMonoGameTemplate
    
         }
       
-        void CreateTestData()
+        void CreateDefaultTileset()
         {
-            var tileset = new Tileset("Default", 16, new string[]{ "Floor", "Wall" });
-            Helper.SaveTileset(tileset);
+            Console.WriteLine("Creating Test Data");
+            var tileset = new Tileset("Default", 16, new string[]{ "Floor", "Wall", "Decor0" });
+            Helper.SaveTileset(tileset);         
+        }
+
+        void CreateTestMap()
+        {
             Map map = new Map("Testmap", 16, 16, 16);
-            Helper.SaveMap(map);          
+            Helper.SaveMap(map); 
         }
 
         /// <summary>
@@ -95,6 +100,7 @@ namespace BlankMonoGameTemplate
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
+            
         }
 
         protected override void OnExiting(object sender, EventArgs args)
@@ -103,6 +109,7 @@ namespace BlankMonoGameTemplate
             {
                 s.UnloadContent();
             }
+            Tileset.UnloadAll();
         }
 
         /// <summary>

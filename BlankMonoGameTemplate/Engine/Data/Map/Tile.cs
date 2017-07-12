@@ -23,12 +23,13 @@ namespace BlankMonoGameTemplate.Engine
 
         public Action OnPlayerLanded { get; set; }
 
-        public Tile(TextureRegion2D texture = null)
+        public Tile(int _templateId = 0, TextureRegion2D _texture = null)
         {
-            Texture = texture;
+            TemplateID = _templateId;
+            Texture = _texture;
         }
 
-        public Tile LoadTemplate(TileModel _model)
+        public Tile LoadFromModel(TileModel _model)
         {
             TemplateID = _model.ID;
             Obstacle = _model.TileFlags.HasFlag(MovementFlags.Obstacle);

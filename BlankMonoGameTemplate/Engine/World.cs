@@ -93,6 +93,7 @@ namespace BlankMonoGameTemplate.Engine
         public void DrawWorld(GameTime gameTime)
         {
             // Draw map
+            Map.UpdateLights();
             mapViewer.Draw(Map, gameTime);
             // Draw entities
             entityManager.Draw(gameTime);

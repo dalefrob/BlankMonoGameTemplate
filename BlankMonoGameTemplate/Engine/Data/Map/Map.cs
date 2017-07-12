@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using BlankMonoGameTemplate.Engine.Entities;
+using Microsoft.Xna.Framework;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -41,10 +42,59 @@ namespace BlankMonoGameTemplate.Engine
         /// </summary>
         public void Build()
         {
+            LightMap = new int[Width, Height];
             foreach (var layer in Layers.Values)
             {
                 layer.Build(this);
             }
+        }
+
+        public void UpdateLights()
+        {
+            for (int y = 0; y < Height; y++)
+            {
+                for (int x = 0; x < Width; x++)
+                {
+                    LightMap[x, y] = 2;
+                }
+            }
+
+            var entityManager = GameServices.GetService<EntityManager>();
+            var actives = entityManager.ActiveEntities;
+            foreach (var e in actives)
+            {
+                var coord = e.MapCoordinate;
+                LightMap[coord.X, coord.Y] = 10;
+                var leftCoord = ClampCoord(coord + new Point(-1, 0));
+                var upCoord = ClampCoord(coord + new Point(0, -1));
+                var downCoord = ClampCoord(coord + new Point(1, 0));
+                var rightCoord = ClampCoord(coord + new Point(0, 1));
+
+                var tlCoord = ClampCoord(coord + new Point(-1, -1));
+                var trCoord = ClampCoord(coord + new Point(1, -1));
+                var blCoord = ClampCoord(coord + new Point(-1, 1));
+                var brCoord = ClampCoord(coord + new Point(1, 1));
+
+                LightMap[leftCoord.X, leftCoord.Y] = 7;
+                LightMap[upCoord.X, upCoord.Y] = 7;
+                LightMap[downCoord.X, downCoord.Y] = 7;
+                LightMap[rightCoord.X, rightCoord.Y] = 7;
+
+                LightMap[tlCoord.X, tlCoord.Y] = 4;
+                LightMap[trCoord.X, trCoord.Y] = 4;
+                LightMap[blCoord.X, blCoord.Y] = 4;
+                LightMap[brCoord.X, brCoord.Y] = 4;
+            }
+
+        }
+
+        Point ClampCoord(Point _coordinate)
+        {
+            if (_coordinate.X < 0) _coordinate.X = 0;
+            if (_coordinate.Y < 0) _coordinate.Y = 0;
+            if (_coordinate.X > Width) _coordinate.X = Width;
+            if (_coordinate.Y > Height) _coordinate.Y = Height;
+            return _coordinate;
         }
 
         /// <summary>
@@ -61,6 +111,7 @@ namespace BlankMonoGameTemplate.Engine
             }
             if (!Layers.ContainsKey(_key) && (_layer.TileIds.Length == Size))
             {
+                _layer.Build(this);
                 Layers.Add(_key, _layer);
                 return true;
             }
@@ -114,6 +165,9 @@ namespace BlankMonoGameTemplate.Engine
             Layers[layerKey].Tiles[_x, _y] = _tile;
             Layers[layerKey].TileIds[_x, _y] = _tile.TemplateID;
         }
+
+        [JsonIgnore]
+        public int[,] LightMap { get; set; }
 
         [JsonIgnore]
         public int Size

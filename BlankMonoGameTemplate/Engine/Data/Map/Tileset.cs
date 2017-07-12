@@ -20,6 +20,12 @@ namespace BlankMonoGameTemplate.Engine
         #region Static
         static Dictionary<string, Tileset> loadedTilesets = new Dictionary<string, Tileset>();
 
+        public static void UnloadAll()
+        {
+            loadedTilesets.Clear();
+            loadedTilesets = null;
+        }
+
         public static Tileset GetTileset(string _tilesetName)
         {
             Tileset result;
@@ -87,10 +93,7 @@ namespace BlankMonoGameTemplate.Engine
                 atlases.Add(filename, newAtlas);
             }
 
-            if (tileModels.Count == 0)
-            {
-                tileModels = tilemodels;
-            }
+            tileModels = tilemodels;
         }
 
         /// <summary>
@@ -107,7 +110,7 @@ namespace BlankMonoGameTemplate.Engine
                 textureRegion = atlases[tileTemplate.AtlasName].GetRegion(tileTemplate.RegionId);
             }
 
-            var newTile = new Tile(textureRegion).LoadTemplate(tileTemplate);
+            var newTile = new Tile(globalId, textureRegion).LoadFromModel(tileTemplate);
             return newTile;
         }
 
