@@ -19,12 +19,13 @@ namespace BlankMonoGameTemplate.Engine
 
         }
 
-        public Map(string _name, int _width, int _height, int _tilesize, params MapLayer[] _layers)
+        public Map(string _name, int _width, int _height, int _tilesize, int _lightLevel = 10, params MapLayer[] _layers)
         {
             Name = _name;
             Width = _width;
             Height = _height;
             Tilesize = _tilesize;
+            LightLevel = _lightLevel;
 
             if (_layers.Length == 0)
             {
@@ -35,8 +36,6 @@ namespace BlankMonoGameTemplate.Engine
             {
                 TryAddLayer(_layers[i].Name, _layers[i]);
             }
-
-            Build();
         }
 
         /// <summary>
@@ -53,31 +52,32 @@ namespace BlankMonoGameTemplate.Engine
 
         public void UpdateLights()
         {
+            // Set base light level
             for (int y = 0; y < Height; y++)
             {
                 for (int x = 0; x < Width; x++)
                 {
-                    LightMap[x, y] = 10;
+                    LightMap[x, y] = LightLevel;
                 }
-            }         
+            }
         }
 
         Point ClampCoord(Point _coordinate)
         {
             if (_coordinate.X < 0) _coordinate.X = 0;
             if (_coordinate.Y < 0) _coordinate.Y = 0;
-            if (_coordinate.X > Width) _coordinate.X = Width;
-            if (_coordinate.Y > Height) _coordinate.Y = Height;
+            if (_coordinate.X > Width - 1) _coordinate.X = Width;
+            if (_coordinate.Y > Height - 1) _coordinate.Y = Height;
             return _coordinate;
         }
 
-        /// <summary>
-        /// Try and add a layer to the map. Returns false if fails.
-        /// </summary>
-        /// <param name="_key"></param>
-        /// <param name="_array"></param>
-        /// <returns></returns>
-        internal bool TryAddLayer(string _key, MapLayer _layer)
+		/// <summary>
+		/// Try and add a layer to the map. Returns false if fails.
+		/// </summary>
+		/// <param name="_key"></param>
+		/// <param name="_layer"></param>
+		/// <returns></returns>
+		internal bool TryAddLayer(string _key, MapLayer _layer)
         {
             if (Layers == null)
             {
@@ -164,11 +164,17 @@ namespace BlankMonoGameTemplate.Engine
             }
         }
 
+        public Vector2 GetPositionAtTile(int x, int y)
+        {
+            return Layers.ToArray()[0].Value.Tiles[x, y].Position;
+        }
+
         #region JSON
         public string Name { get; set; }
         public int Tilesize { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
+        public int LightLevel { get; set; }
         public Dictionary<string, MapLayer> Layers = new Dictionary<string, MapLayer>();
         #endregion
     }

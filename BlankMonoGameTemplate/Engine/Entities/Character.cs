@@ -23,7 +23,7 @@ namespace BlankMonoGameTemplate.Engine.Entities
                     Position = DestinationPosition;
                     EntityEventArgs args = new EntityEventArgs
                     {
-                        MapCoord = World.GetMapCoordFromPosition(Position)
+                        MapCoord = Map.CoordFromPosition(Position)
                     };
 
                     if (LandedTile != null) LandedTile(this, args);

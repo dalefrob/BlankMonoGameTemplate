@@ -47,7 +47,6 @@ namespace BlankMonoGameTemplate.Engine.Entities
         public EntityManager Manager { get; set; }
         public string Name { get; set; }
         public bool isAlive { get; set; }
-        public World World { get { return Manager.World; } }
         public Point MapCoordinate
         {
             get

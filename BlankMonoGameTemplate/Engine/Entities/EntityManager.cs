@@ -11,12 +11,10 @@ namespace BlankMonoGameTemplate.Engine.Entities
 {
     public class EntityManager : IUpdate
     {
-        public EntityManager(Game game, World world)
+        public EntityManager(Game game)
         {
             Game = game;
-            World = world;
-            spriteBatch = new SpriteBatch(game.GraphicsDevice);
-            GameServices.AddService<EntityManager>(this);
+            GameServices.AddService(this);
         }
 
         public void Update(GameTime gameTime)
@@ -34,12 +32,9 @@ namespace BlankMonoGameTemplate.Engine.Entities
         /// Draw all entities on a single spritebatch
         /// </summary>
         /// <param name="gameTime"></param>
-        public void Draw(GameTime gameTime)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            var transformMatrix = World.Camera.GetViewMatrix();
-            spriteBatch.Begin(transformMatrix: transformMatrix);
             entities.Where(e => e.isAlive).ToList().ForEach(e => e.Draw(spriteBatch, gameTime));
-            spriteBatch.End();
         }
 
         public T CreateEntity<T>() where T : Entity, new()
@@ -94,13 +89,6 @@ namespace BlankMonoGameTemplate.Engine.Entities
             private set;
         }
 
-        public World World
-        {
-            get;
-            set;
-        }
-
-        SpriteBatch spriteBatch;
         public Random random = new Random();
 
         #region Events

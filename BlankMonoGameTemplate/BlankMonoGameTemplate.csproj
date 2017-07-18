@@ -60,7 +60,6 @@
     <Compile Include="Engine\Entities\Monster.cs" />
     <Compile Include="Engine\GameServices.cs" />
     <Compile Include="Engine\Helper.cs" />
-    <Compile Include="Engine\Interfaces.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
@@ -69,7 +68,6 @@
     <Compile Include="Engine\Data\Map\Tileset.cs" />
     <Compile Include="Screens\MapEditorScreen.cs" />
     <Compile Include="Engine\TilesetViewer.cs" />
-    <Compile Include="Engine\MapRenderer.cs" />
     <Compile Include="Engine\Entities\Player.cs" />
     <Compile Include="Engine\World.cs" />
     <Compile Include="Screens\Screen.cs" />
@@ -77,6 +75,7 @@
     <Compile Include="Screens\WorldScreen.cs" />
     <Compile Include="Engine\Entities\HealthBar.cs" />
     <Compile Include="Engine\Data\MonsterData.cs" />
+    <Compile Include="Engine\MapRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

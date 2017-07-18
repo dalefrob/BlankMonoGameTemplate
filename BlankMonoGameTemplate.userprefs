@@ -1,11 +1,19 @@
 ﻿<Properties StartupConfiguration="{B9F13E67-F77B-4EA1-A4FD-F549F5A19DF0}|Default">
   <MonoDevelop.Ide.ItemProperties.BlankMonoGameTemplate PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BlankMonoGameTemplate/Screens/MapEditorScreen.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BlankMonoGameTemplate/Engine/Entities/Character.cs">
     <Files>
-      <File FileName="BlankMonoGameTemplate/Screens/MapEditorScreen.cs" Line="117" Column="34" />
-      <File FileName="BlankMonoGameTemplate/Screens/WorldScreen.cs" Line="1" Column="1" />
+      <File FileName="BlankMonoGameTemplate/Screens/MapEditorScreen.cs" Line="35" Column="31" />
+      <File FileName="BlankMonoGameTemplate/Screens/WorldScreen.cs" Line="116" Column="9" />
       <File FileName="BlankMonoGameTemplate/Engine/TilesetViewer.cs" Line="62" Column="10" />
-      <File FileName="BlankMonoGameTemplate/Engine/Data/MapData.cs" Line="63" Column="21" />
+      <File FileName="BlankMonoGameTemplate/Engine/Helper.cs" Line="68" Column="1" />
+      <File FileName="BlankMonoGameTemplate/Game1.cs" Line="75" Column="33" />
+      <File FileName="BlankMonoGameTemplate/Engine/Data/Map/Map.cs" Line="149" Column="43" />
+      <File FileName="BlankMonoGameTemplate/Engine/World.cs" Line="37" Column="10" />
+      <File FileName="BlankMonoGameTemplate/Engine/MapRenderer.cs" Line="30" Column="42" />
+      <File FileName="BlankMonoGameTemplate/Engine/Entities/EntityManager.cs" Line="89" Column="25" />
+      <File FileName="BlankMonoGameTemplate/Engine/Entities/Entity.cs" Line="23" Column="38" />
+      <File FileName="BlankMonoGameTemplate/Engine/Entities/Monster.cs" Line="49" Column="51" />
+      <File FileName="BlankMonoGameTemplate/Engine/Entities/Character.cs" Line="24" Column="49" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

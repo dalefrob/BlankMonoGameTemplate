@@ -10,8 +10,8 @@ using MonoGame.Extended.Input.InputListeners;
 using BlankMonoGameTemplate.Screens;
 using System.Collections.Generic;
 using BlankMonoGameTemplate.Engine.Data;
+using BlankMonoGameTemplate.Engine.Entities;
 using MonoGame.Extended;
-using MonoGame.Extended.ViewportAdapters;
 
 namespace BlankMonoGameTemplate
 {
@@ -27,10 +27,9 @@ namespace BlankMonoGameTemplate
             base.Initialize();
 
             keyboardListener = new KeyboardListener();
+            entityManager = new EntityManager(Game);
             Textures2D = new Dictionary<string, TextureAtlas>();
-            spriteBatch = new SpriteBatch(Game.GraphicsDevice);
-
-            
+   
         }
 
         public override void Activate()
@@ -52,7 +51,7 @@ namespace BlankMonoGameTemplate
             {
                 case Keys.E:
                     var mapEditor = Manager.GetScreen<MapEditorScreen>();
-                    mapEditor.Map = World.Map;                 
+                    mapEditor.Map = Map;                 
                     Manager.ChangeScreen<MapEditorScreen>();
                     break;
             }
@@ -60,12 +59,10 @@ namespace BlankMonoGameTemplate
 
         public override void LoadContent()
         {
-
             Console.WriteLine("Load content called");
             // Load all possible assets that will appear on this screen
             // ** WORLD ** //
-            var map = Helper.LoadMap(Game.Content, "large testmap");
-            World = new World(Game, map);
+            Map = Helper.LoadMap(Game.Content, "large testmap");
             Tileset.GetTileset("Default");
  
             // ** ENTITIES ** //
@@ -78,7 +75,6 @@ namespace BlankMonoGameTemplate
             AddTexture2D("Door1", Game.Content.Load<Texture2D>("Tiles/Objects/Door1"));
             AddTexture2D("Key", Game.Content.Load<Texture2D>("Tiles/Items/Key"));
 
-            World.Initialize();
         }
 
         public override void UnloadContent()
@@ -89,26 +85,23 @@ namespace BlankMonoGameTemplate
         public override void Update(GameTime gameTime)
         {
             keyboardListener.Update(gameTime);
-            World.UpdateWorld(gameTime);
+            entityManager.Update(gameTime);
+            mapRenderer.Update(gameTime);
+
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
-            World.DrawWorld(gameTime);
+            spriteBatch.Begin(transformMatrix: Camera.GetViewMatrix());
+            mapRenderer.Draw(spriteBatch, gameTime);
+            entityManager.Draw(spriteBatch, gameTime);
+            spriteBatch.End();
+
             base.Draw(gameTime);
         }
 
-        public World World 
-        { 
-            get;
-            private set; 
-        }
-
-		SpriteBatch spriteBatch;
-
         public static Dictionary<string, TextureAtlas> Textures2D { get; private set; }
-        public static Dictionary<string, Tileset> Tilesets = new Dictionary<string, Tileset>();
 
         public void AddTexture2D(string name, Texture2D texture)
         {         
@@ -119,14 +112,12 @@ namespace BlankMonoGameTemplate
             }
         }
 
-        public void AddTileset(Tileset tileset)
-        {
-            if (!Tilesets.ContainsKey(tileset.Name))
-            {
-                Tilesets.Add(tileset.Name, tileset);
-            }
-        }
+        public Map Map { get; private set; }
 
-        KeyboardListener keyboardListener;        
+        KeyboardListener keyboardListener;
+		EntityManager entityManager;
+		SpriteBatch spriteBatch = new SpriteBatch(GameServices.GetService<GraphicsDevice>());
+		MapRenderer mapRenderer;
+		public Camera2D Camera { get; private set; }
     }
 }

@@ -17,9 +17,8 @@ namespace BlankMonoGameTemplate.Engine
     /// </summary>
     public class MapRenderer
     {
-        public MapRenderer(Camera2D _camera, Map _map) 
+        public MapRenderer(Map _map) 
         {
-            Camera = _camera;
             Map = _map;
         }
 
@@ -28,14 +27,11 @@ namespace BlankMonoGameTemplate.Engine
 
         }
 
-        public void Draw(GameTime gameTime)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            var transformMatrix = Camera.GetViewMatrix();
-            
             var layerNames = Map.Layers.Keys.ToList();
             for (int l = 0; l < layerNames.Count; l++) // Layer
 			{
-                spriteBatch.Begin(transformMatrix: transformMatrix);
                 for (var y = 0; y < Map.Height; y++) // X coord
 	            {
                     for (var x = 0; x < Map.Width; x++) // Y coord
@@ -45,18 +41,14 @@ namespace BlankMonoGameTemplate.Engine
                         spriteBatch.Draw(tile);	                    
 	                }
 	            }
-                spriteBatch.End();
             };
         }
 
-        public Camera2D Camera { get; set; }
         public Map Map { get; set; }
         public Vector2 Position { get; set; }
         public Vector2 OffsetPosition { get; set; }
         public Player PlayerToFollow { get; set; }
         public bool Debug { get; set; }
-
-        SpriteBatch spriteBatch = new SpriteBatch(GameServices.GetService<GraphicsDevice>());
 
         public Vector2 ScreenPositionFromMapCoord(int x, int y)
         {

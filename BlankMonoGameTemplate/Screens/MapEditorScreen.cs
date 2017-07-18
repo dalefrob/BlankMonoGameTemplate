@@ -32,9 +32,10 @@ namespace BlankMonoGameTemplate.Screens
         public override void Initialize()
         {
             spriteBatch = new SpriteBatch(Manager.GraphicsDevice);
-            mapRenderer = new MapRenderer(new Camera2D(Game.GraphicsDevice),Map)
+            mapRenderer = new MapRenderer(Map)
             {
-                Position = new Vector2(0, 16)
+                Position = new Vector2(0, 16),
+                Debug = true
             };
             tilesetViewer = new TilesetViewer
             {
@@ -209,7 +210,6 @@ namespace BlankMonoGameTemplate.Screens
             set
             {
                 _map = value;
-                mapRenderer = new MapRenderer(new Camera2D(Game.GraphicsDevice), value);
                 // Load the first tileset
                 var layerName = value.Layers.Keys.ToArray()[0];
                 tilesetViewer.Tileset = Tileset.GetTileset(value.Layers[layerName].TilesetName);

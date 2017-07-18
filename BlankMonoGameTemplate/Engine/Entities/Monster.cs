@@ -45,7 +45,7 @@ namespace BlankMonoGameTemplate.Engine.Entities
             // Check basic map bounds and collisions
             var result = base.CanMove(newCoord);
             // Check entities that may obstruct
-            var entities = World.GetEntitiesAtCoord(newCoord).ToList();
+            var entities = Manager.GetEntitiesOfType<Entity>().Where(e => e.MapCoordinate == newCoord).ToList();
             if (entities.OfType<IBlocker>().Any())
             {
                 result = false;

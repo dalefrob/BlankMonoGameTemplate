@@ -30,19 +30,11 @@ namespace BlankMonoGameTemplate.Engine
         {
             Game = game;
             Map = map;
-            entityManager = new EntityManager(game, this);
 
         }
 
         public void Initialize()
         {
-            var viewportAdapter = new BoxingViewportAdapter(Game.Window, Game.GraphicsDevice, 800, 480);
-            Camera = new Camera2D(viewportAdapter);
-            mapRenderer = new MapRenderer(Camera, Map)
-            {
-                Position = new Vector2(32, 32)
-            };
-
             InitMap();
             InitEntities();
         }
@@ -85,23 +77,6 @@ namespace BlankMonoGameTemplate.Engine
                     }
                 }
             }
-        }
-
-		public void UpdateWorld(GameTime gameTime)
-		{
-            // Update map
-            mapRenderer.Update(gameTime);
-            // Update entities
-            entityManager.Update(gameTime);
-		}
-
-        public void DrawWorld(GameTime gameTime)
-        {
-            // Draw map
-            Map.UpdateLights();
-            mapRenderer.Draw(gameTime);
-            // Draw entities
-            entityManager.Draw(gameTime);
         }
 
         public Map Map { get; set; }
