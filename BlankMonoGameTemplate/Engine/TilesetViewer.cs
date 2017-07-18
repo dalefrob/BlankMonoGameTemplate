@@ -37,7 +37,7 @@ namespace BlankMonoGameTemplate.Engine
 					Height = tileSize
 				};
 
-                spriteBatch.Draw(_tileSlot.Tile.Texture, destinationRect, color);
+                spriteBatch.Draw(_tileSlot.Tile.TextureRegion, destinationRect, color);
                 spriteBatch.DrawRectangle(destinationRect, Color.DimGray, 0.5f);               
             }
             var fullRect = new Rectangle

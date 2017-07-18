@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended.Sprites;
 using MonoGame.Extended.TextureAtlases;
 using System;
 using System.Collections.Generic;
@@ -11,22 +12,11 @@ namespace BlankMonoGameTemplate.Engine
     /// <summary>
     /// Tile as represented on a map or in a tileset viewer
     /// </summary>
-    public class Tile
+    public class Tile : Sprite
     {
-        public TextureRegion2D Texture { get; internal set; }
-
-        public int WorldID { get; set; }
-        public int TemplateID { get; set; }
-
-        public int LightLevel { get; set; }
-        public bool Obstacle { get; set; }
-
-        public Action OnPlayerLanded { get; set; }
-
-        public Tile(int _templateId = 0, TextureRegion2D _texture = null)
+        public Tile(int _templateId = 0, TextureRegion2D _texture = null) : base(_texture)
         {
             TemplateID = _templateId;
-            Texture = _texture;
         }
 
         public Tile LoadFromModel(TileModel _model)
@@ -35,6 +25,14 @@ namespace BlankMonoGameTemplate.Engine
             Obstacle = _model.TileFlags.HasFlag(MovementFlags.Obstacle);
             return this;
         }
+
+        public int WorldID { get; set; }
+        public int TemplateID { get; set; }
+
+        public int LightLevel { get; set; }
+        public bool Obstacle { get; set; }
+
+        public Action OnPlayerLanded { get; set; }
 
         public static TextureRegion2D BlankRegion(int size)
         {

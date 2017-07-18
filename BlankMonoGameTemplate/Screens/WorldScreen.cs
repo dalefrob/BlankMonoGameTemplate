@@ -10,6 +10,8 @@ using MonoGame.Extended.Input.InputListeners;
 using BlankMonoGameTemplate.Screens;
 using System.Collections.Generic;
 using BlankMonoGameTemplate.Engine.Data;
+using MonoGame.Extended;
+using MonoGame.Extended.ViewportAdapters;
 
 namespace BlankMonoGameTemplate
 {
@@ -27,6 +29,8 @@ namespace BlankMonoGameTemplate
             keyboardListener = new KeyboardListener();
             Textures2D = new Dictionary<string, TextureAtlas>();
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
+
+            
         }
 
         public override void Activate()
@@ -60,7 +64,7 @@ namespace BlankMonoGameTemplate
             Console.WriteLine("Load content called");
             // Load all possible assets that will appear on this screen
             // ** WORLD ** //
-            var map = Helper.LoadMap(Game.Content, "testmap");
+            var map = Helper.LoadMap(Game.Content, "large testmap");
             World = new World(Game, map);
             Tileset.GetTileset("Default");
  
@@ -95,12 +99,6 @@ namespace BlankMonoGameTemplate
             base.Draw(gameTime);
         }
 
-        public MapViewer MapViewer
-        {
-            get;
-            private set;
-        }
-
         public World World 
         { 
             get;
@@ -129,6 +127,6 @@ namespace BlankMonoGameTemplate
             }
         }
 
-        KeyboardListener keyboardListener;
+        KeyboardListener keyboardListener;        
     }
 }

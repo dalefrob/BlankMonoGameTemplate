@@ -63,7 +63,8 @@ namespace BlankMonoGameTemplate
             // TODO: Add your initialization logic here
             GameServices.AddService<GraphicsDevice>(GraphicsDevice);
             GameServices.AddService<ContentManager>(Content);
-            CreateDefaultTileset();
+            //CreateDefaultTileset();
+            //CreateTestMap();
             screenManagerComponent.AddScreen<WorldScreen>(true);
             screenManagerComponent.AddScreen<MapEditorScreen>();
             base.Initialize();
@@ -89,7 +90,7 @@ namespace BlankMonoGameTemplate
 
         void CreateTestMap()
         {
-            Map map = new Map("Testmap", 16, 16, 16);
+            Map map = new Map("Large Testmap", 32, 32, 16);
             Helper.SaveMap(map); 
         }
 

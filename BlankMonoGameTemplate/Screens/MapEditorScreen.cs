@@ -32,7 +32,7 @@ namespace BlankMonoGameTemplate.Screens
         public override void Initialize()
         {
             spriteBatch = new SpriteBatch(Manager.GraphicsDevice);
-            mapViewer = new MapViewer
+            mapRenderer = new MapRenderer(new Camera2D(Game.GraphicsDevice),Map)
             {
                 Position = new Vector2(0, 16)
             };
@@ -183,10 +183,10 @@ namespace BlankMonoGameTemplate.Screens
             if (!IsMapLoaded) return;
             
             spriteBatch.Begin();
-            mapViewer.Draw(Map, gameTime);
-            spriteBatch.Draw(selectionTexture, mapViewer.Position + (FocusedMapCoord.ToVector2() * Map.Tilesize), Color.White);
+            mapRenderer.Draw(gameTime);
+            spriteBatch.Draw(selectionTexture, mapRenderer.Position + (FocusedMapCoord.ToVector2() * Map.Tilesize), Color.White);
 
-            var relativeMousePos = Vector2.Subtract(MousePos, mapViewer.Position);
+            var relativeMousePos = Vector2.Subtract(MousePos, mapRenderer.Position);
             spriteBatch.DrawString(Game1.Mainfont, string.Format("RelMousePos: {0},{1}", relativeMousePos.X, relativeMousePos.Y), new Vector2(216, 0), Color.Blue);
             spriteBatch.DrawString(Game1.Mainfont, string.Format("MapTile: {0},{1}", FocusedMapCoord.X, FocusedMapCoord.Y), new Vector2(132, 0), Color.Blue);
             spriteBatch.DrawString(Game1.Mainfont, string.Format("Current Layer: {0}", CurrentLayerIndex), new Vector2(16, 0), Color.Red);
@@ -209,6 +209,7 @@ namespace BlankMonoGameTemplate.Screens
             set
             {
                 _map = value;
+                mapRenderer = new MapRenderer(new Camera2D(Game.GraphicsDevice), value);
                 // Load the first tileset
                 var layerName = value.Layers.Keys.ToArray()[0];
                 tilesetViewer.Tileset = Tileset.GetTileset(value.Layers[layerName].TilesetName);
@@ -253,7 +254,7 @@ namespace BlankMonoGameTemplate.Screens
 
         KeyboardListener keyboardListener;
         MouseListener mouseListener;
-        MapViewer mapViewer;
+        MapRenderer mapRenderer;
         TilesetViewer tilesetViewer;
         SpriteBatch spriteBatch;
 

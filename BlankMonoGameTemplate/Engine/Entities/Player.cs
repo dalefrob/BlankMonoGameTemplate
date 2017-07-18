@@ -66,6 +66,7 @@ namespace BlankMonoGameTemplate.Engine
 
         public override void Move(Direction direction, int tileCount = 1)
         {
+            World.Camera.Position = Position - new Vector2(32, 32);
             base.Move(direction, tileCount);
             World.Map.LightMap[MapCoordinate.X, MapCoordinate.Y] = 10;
             if (PlayerMoved != null) PlayerMoved(this, EventArgs.Empty);

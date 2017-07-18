@@ -16,7 +16,6 @@ namespace BlankMonoGameTemplate.Engine.Entities
         public Entity() 
         {
             Sprite = new Sprite(WorldScreen.Textures2D["GUI0"].GetRegion(0));
-            Sprite.Origin = Vector2.Zero;
         }
         
         public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -47,7 +46,7 @@ namespace BlankMonoGameTemplate.Engine.Entities
 
         public EntityManager Manager { get; set; }
         public string Name { get; set; }
-        public bool ToCleanup { get; set; }
+        public bool isAlive { get; set; }
         public World World { get { return Manager.World; } }
         public Point MapCoordinate
         {

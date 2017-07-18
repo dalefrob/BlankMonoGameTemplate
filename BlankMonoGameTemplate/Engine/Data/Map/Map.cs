@@ -35,6 +35,8 @@ namespace BlankMonoGameTemplate.Engine
             {
                 TryAddLayer(_layers[i].Name, _layers[i]);
             }
+
+            Build();
         }
 
         /// <summary>
@@ -55,37 +57,9 @@ namespace BlankMonoGameTemplate.Engine
             {
                 for (int x = 0; x < Width; x++)
                 {
-                    LightMap[x, y] = 2;
+                    LightMap[x, y] = 10;
                 }
-            }
-
-            var entityManager = GameServices.GetService<EntityManager>();
-            var actives = entityManager.ActiveEntities;
-            foreach (var e in actives)
-            {
-                var coord = e.MapCoordinate;
-                LightMap[coord.X, coord.Y] = 10;
-                var leftCoord = ClampCoord(coord + new Point(-1, 0));
-                var upCoord = ClampCoord(coord + new Point(0, -1));
-                var downCoord = ClampCoord(coord + new Point(1, 0));
-                var rightCoord = ClampCoord(coord + new Point(0, 1));
-
-                var tlCoord = ClampCoord(coord + new Point(-1, -1));
-                var trCoord = ClampCoord(coord + new Point(1, -1));
-                var blCoord = ClampCoord(coord + new Point(-1, 1));
-                var brCoord = ClampCoord(coord + new Point(1, 1));
-
-                LightMap[leftCoord.X, leftCoord.Y] = 7;
-                LightMap[upCoord.X, upCoord.Y] = 7;
-                LightMap[downCoord.X, downCoord.Y] = 7;
-                LightMap[rightCoord.X, rightCoord.Y] = 7;
-
-                LightMap[tlCoord.X, tlCoord.Y] = 4;
-                LightMap[trCoord.X, trCoord.Y] = 4;
-                LightMap[blCoord.X, blCoord.Y] = 4;
-                LightMap[brCoord.X, brCoord.Y] = 4;
-            }
-
+            }         
         }
 
         Point ClampCoord(Point _coordinate)

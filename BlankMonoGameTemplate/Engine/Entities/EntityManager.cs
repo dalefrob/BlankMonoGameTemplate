@@ -21,7 +21,13 @@ namespace BlankMonoGameTemplate.Engine.Entities
 
         public void Update(GameTime gameTime)
         {
-            Entities.ForEach(e => e.Update(gameTime));
+            entities.ForEach(e => e.Update(gameTime));
+
+            var deadEntities = entities.Where(e => !e.isAlive).ToArray();
+            foreach (var e in deadEntities)
+            {
+                entities.Remove(e);
+            }
         }
 
         /// <summary>
@@ -30,8 +36,9 @@ namespace BlankMonoGameTemplate.Engine.Entities
         /// <param name="gameTime"></param>
         public void Draw(GameTime gameTime)
         {
-            spriteBatch.Begin();
-            Entities.ForEach(e => e.Draw(spriteBatch, gameTime));
+            var transformMatrix = World.Camera.GetViewMatrix();
+            spriteBatch.Begin(transformMatrix: transformMatrix);
+            entities.Where(e => e.isAlive).ToList().ForEach(e => e.Draw(spriteBatch, gameTime));
             spriteBatch.End();
         }
 
@@ -39,7 +46,8 @@ namespace BlankMonoGameTemplate.Engine.Entities
         {
             T _entity = new T()
             { 
-                Manager = this 
+                Manager = this,
+                isAlive = true
             };
 
             AddEntity(_entity);
@@ -48,38 +56,37 @@ namespace BlankMonoGameTemplate.Engine.Entities
 
         public void AddEntity(Entity e)
         {
-            if (!Entities.Contains(e))
+            if (!entities.Contains(e))
             {
                 if (e is Character)
                 {
                     var c = (Character)e;
                     c.LandedTile += Entity_LandedTile;
                 }
-                Entities.Add(e);
+                entities.Add(e);
             }
         }
 
         public void RemoveEntity(Entity e)
         {
-            if (Entities.Contains(e))
+            if (entities.Contains(e))
             {
                 if (e is Character)
                 {
                     var c = (Character)e;
                     c.LandedTile -= Entity_LandedTile;
                 }
+                if (e.isAlive) e.isAlive = false;
             }
         }
 
-        List<Entity> Entities = new List<Entity>();
-
-        public List<Entity> ActiveEntities
+        public List<Entity> GetEntitiesOfType<T>() where T : Entity
         {
-            get
-            {
-                return Entities.Where(e => e.ToCleanup == false).ToList();
-            }
+            var result = entities.Where(e => e is T && e.isAlive).ToList();
+            return result;
         }
+
+        internal List<Entity> entities = new List<Entity>();
 
         public Game Game
         {
@@ -100,7 +107,7 @@ namespace BlankMonoGameTemplate.Engine.Entities
 
         void Entity_LandedTile(object sender, EntityEventArgs e)
         {
-            Console.WriteLine(string.Format("{0} landed on tile: {1}", (sender as Entity).Name, e.MapCoord));
+            Console.WriteLine(string.Format("{0} landed on tile: {1}, P: {2}, WP: {2}", (sender as Entity).Name, e.MapCoord, (sender as Entity).Position, (sender as Entity).Sprite.WorldPosition));
         }
 
 
@@ -108,6 +115,7 @@ namespace BlankMonoGameTemplate.Engine.Entities
 
         ~EntityManager()
         {
+            entities.Clear();
             GameServices.RemoveService<EntityManager>();
         }
     }

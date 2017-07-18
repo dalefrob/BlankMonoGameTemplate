@@ -9,6 +9,7 @@ using MonoGame.Extended.Sprites;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.TextureAtlases;
 using BlankMonoGameTemplate.Engine.Data;
+using MonoGame.Extended.ViewportAdapters;
 
 namespace BlankMonoGameTemplate.Engine
 {
@@ -30,14 +31,18 @@ namespace BlankMonoGameTemplate.Engine
             Game = game;
             Map = map;
             entityManager = new EntityManager(game, this);
-            mapViewer = new MapViewer
-            {
-                Position = new Vector2(32, 32)
-            };
+
         }
 
         public void Initialize()
         {
+            var viewportAdapter = new BoxingViewportAdapter(Game.Window, Game.GraphicsDevice, 800, 480);
+            Camera = new Camera2D(viewportAdapter);
+            mapRenderer = new MapRenderer(Camera, Map)
+            {
+                Position = new Vector2(32, 32)
+            };
+
             InitMap();
             InitEntities();
         }
@@ -85,7 +90,7 @@ namespace BlankMonoGameTemplate.Engine
 		public void UpdateWorld(GameTime gameTime)
 		{
             // Update map
-
+            mapRenderer.Update(gameTime);
             // Update entities
             entityManager.Update(gameTime);
 		}
@@ -94,7 +99,7 @@ namespace BlankMonoGameTemplate.Engine
         {
             // Draw map
             Map.UpdateLights();
-            mapViewer.Draw(Map, gameTime);
+            mapRenderer.Draw(gameTime);
             // Draw entities
             entityManager.Draw(gameTime);
         }
@@ -104,19 +109,19 @@ namespace BlankMonoGameTemplate.Engine
         public List<Entity> GetEntitiesAtCoord(Point coord)
         {
             var result = new List<Entity>();
-            result = entityManager.ActiveEntities.Where(e => e.MapCoordinate == coord).ToList();
+            result = entityManager.GetEntitiesOfType<Entity>().Where(e => e.MapCoordinate == coord).ToList();
             return result;
         }
 
         public Point GetMapCoordFromPosition(Vector2 position)
         {
-            var offsetPos = position - mapViewer.Position;          
+            var offsetPos = position - mapRenderer.Position;          
             return (offsetPos / Map.Tilesize).ToPoint();
         }
 
         public Vector2 GetPositionFromMapCoord(Point coord)
         {
-            return mapViewer.Position + new Vector2(coord.X * Map.Tilesize, coord.Y * Map.Tilesize);
+            return mapRenderer.Position + new Vector2(coord.X * Map.Tilesize, coord.Y * Map.Tilesize);
         }
 
         public void MoveObjectToTile(Entity entity, int x, int y)
@@ -197,6 +202,7 @@ namespace BlankMonoGameTemplate.Engine
         }
 
         EntityManager entityManager;
-        MapViewer mapViewer;
+        MapRenderer mapRenderer;
+        public Camera2D Camera { get; private set; }
     }
 }
