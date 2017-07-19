@@ -169,6 +169,19 @@ namespace BlankMonoGameTemplate.Engine
             return Layers.ToArray()[0].Value.Tiles[x, y].Position;
         }
 
+        public Tile[] TilesAtWorldPosition(Vector2 _worldPosition)
+        {
+            var x = (int)_worldPosition.X / Tilesize;
+            var y = (int)_worldPosition.Y / Tilesize;
+            var tiles = new Tile[Layers.Count];
+            var layerKeys = Layers.Keys.ToList();
+            for (int i = 0; i < Layers.Count; i++)
+            {
+                tiles[i] = Layers[layerKeys[i]].Tiles[x, y];
+            }
+            return tiles;
+        }
+
         #region JSON
         public string Name { get; set; }
         public int Tilesize { get; set; }

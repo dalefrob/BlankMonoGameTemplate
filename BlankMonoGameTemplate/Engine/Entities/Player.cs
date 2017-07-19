@@ -17,26 +17,13 @@ namespace BlankMonoGameTemplate.Engine
         {
             Name = "Default Player";
             Sprite.TextureRegion = WorldScreen.Textures2D["Player0"].GetRegion(0);
-            this.LandedTile += Player_LandedTile;
         }
-
-        void Player_LandedTile(object sender, EntityEventArgs e)
-        {
-            var entities = World.GetEntitiesAtCoord(e.MapCoord).ToList();
-            foreach(var c in entities.OfType<ICollectible>())
-            {
-                c.Collect();
-            }
-        }
-
+       
 		public override void Update(GameTime gameTime)
 		{ 
             if(LocalPlayer)
             {
                 KeyboardState newState = Keyboard.GetState();
-
-                // Get this obj position
-                var objMapPos = World.GetMapCoordFromPosition(this.Position);
 
                 if (newState.IsKeyUp(Keys.Down) && oldState.IsKeyDown(Keys.Down))
                 {
@@ -66,9 +53,9 @@ namespace BlankMonoGameTemplate.Engine
 
         public override void Move(Direction direction, int tileCount = 1)
         {
-            World.Camera.Position = Position - new Vector2(32, 32);
+
             base.Move(direction, tileCount);
-            World.Map.LightMap[MapCoordinate.X, MapCoordinate.Y] = 10;
+
             if (PlayerMoved != null) PlayerMoved(this, EventArgs.Empty);
         }
 

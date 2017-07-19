@@ -45,29 +45,15 @@ namespace BlankMonoGameTemplate.Engine.Entities
         #endregion
 
         public EntityManager Manager { get; set; }
+
         public string Name { get; set; }
         public bool isAlive { get; set; }
-        public Point MapCoordinate
-        {
-            get
-            {
-                return World.GetMapCoordFromPosition(Position);
-            }
-        }
         public Sprite Sprite { get; set; }
         public Vector2 Position 
         { 
             get { return Sprite.Position; }
             set { Sprite.Position = value; }     
-        }    
-    }
-
-    public class EntityEventArgs : EventArgs
-    {
-        public Point MapCoord { get; set; }
-        public EntityEventArgs()
-        {
-             
         }
+        public Point MapLocation { get; set; }
     }
 }

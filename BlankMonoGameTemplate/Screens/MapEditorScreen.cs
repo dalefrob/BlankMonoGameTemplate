@@ -184,7 +184,7 @@ namespace BlankMonoGameTemplate.Screens
             if (!IsMapLoaded) return;
             
             spriteBatch.Begin();
-            mapRenderer.Draw(gameTime);
+            mapRenderer.Draw(spriteBatch, gameTime);
             spriteBatch.Draw(selectionTexture, mapRenderer.Position + (FocusedMapCoord.ToVector2() * Map.Tilesize), Color.White);
 
             var relativeMousePos = Vector2.Subtract(MousePos, mapRenderer.Position);

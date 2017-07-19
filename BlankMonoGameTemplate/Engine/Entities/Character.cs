@@ -21,12 +21,6 @@ namespace BlankMonoGameTemplate.Engine.Entities
                 {
                     moving = false;
                     Position = DestinationPosition;
-                    EntityEventArgs args = new EntityEventArgs
-                    {
-                        MapCoord = Map.CoordFromPosition(Position)
-                    };
-
-                    if (LandedTile != null) LandedTile(this, args);
                 }
             }
         }
@@ -35,7 +29,7 @@ namespace BlankMonoGameTemplate.Engine.Entities
         {
             if (moving) return; // TODO - change this
 
-            var _mapCoord = MapCoordinate;
+            var _mapCoord = MapLocation;
             int x = _mapCoord.X;
             int y = _mapCoord.Y;
             switch (direction)
@@ -78,8 +72,6 @@ namespace BlankMonoGameTemplate.Engine.Entities
             }          
             return result;
         }
-
-        public virtual event EventHandler<EntityEventArgs> LandedTile;
 
         float timeToMove = 2f;
         float lerpVal = 0;

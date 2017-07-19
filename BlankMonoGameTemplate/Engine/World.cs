@@ -84,7 +84,7 @@ namespace BlankMonoGameTemplate.Engine
         public List<Entity> GetEntitiesAtCoord(Point coord)
         {
             var result = new List<Entity>();
-            result = entityManager.GetEntitiesOfType<Entity>().Where(e => e.MapCoordinate == coord).ToList();
+            result = entityManager.GetEntitiesOfType<Entity>().Where(e => e.MapLocation == coord).ToList();
             return result;
         }
 

@@ -53,11 +53,6 @@ namespace BlankMonoGameTemplate.Engine.Entities
         {
             if (!entities.Contains(e))
             {
-                if (e is Character)
-                {
-                    var c = (Character)e;
-                    c.LandedTile += Entity_LandedTile;
-                }
                 entities.Add(e);
             }
         }
@@ -66,11 +61,6 @@ namespace BlankMonoGameTemplate.Engine.Entities
         {
             if (entities.Contains(e))
             {
-                if (e is Character)
-                {
-                    var c = (Character)e;
-                    c.LandedTile -= Entity_LandedTile;
-                }
                 if (e.isAlive) e.isAlive = false;
             }
         }
@@ -90,16 +80,6 @@ namespace BlankMonoGameTemplate.Engine.Entities
         }
 
         public Random random = new Random();
-
-        #region Events
-
-        void Entity_LandedTile(object sender, EntityEventArgs e)
-        {
-            Console.WriteLine(string.Format("{0} landed on tile: {1}, P: {2}, WP: {2}", (sender as Entity).Name, e.MapCoord, (sender as Entity).Position, (sender as Entity).Sprite.WorldPosition));
-        }
-
-
-        #endregion
 
         ~EntityManager()
         {
