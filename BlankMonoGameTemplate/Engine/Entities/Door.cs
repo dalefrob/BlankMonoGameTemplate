@@ -28,9 +28,6 @@ namespace BlankMonoGameTemplate.Engine.Entities
         public Door()
         {
             Name = "Door";
-            Sprite.TextureRegion = WorldScreen.Textures2D["Door0"].GetRegion(2);
-
-            openTexture = WorldScreen.Textures2D["Door1"].GetRegion(2);
         }
 
         public override void Update(GameTime gameTime)

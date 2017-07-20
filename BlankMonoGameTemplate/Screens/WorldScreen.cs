@@ -12,23 +12,26 @@ using System.Collections.Generic;
 using BlankMonoGameTemplate.Engine.Data;
 using BlankMonoGameTemplate.Engine.Entities;
 using MonoGame.Extended;
+using BlankMonoGameTemplate.Engine.Data.Map;
 
 namespace BlankMonoGameTemplate
 {
     public class WorldScreen : Screen
     {
         public WorldScreen()
-        {
-            
+        {           
+
         }
 
         public override void Initialize()
         {
             base.Initialize();
+            spriteBatch = new SpriteBatch(Game.GraphicsDevice);
+            camera = new Camera2D(Game.GraphicsDevice);
+
+            Managers.Add(new MapManager());
 
             keyboardListener = new KeyboardListener();
-            entityManager = new EntityManager(Game);
-            Textures2D = new Dictionary<string, TextureAtlas>();
    
         }
 
@@ -50,9 +53,9 @@ namespace BlankMonoGameTemplate
             switch (e.Key)
             {
                 case Keys.E:
-                    var mapEditor = Manager.GetScreen<MapEditorScreen>();
-                    mapEditor.Map = Map;                 
-                    Manager.ChangeScreen<MapEditorScreen>();
+                    var mapEditor = ScreenManager.GetScreen<MapEditorScreen>();
+             
+                    ScreenManager.ChangeScreen<MapEditorScreen>();
                     break;
             }
         }
@@ -62,10 +65,13 @@ namespace BlankMonoGameTemplate
             Console.WriteLine("Load content called");
             // Load all possible assets that will appear on this screen
             // ** WORLD ** //
-            Map = Helper.LoadMap(Game.Content, "large testmap");
+            var mapMgr = GetManager<MapManager>();
+            mapMgr.Map = Helper.LoadMap(Game.Content, "newtestmap");
             Tileset.GetTileset("Default");
+            mapRenderer = new MapRenderer(mapMgr.Map);
  
             // ** ENTITIES ** //
+            /*
             AddTexture2D("GUI0", Game.Content.Load<Texture2D>("Tiles/GUI/GUI0"));
             AddTexture2D("Player0", Game.Content.Load<Texture2D>("Tiles/Characters/Player0"));
             AddTexture2D("Player1", Game.Content.Load<Texture2D>("Tiles/Characters/Player1"));
@@ -74,18 +80,23 @@ namespace BlankMonoGameTemplate
             AddTexture2D("Door0", Game.Content.Load<Texture2D>("Tiles/Objects/Door0"));
             AddTexture2D("Door1", Game.Content.Load<Texture2D>("Tiles/Objects/Door1"));
             AddTexture2D("Key", Game.Content.Load<Texture2D>("Tiles/Items/Key"));
+             */
 
         }
 
+        /// <summary>
+        /// This happens after pressing 'X' in the top corner of the window
+        /// </summary>
         public override void UnloadContent()
         {
+            keyboardListener = null;
             base.UnloadContent();
         }
 
         public override void Update(GameTime gameTime)
         {
-            keyboardListener.Update(gameTime);
-            entityManager.Update(gameTime);
+            //keyboardListener.Update(gameTime);
+            //entityManager.Update(gameTime);
             mapRenderer.Update(gameTime);
 
             base.Update(gameTime);
@@ -93,31 +104,18 @@ namespace BlankMonoGameTemplate
 
         public override void Draw(GameTime gameTime)
         {
-            spriteBatch.Begin(transformMatrix: Camera.GetViewMatrix());
+            spriteBatch.Begin(transformMatrix: camera.GetViewMatrix());
             mapRenderer.Draw(spriteBatch, gameTime);
-            entityManager.Draw(spriteBatch, gameTime);
+            //entityManager.Draw(spriteBatch, gameTime);
             spriteBatch.End();
 
             base.Draw(gameTime);
         }
 
-        public static Dictionary<string, TextureAtlas> Textures2D { get; private set; }
-
-        public void AddTexture2D(string name, Texture2D texture)
-        {         
-            if (!Textures2D.ContainsKey(name))
-            {
-                var texAtlas = TextureAtlas.Create(name, texture, 16, 16, int.MaxValue);
-                Textures2D.Add(name, texAtlas);
-            }
-        }
-
-        public Map Map { get; private set; }
-
         KeyboardListener keyboardListener;
-		EntityManager entityManager;
-		SpriteBatch spriteBatch = new SpriteBatch(GameServices.GetService<GraphicsDevice>());
+		EntitySystem entityManager;
+        SpriteBatch spriteBatch;
 		MapRenderer mapRenderer;
-		public Camera2D Camera { get; private set; }
+		public Camera2D camera { get; private set; }
     }
 }

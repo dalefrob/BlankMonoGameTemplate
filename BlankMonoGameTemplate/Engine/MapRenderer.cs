@@ -9,6 +9,7 @@ using MonoGame.Extended.TextureAtlases;
 using MonoGame.Extended.Sprites;
 using System.Xml.Serialization;
 using System.IO;
+using BlankMonoGameTemplate.Engine.Data.Map;
 
 namespace BlankMonoGameTemplate.Engine
 {
@@ -29,16 +30,16 @@ namespace BlankMonoGameTemplate.Engine
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            var layerNames = Map.Layers.Keys.ToList();
-            for (int l = 0; l < layerNames.Count; l++) // Layer
+            var layers = Map.GetLayersOfType(LayerType.Texture);
+            for (int l = 0; l < layers.Count; l++)
 			{
-                for (var y = 0; y < Map.Height; y++) // X coord
+                for (var y = 0; y < Map.Height; y++)
 	            {
-                    for (var x = 0; x < Map.Width; x++) // Y coord
+                    for (var x = 0; x < Map.Width; x++) 
 	                {
-                        var tile = Map.GetTileAt(y, x, layerNames[l]);
-                        tile.Position = (Position + OffsetPosition) + new Vector2(Map.Tilesize * y, Map.Tilesize * x);
-                        spriteBatch.Draw(tile);	                    
+                        var tile = Tileset.GetTileset("Default").GetTile(Map.Layers[l].IDArray[x, y]);
+                        tile.Position = new Vector2(x * Map.Tilesize, y * Map.Tilesize);
+                        spriteBatch.Draw(tile);
 	                }
 	            }
             };
@@ -47,7 +48,6 @@ namespace BlankMonoGameTemplate.Engine
         public Map Map { get; set; }
         public Vector2 Position { get; set; }
         public Vector2 OffsetPosition { get; set; }
-        public Player PlayerToFollow { get; set; }
         public bool Debug { get; set; }
 
         public Vector2 ScreenPositionFromMapCoord(int x, int y)

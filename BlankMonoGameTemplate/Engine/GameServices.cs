@@ -36,5 +36,10 @@ namespace BlankMonoGameTemplate.Engine
         {
             Instance.RemoveService(typeof(T));
         }
+
+        public static void Cleanup()
+        {
+            container = null;
+        }
     }
 }

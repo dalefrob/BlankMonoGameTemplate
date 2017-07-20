@@ -12,7 +12,7 @@ namespace BlankMonoGameTemplate
     /// <summary>
     /// Keeps track of everything happening in the world.
     /// </summary>
-    public class WorldManager
+    public class WorldManager : IGameManager
     {
         public WorldManager()
         {
@@ -20,13 +20,13 @@ namespace BlankMonoGameTemplate
         }
 
         // The currently loaded map
-        protected Map _map;
-        public Map CurrentMap
+        protected _Map _map;
+        public _Map CurrentMap
         {
             get { return _map; }
         }
 
-        public EntityManager EntityManager { get; private set; }
+        public EntitySystem EntityManager { get; private set; }
 
         public Dictionary<Direction, Vector2> DirectionMap = new Dictionary<Direction, Vector2>
         {

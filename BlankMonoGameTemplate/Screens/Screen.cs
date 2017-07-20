@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using BlankMonoGameTemplate.Engine;
+using Microsoft.Xna.Framework;
 using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
@@ -32,10 +33,16 @@ namespace BlankMonoGameTemplate.Screens
             Visible = false;
         }
 
-        public ScreenManagerComponent Manager { get; internal set; }
+        public ScreenManagerComponent ScreenManager { get; internal set; }
         public Game Game
         {
-            get { return Manager.Game; }
+            get { return ScreenManager.Game; }
+        }
+
+        protected List<IGameManager> Managers = new List<IGameManager>();
+        public T GetManager<T>()
+        {
+            return Managers.OfType<T>().FirstOrDefault();
         }
 
         public bool Visible { get; set; }

@@ -6,6 +6,14 @@ using System.Threading.Tasks;
 
 namespace BlankMonoGameTemplate.Engine
 {
+    public enum Direction
+    {
+        Up,
+        Right,
+        Down,
+        Left
+    }
+
     // Map
 
     public enum MapLayerType

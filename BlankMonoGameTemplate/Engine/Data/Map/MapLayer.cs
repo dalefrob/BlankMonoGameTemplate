@@ -29,7 +29,7 @@ namespace BlankMonoGameTemplate.Engine
             }             
         }
 
-        public void Build(Map _map)
+        public void Build(_Map _map)
         {
             Tileset = Tileset.GetTileset("Default");
             Tiles = new Tile[_map.Width, _map.Height];

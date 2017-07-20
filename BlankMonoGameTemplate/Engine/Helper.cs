@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
+using BlankMonoGameTemplate.Engine.Data.Map;
 
 namespace BlankMonoGameTemplate.Engine
 {
@@ -67,7 +68,7 @@ namespace BlankMonoGameTemplate.Engine
         {
             var json = File.ReadAllText(filename + ".json");
             Map _map = JsonConvert.DeserializeObject<Map>(json);
-            _map.Build();
+
             /*
             XmlSerializer x = new XmlSerializer(typeof(Map));
             using (FileStream fs = new FileStream(filename + ".xml", FileMode.OpenOrCreate))

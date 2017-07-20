@@ -12,7 +12,6 @@ namespace BlankMonoGameTemplate.Engine.Entities
         public Key()
         {
             Name = "Key";
-            Sprite.TextureRegion = WorldScreen.Textures2D["Key"].GetRegion(0);
         }
 
         public void Collect()

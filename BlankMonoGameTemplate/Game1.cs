@@ -12,6 +12,7 @@ using MonoGame.Extended.Input.InputListeners;
 using BlankMonoGameTemplate.Screens;
 using BlankMonoGameTemplate.Engine.Data;
 using Microsoft.Xna.Framework.Content;
+using BlankMonoGameTemplate.Engine.Data.Map;
 
 namespace BlankMonoGameTemplate
 {
@@ -90,7 +91,7 @@ namespace BlankMonoGameTemplate
 
         void CreateTestMap()
         {
-            Map map = new Map("Large Testmap", 32, 32, 16);
+            Map map = Map.CreateNew("NewTestmap", 32, 32, 16, 2);
             Helper.SaveMap(map); 
         }
 
@@ -101,16 +102,7 @@ namespace BlankMonoGameTemplate
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
-            
-        }
-
-        protected override void OnExiting(object sender, EventArgs args)
-        {
-            foreach (var s in screenManagerComponent.Screens)
-            {
-                s.UnloadContent();
-            }
-            Tileset.UnloadAll();
+            GameServices.Cleanup();
         }
 
         /// <summary>
@@ -120,10 +112,10 @@ namespace BlankMonoGameTemplate
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            /*
+            
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            */
+            
             // TODO: Add your update logic here
 
             base.Update(gameTime);

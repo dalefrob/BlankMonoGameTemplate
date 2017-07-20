@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace BlankMonoGameTemplate.Engine.Entities
 {
-    public class EntityManager : IUpdate
+    public class EntitySystem : IUpdate
     {
-        public EntityManager(Game game)
+        public EntitySystem(Game game)
         {
             Game = game;
             GameServices.AddService(this);
@@ -81,10 +81,10 @@ namespace BlankMonoGameTemplate.Engine.Entities
 
         public Random random = new Random();
 
-        ~EntityManager()
+        ~EntitySystem()
         {
             entities.Clear();
-            GameServices.RemoveService<EntityManager>();
+            GameServices.RemoveService<EntitySystem>();
         }
     }
 }

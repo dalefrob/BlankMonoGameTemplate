@@ -15,7 +15,7 @@ namespace BlankMonoGameTemplate.Engine.Entities
     {
         public Entity() 
         {
-            Sprite = new Sprite(WorldScreen.Textures2D["GUI0"].GetRegion(0));
+
         }
         
         public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -28,23 +28,7 @@ namespace BlankMonoGameTemplate.Engine.Entities
             
         }
 
-        #region BuilderMethods
-
-        public Entity SetMapPosition(Point p)
-        {
-            World.MoveObjectToTile(this, p);
-            return this;
-        }
-
-        public Entity SetMapPosition(int x, int y)
-        {
-            World.MoveObjectToTile(this, new Point(x, y));
-            return this;
-        }
-
-        #endregion
-
-        public EntityManager Manager { get; set; }
+        public EntitySystem Manager { get; set; }
 
         public string Name { get; set; }
         public bool isAlive { get; set; }

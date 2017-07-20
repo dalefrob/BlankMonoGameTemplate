@@ -27,7 +27,7 @@ namespace BlankMonoGameTemplate.Screens
                     _firstScreen = newScreen;
                 }
 
-                newScreen.Manager = this;
+                newScreen.ScreenManager = this;
 
                 newScreen.Initialize();
                 newScreen.LoadContent();
